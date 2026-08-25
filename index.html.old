@@ -919,20 +919,8 @@ footer {
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-left">
-    <a href="#" class="nav-logo">
-      <div class="nav-logo-mark">
-        <svg viewBox="0 0 32 32" fill="none">
-          <defs>
-            <linearGradient id="logoGrad" x1="0" y1="0" x2="32" y2="32">
-              <stop offset="0%" stop-color="#F59E0B"/>
-              <stop offset="100%" stop-color="#00B4A6"/>
-            </linearGradient>
-          </defs>
-          <path d="M4 14 C4 8, 10 4, 16 7 C22 10, 22 20, 16 24 C10 27, 4 24, 4 18" stroke="url(#logoGrad)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <path d="M11 15 L14 18 L20 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <span class="nav-wordmark">Weaves</span>
+    <a href="/" class="nav-logo">
+      <img src="/images/logo-weaves-on-dark.png?v=20260825-3" alt="Weaves" style="width:136px;height:auto;display:block;object-fit:contain;">
     </a>
     <ul class="nav-links">
       <li><a href="/">Inicio</a></li>
@@ -1487,21 +1475,7 @@ footer {
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand-block">
-        <div class="footer-logo-row">
-          <div class="nav-logo-mark">
-            <svg viewBox="0 0 32 32" fill="none">
-              <defs>
-                <linearGradient id="footerGrad" x1="0" y1="0" x2="32" y2="32">
-                  <stop offset="0%" stop-color="#F59E0B"/>
-                  <stop offset="100%" stop-color="#00B4A6"/>
-                </linearGradient>
-              </defs>
-              <path d="M4 14 C4 8, 10 4, 16 7 C22 10, 22 20, 16 24 C10 27, 4 24, 4 18" stroke="url(#footerGrad)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-              <path d="M11 15 L14 18 L20 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <span class="footer-wordmark">Weaves</span>
-        </div>
+        <div class="footer-logo-row"><img src="/images/logo-weaves-on-dark.png?v=20260825-3" alt="Weaves" style="width:154px;height:auto;display:block;object-fit:contain;"></div>
         <p class="footer-blurb">Automatizamos los procesos operativos de tu empresa. Sin letra pequeña, sin compromisos ocultos.</p>
         <div class="footer-social">
           <a href="#" class="social-btn"><svg viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="1.5"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/></svg></a>
