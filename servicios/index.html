@@ -284,6 +284,29 @@ nav {
 .service-card-cta:hover { gap: 12px; }
 .service-card-cta svg { width: 14px; height: 14px; }
 
+.service-card-list {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 20px 0 0;
+  border-top: 1px solid var(--border);
+  display: grid;
+  gap: 10px;
+}
+.service-card-list li {
+  color: var(--indigo);
+  font-size: 13px;
+  line-height: 1.5;
+  padding-left: 18px;
+  position: relative;
+}
+.service-card-list li::before {
+  content: '✓';
+  color: var(--teal);
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}
+
 /* ═══════════ WHY WEAVES ═══════════ */
 .why-section {
   background: white;
@@ -550,147 +573,74 @@ footer {
   <div class="hero-services-bg"></div>
   <div class="hero-services-content">
     <div class="hero-services-eyebrow">Operaciones gestionadas con IA</div>
-    <h1 class="hero-services-title">Capacidades que ponemos a trabajar<br><em>contigo.</em></h1>
-    <p class="hero-services-sub">No vendemos herramientas aisladas. Diseñamos, conectamos y gestionamos procesos de atención, ventas y administración con alcance, métricas y supervisión humana.</p>
+    <h1 class="hero-services-title">Tres operaciones para darle<br><em>más capacidad a tu equipo.</em></h1>
+    <p class="hero-services-sub">Empezamos por un proceso concreto y lo convertimos en una operación continua, medible y supervisada. La IA y la automatización trabajan detrás; tu equipo mantiene el control.</p>
   </div>
 </section>
 
-<!-- 9 SERVICE CARDS -->
+<!-- OPERACIONES PRINCIPALES -->
 <section class="services-section">
   <div class="services-inner">
     <div class="services-header reveal">
-      <div class="section-eyebrow">Capacidades dentro de una operación</div>
-      <h2>Empezamos por el proceso.<br><em>La tecnología viene después.</em></h2>
+      <div class="section-eyebrow">Operaciones que gestionamos</div>
+      <h2>Un resultado claro.<br><em>Tres frentes donde empezar.</em></h2>
+      <p>Las capacidades técnicas se combinan dentro de una operación; no tienes que contratar nueve herramientas o servicios por separado.</p>
     </div>
 
     <div class="services-grid">
-
-      <!-- 01 Consultoría -->
       <div class="service-card reveal">
-        <div class="service-card-num">01</div>
-        <div class="service-card-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
-        </div>
-        <div class="service-card-title">Assessment y diseño operativo</div>
-        <div class="service-card-desc">Mapeamos el proceso, el volumen, los sistemas, las excepciones y las métricas necesarias para decidir si merece un piloto.</div>
-        <a href="consultoria.html" class="service-card-cta">
-          Conocer más
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
-      <!-- 02 Chatbot -->
-      <div class="service-card reveal reveal-delay-1">
-        <div class="service-card-num">02</div>
+        <div class="service-card-num">01 · ATENCIÓN Y COMUNICACIÓN</div>
         <div class="service-card-icon">
           <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
         </div>
-        <div class="service-card-title">Atención multicanal gestionada</div>
-        <div class="service-card-desc">Clasificación, respuestas autorizadas, seguimiento y escalamiento humano en WhatsApp, web, correo y otros canales.</div>
+        <div class="service-card-title">Más capacidad para atender</div>
+        <div class="service-card-desc">Gestionamos consultas y solicitudes en WhatsApp, web y correo, con respuestas autorizadas y escalamiento humano cuando hace falta.</div>
+        <ul class="service-card-list">
+          <li>Recepción y clasificación multicanal</li>
+          <li>Respuestas y seguimiento dentro del alcance</li>
+          <li>Derivación de excepciones al equipo adecuado</li>
+        </ul>
         <a href="chatbot.html" class="service-card-cta">
-          Conocer más
+          Ver atención gestionada
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
 
-      <!-- 03 Marketing -->
-      <div class="service-card reveal reveal-delay-2">
-        <div class="service-card-num">03</div>
-        <div class="service-card-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-        </div>
-        <div class="service-card-title">Contenido y campañas</div>
-        <div class="service-card-desc">Planificación, preparación y seguimiento de campañas como capacidad complementaria dentro de una operación comercial.</div>
-        <a href="marketing.html" class="service-card-cta">
-          Conocer más
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
-      <!-- 04 RPA -->
       <div class="service-card reveal reveal-delay-1">
-        <div class="service-card-num">04</div>
-        <div class="service-card-icon">
-          <svg viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
-        </div>
-        <div class="service-card-title">Operaciones administrativas</div>
-        <div class="service-card-desc">Procesamos correos, documentos, datos y tareas repetitivas con reglas claras, registro de actividad y revisión de excepciones.</div>
-        <a href="procesos.html" class="service-card-cta">
-          Conocer más
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
-      <!-- 05 Integraciones -->
-      <div class="service-card reveal reveal-delay-2">
-        <div class="service-card-num">05</div>
-        <div class="service-card-icon">
-          <svg viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
-        </div>
-        <div class="service-card-title">Integraciones y flujos de datos</div>
-        <div class="service-card-desc">Conectamos CRM, email, WhatsApp y herramientas internas para que la operación avance sin depender de copiar y pegar.</div>
-        <a href="integraciones.html" class="service-card-cta">
-          Conocer más
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
-      <!-- 06 Web -->
-      <div class="service-card reveal reveal-delay-3">
-        <div class="service-card-num">06</div>
-        <div class="service-card-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-        </div>
-        <div class="service-card-title">Web como punto de entrada</div>
-        <div class="service-card-desc">Una web que recoge contexto, capta oportunidades y conecta el primer contacto con el proceso comercial adecuado.</div>
-        <a href="web.html" class="service-card-cta">
-          Conocer más
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
-      <!-- 07 Embudo -->
-      <div class="service-card reveal reveal-delay-2">
-        <div class="service-card-num">07</div>
+        <div class="service-card-num">02 · CRECIMIENTO Y SEGUIMIENTO</div>
         <div class="service-card-icon">
           <svg viewBox="0 0 24 24"><path d="M22 7L13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
         </div>
-        <div class="service-card-title">Seguimiento comercial</div>
-        <div class="service-card-desc">Captura, clasificación, registro y seguimiento de leads con reglas de prioridad y escalamiento para el equipo.</div>
+        <div class="service-card-title">Más seguimiento comercial</div>
+        <div class="service-card-desc">Capturamos, organizamos y damos continuidad a oportunidades para que el equipo comercial se concentre donde aporta criterio y relación.</div>
+        <ul class="service-card-list">
+          <li>Captura y clasificación de contactos</li>
+          <li>Registro, recordatorios y seguimiento</li>
+          <li>Contenido y campañas conectados al proceso</li>
+        </ul>
         <a href="embudo.html" class="service-card-cta">
-          Conocer más
+          Ver seguimiento comercial
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
 
-      <!-- 08 Dashboard -->
-      <div class="service-card reveal reveal-delay-3">
-        <div class="service-card-num">08</div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-card-num">03 · ADMINISTRACIÓN Y DOCUMENTOS</div>
         <div class="service-card-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         </div>
-        <div class="service-card-title">Métricas y observabilidad</div>
-        <div class="service-card-desc">Visibilidad sobre volumen, tiempos, errores, escalamientos y coste por operación para mejorar con datos.</div>
-        <a href="dashboard.html" class="service-card-cta">
-          Conocer más
+        <div class="service-card-title">Menos carga repetitiva</div>
+        <div class="service-card-desc">Procesamos correos, documentos y datos con reglas claras, trazabilidad y revisión humana de las excepciones.</div>
+        <ul class="service-card-list">
+          <li>Lectura, extracción y clasificación de información</li>
+          <li>Actualización de CRM y sistemas internos</li>
+          <li>Control de errores y registro de actividad</li>
+        </ul>
+        <a href="procesos.html" class="service-card-cta">
+          Ver operaciones administrativas
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
-
-      <!-- 09 Mantenimiento -->
-      <div class="service-card reveal reveal-delay-3">
-        <div class="service-card-num">09</div>
-        <div class="service-card-icon">
-          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-        </div>
-        <div class="service-card-title">Operación y mejora continua</div>
-        <div class="service-card-desc">Monitoreamos lo que está en producción, resolvemos incidencias y mejoramos el proceso según resultados y cambios del negocio.</div>
-        <a href="mantenimiento.html" class="service-card-cta">
-          Conocer más
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
     </div>
   </div>
 </section>
@@ -701,9 +651,9 @@ footer {
     <div class="why-header reveal">
       <div>
         <div class="section-eyebrow">Por qué Weaves</div>
-        <h2>No vendemos herramientas.<br><em>Gestionamos operaciones.</em></h2>
+        <h2>No solo automatizamos.<br><em>Gestionamos contigo.</em></h2>
       </div>
-      <p>Analizamos, implementamos y acompañamos el proceso con métricas, límites claros y supervisión humana cuando hace falta.</p>
+      <p>Diseñamos el proceso, lo ponemos en marcha y lo acompañamos mes a mes con métricas, límites claros y supervisión humana.</p>
     </div>
 
     <div class="why-grid">

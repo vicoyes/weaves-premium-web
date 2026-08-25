@@ -53,16 +53,16 @@ window.SERVICIOS = {
   },
   marketing: {
     slug: "marketing",
-    titulo: "Marketing y Redes Sociales con IA",
-    tagline: "Tu marca presente en redes sin que nadie toque una tecla.",
-    descripcion: "Agentes de IA que planifican, redactan, publican y reportan en tus redes sociales. Contenido consistente, alineado con tu marca, sin equipo de marketing dedicado.",
+    titulo: "Contenido y campañas",
+    tagline: "Tu marca presente con un proceso que el equipo puede supervisar.",
+    descripcion: "Planificamos, preparamos y damos seguimiento a contenido y campañas dentro de una operación comercial. Las directrices de marca y los puntos de revisión quedan definidos con tu equipo.",
     icono: "megaphone",
     color: "teal",
     caracteristicas: [
       { titulo: "Generación de contenido", desc: "Posts, captions, hashtags y textos para email. Todo generado con el tono de tu marca.", icono: "pen-tool" },
       { titulo: "Publicación automática", desc: "Conectamos tus perfiles y publicamos directamente. Sin estar presente.", icono: "send" },
       { titulo: "Reportes semanales", desc: "Cada semana recibes un resumen de rendimiento con métricas clave y recomendaciones.", icono: "bar-chart-2" },
-      { titulo: "Alineado con tu marca", desc: "Todo el contenido pasa por las directrices de marca que definimos juntos. Consistencia garantizada.", icono: "check-circle" }
+      { titulo: "Alineado con tu marca", desc: "Todo el contenido pasa por las directrices de marca que definimos juntos. Consistencia basada en directrices de marca y revisión acordada.", icono: "check-circle" }
     ],
     pasos: [
       { num: "01", titulo: "Definimos la estrategia", desc: "Tono, frecuencia, plataformas y tipos de contenido." },
@@ -74,7 +74,7 @@ window.SERVICIOS = {
       { titulo: "LinkedIn posts", desc: "Artículos y publicaciones profesionales que generan credibilidad." },
       { titulo: "Email marketing", desc: "Secuencias de emails automatizados para nurturing y conversión." }
     ],
-    cta: "Tu marketing trabajando solo →"
+    cta: "Ver contenido y campañas →"
   },
   procesos: {
     slug: "procesos",
@@ -103,9 +103,9 @@ window.SERVICIOS = {
   },
   integraciones: {
     slug: "integraciones",
-    titulo: "Integraciones y Flujos de Datos",
-    tagline: "Tu CRM, email y WhatsApp hablando entre sí automáticamente.",
-    descripcion: "Conectamos las herramientas que ya usas — CRM, email marketing, WhatsApp, tienda online — para que la información fluya sin duplicados, sin copias manuales, sin errores.",
+    titulo: "Integraciones y flujos de datos",
+    tagline: "La información avanza entre tus herramientas sin copiar y pegar.",
+    descripcion: "Conectamos las herramientas que ya usas — CRM, email, WhatsApp o tienda online — para reducir duplicados, copias manuales y errores de traspaso.",
     icono: "git-merge",
     color: "teal",
     caracteristicas: [
@@ -128,9 +128,9 @@ window.SERVICIOS = {
   },
   web: {
     slug: "web",
-    titulo: "Sitio Web Inteligente",
-    tagline: "Una web que no solo muestra información: capta leads y trabaja.",
-    descripcion: "Tu sitio web con formularios inteligentes, chatbots de captación, integraciones con tu CRM y automatizaciones de seguimiento. Visitantes que no convierten hoy se convierten mañana.",
+    titulo: "Web como punto de entrada",
+    tagline: "Convierte visitas en conversaciones con contexto.",
+    descripcion: "Conectamos formularios, asistentes y CRM para recoger contexto, registrar oportunidades y activar el seguimiento adecuado desde el primer contacto.",
     icono: "globe",
     color: "teal",
     caracteristicas: [
@@ -142,7 +142,7 @@ window.SERVICIOS = {
     pasos: [
       { num: "01", titulo: "Auditamos tu web", desc: "Puntos de fuga, formularios sin seguimiento, oportunidades de conversión." },
       { num: "02", titulo: "Añadimos inteligencia", desc: "Chatbot, forms inteligentes, integraciones con tu CRM." },
-      { num: "03", titulo: "Activamos", desc: "La web trabaja 24/7. Tú te enfocas en cerrar, no en captar." }
+      { num: "03", titulo: "Activamos", desc: "Conectamos la captación con el seguimiento comercial y dejamos trazabilidad de cada contacto." }
     ],
     casos: [
       { titulo: "Leads de contacto", desc: "Visitantes que no sabían qué escribirte ahora reservan llamada o dejan sus datos." },
@@ -178,9 +178,9 @@ window.SERVICIOS = {
   },
   dashboard: {
     slug: "dashboard",
-    titulo: "Dashboard y Reportes Automatizados",
-    tagline: "Los datos que necesitas para decidir, llegan a tu bandeja sin que los pidas.",
-    descripcion: "Conectamos tus fuentes de datos y generamos reportes automáticos con las métricas que importan para tu negocio.",
+    titulo: "Métricas y observabilidad",
+    tagline: "Datos claros para entender y mejorar la operación.",
+    descripcion: "Reunimos las métricas del proceso para dar visibilidad sobre volumen, tiempos, errores, escalamientos y evolución.",
     icono: "bar-chart-3",
     color: "teal",
     caracteristicas: [
