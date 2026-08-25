@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Procesos — Weaves</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
+<style>/* FOOTER: los estilos viven en css/styles.css. Antes se duplicaban aqui
+   con una copia vieja que ganaba por ir en el <head> despues del <link>. */
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--indigo:#1E2A4A;--indigo-deep:#151E37;--teal:#00B4A6;--amber:#F59E0B;--offwhite:#F8F9FC;--dark:#0B1220;--text:#1F2937;--muted:#6B7280;--border:#E5E7EB;--green:#10B981;--red:#EF4444}
 html{scroll-behavior:smooth;overflow-x:hidden}
@@ -90,29 +92,8 @@ nav.scrolled{background:rgba(11,18,32,0.8);backdrop-filter:blur(20px);border-bot
 .cta-assurances{display:flex;justify-content:center;gap:32px;margin-top:28px;flex-wrap:wrap}
 .cta-ass{display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,0.4)}
 .cta-ass svg{width:16px;height:16px;stroke:var(--teal)}
-footer{background:#060B14;border-top:1px solid rgba(255,255,255,0.06)}
-.footer-inner{max-width:1400px;margin:0 auto;padding:72px 48px 40px}
-.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px}
-.footer-brand-block{padding-right:40px}
-.footer-logo-row{display:flex;align-items:center;margin-bottom:16px}
-.footer-logo-image{width:154px;height:auto;display:block;object-fit:contain}
-.footer-blurb{font-size:14px;line-height:1.65;color:rgba(255,255,255,0.4);margin-bottom:24px}
-.footer-social{display:flex;gap:12px}
-.social-btn{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;transition:all 0.18s}
-.social-btn:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.15)}
-.social-btn svg{width:16px;height:16px;stroke:rgba(255,255,255,0.5)}
-.footer-col-title{font-size:12px;font-weight:600;color:rgba(255,255,255,0.9);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:18px}
-.footer-links{list-style:none}
-.footer-links li{margin-bottom:10px}
-.footer-links a{font-size:14px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.18s}
-.footer-links a:hover{color:rgba(255,255,255,0.75)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.footer-copy{font-size:13px;color:rgba(255,255,255,0.3)}
-.footer-legal-row{display:flex;gap:20px}
-.footer-legal-row a{font-size:13px;color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.18s}
-.footer-legal-row a:hover{color:rgba(255,255,255,0.6)}
-@media(max-width:900px){.nav-left{gap:0}.menu-toggle{display:inline-flex}.nav-mobile-only{display:list-item}.nav-links{position:fixed;left:16px;right:16px;top:84px;display:none;flex-direction:column;align-items:stretch;gap:0;padding:14px;border:1px solid rgba(255,255,255,0.12);border-radius:14px;background:rgba(11,18,32,0.96);backdrop-filter:blur(20px);box-shadow:0 24px 60px rgba(0,0,0,0.28)}.nav-links.active{display:flex}.nav-links li{width:100%}.nav-links a{display:block;padding:13px 14px;border-radius:8px;font-size:15px}.nav-links a:hover{background:rgba(255,255,255,0.06)}.how-grid{grid-template-columns:1fr;gap:48px}.footer-top{grid-template-columns:1fr 1fr}.footer-brand-block{grid-column:1/-1}.service-hero-content,.footer-inner{padding:0 24px}.features-grid,.cases-grid{grid-template-columns:1fr}}
-@media(max-width:600px){nav{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;padding:0 16px}.nav-left,.nav-right{min-width:0}.nav-right{gap:0}.nav-right>.nav-cta{display:none}.nav-logo-image{width:118px}.footer-top{grid-template-columns:1fr}.nav-links{display:none}}
+@media(max-width:900px){.nav-left{gap:0}.menu-toggle{display:inline-flex}.nav-mobile-only{display:list-item}.nav-links{position:fixed;left:16px;right:16px;top:84px;display:none;flex-direction:column;align-items:stretch;gap:0;padding:14px;border:1px solid rgba(255,255,255,0.12);border-radius:14px;background:rgba(11,18,32,0.96);backdrop-filter:blur(20px);box-shadow:0 24px 60px rgba(0,0,0,0.28)}.nav-links.active{display:flex}.nav-links li{width:100%}.nav-links a{display:block;padding:13px 14px;border-radius:8px;font-size:15px}.nav-links a:hover{background:rgba(255,255,255,0.06)}.how-grid{grid-template-columns:1fr;gap:48px}.service-hero-content,.footer-inner{padding:0 24px}.features-grid,.cases-grid{grid-template-columns:1fr}}
+@media(max-width:600px){nav{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;padding:0 16px}.nav-left,.nav-right{min-width:0}.nav-right{gap:0}.nav-right>.nav-cta{display:none}.nav-logo-image{width:118px}.nav-links{display:none}}
 .reveal-init{opacity:0;transform:translateY(24px);transition:all 0.7s cubic-bezier(0.2,0.8,0.2,1)}
 .reveal-init.visible{opacity:1;transform:translateY(0)}
 .delay-1{transition-delay:0.1s}
@@ -123,7 +104,33 @@ footer{background:#060B14;border-top:1px solid rgba(255,255,255,0.06)}
 </head>
 <body>
 
-<div id="header-placeholder"></div>
+<div id="header-placeholder">
+<nav id="nav">
+  <div class="nav-left">
+    <a href="/" class="nav-logo">
+      <img class="nav-logo-image" src="/images/logo-weaves-on-dark.png?v=20260825-3" alt="Weaves">
+    </a>
+    <ul class="nav-links">
+      <li><a href="/index.html">Inicio</a></li>
+      <li><a href="/servicios/index.html" class="active" aria-current="page">Qué hacemos</a></li>
+      <li><a href="/sectores/index.html">Sectores</a></li>
+      <li><a href="/pages/casos-exito.html">Casos</a></li>
+      <li><a href="/pages/quienes-somos.html">Quiénes Somos</a></li>
+      <li><a href="/pages/blog.html">Blog</a></li>
+      <li><a href="/pages/contacto.html">Contacto</a></li>
+      <li class="nav-mobile-only"><a href="/pages/diagnostico-gratuito.html">Analizar mi proceso</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <a href="/pages/diagnostico-gratuito.html" class="nav-cta">Analizar mi proceso</a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+</div>
 
 <section class="service-hero">
   <div class="service-hero-bg"></div>
@@ -183,7 +190,24 @@ footer{background:#060B14;border-top:1px solid rgba(255,255,255,0.06)}
   </div>
 </section>
 
-<div id="footer-placeholder"></div>
+<div id="footer-placeholder">
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand-block">
+        <div class="footer-logo-row"><img class="footer-logo-image" src="/images/logo-weaves-on-dark.png?v=20260825-3" alt="Weaves"></div>
+        <p class="footer-blurb">Ampliamos la capacidad de tu equipo reduciendo la carga repetitiva, con IA, automatización y supervisión humana.</p>
+        <div class="footer-social"><a href="#" class="social-btn"><svg viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="1.5"></path><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5"></circle></svg></a><a href="#" class="social-btn"><svg viewBox="0 0 24 24" fill="none"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" stroke="currentColor" stroke-width="1.5"></path></svg></a><a href="#" class="social-btn"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="1.5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01" stroke="currentColor" stroke-width="1.5"></path></svg></a></div>
+      </div>
+      <div><div class="footer-col-title">Por qué Weaves</div><ul class="footer-links"><li><a href="/pages/quienes-somos.html">Sobre nosotros</a></li><li><a href="/pages/casos-exito.html">Nuestros clientes</a></li><li><a href="#">Carreras</a></li><li><a href="/pages/contacto.html">Contacto</a></li></ul></div>
+      <div><div class="footer-col-title">Operaciones</div><ul class="footer-links"><li><a href="/servicios/servicio.html?id=chatbot">Atención y comunicación</a></li><li><a href="/servicios/servicio.html?id=embudo">Crecimiento y seguimiento</a></li><li><a href="/servicios/servicio.html?id=procesos">Administración y documentos</a></li><li><a href="/servicios/servicio.html?id=consultoria">Assessment y diseño</a></li><li><a href="/servicios/servicio.html?id=mantenimiento">Mejora continua</a></li></ul></div>
+      <div><div class="footer-col-title">Recursos</div><ul class="footer-links"><li><a href="/pages/blog.html">Blog</a></li><li><a href="/pages/casos-exito.html">Casos de éxito</a></li><li><a href="/index.html#tecnologia">Tecnología</a></li><li><a href="#">Documentación</a></li></ul></div>
+      <div><div class="footer-col-title">Legal</div><ul class="footer-links"><li><a href="/legal/politica-privacidad.html">Privacidad</a></li><li><a href="/legal/aviso-legal.html">Aviso legal</a></li><li><a href="/legal/politica-cookies.html">Cookies</a></li><li><a href="#">RGPD</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">Weaves &copy; 2026 &middot; Todos los derechos reservados</div><div class="footer-legal-row"><a href="/">weavewp.com</a><span>España &middot; LatAm</span><span>ES</span></div></div>
+  </div>
+</footer>
+</div>
 <script src="../js/components-loader.js"></script>
 <script src="../js/main.js"></script>
 

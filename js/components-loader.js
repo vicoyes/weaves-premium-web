@@ -5,27 +5,14 @@
 // Función para obtener la ruta correcta a los componentes según la ubicación de la página
 function getComponentsPath() {
     const path = window.location.pathname;
-    
-    // Contar cuántos niveles de profundidad tiene la ruta
-    const depth = path.split('/').filter(part => part && part !== 'index.html').length;
-    
-    // Si estamos en la raíz o solo un nivel de profundidad
-    if (depth === 0 || path.endsWith('/') || path.endsWith('index.html')) {
-        return './components/';
-    }
-    
-    // Si estamos en un subdirectorio (páginas dentro de carpetas)
-    if (depth === 1) {
-        return '../components/';
-    }
-    
-    // Si estamos más profundo (por ejemplo, /servicios/algo/pagina.html)
-    if (depth === 2) {
-        return '../../components/';
-    }
-    
-    // Por defecto, intentar desde raíz absoluta
-    return '/components/';
+
+    // Nº de carpetas por encima del archivo. Antes se comprobaba
+    // path.endsWith('index.html') primero, así que /servicios/index.html
+    // devolvía './components/' y buscaba en /servicios/components/ (404).
+    const dirs = path.split('/').filter(Boolean);
+    const depth = path.endsWith('/') ? dirs.length : dirs.length - 1;
+
+    return depth <= 0 ? './components/' : '../'.repeat(depth) + 'components/';
 }
 
 // Versión de componentes para evitar que el navegador conserve header o footer antiguos
@@ -70,18 +57,25 @@ async function loadComponent(elementId, componentFile) {
 
 // Función para marcar el enlace activo en el navegación
 function setActiveNavLink() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-links a');
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        const linkHref = link.getAttribute('href');
-        
-        if (linkHref === currentPage || 
-            (currentPage === '' && linkHref === 'index.html') ||
-            (currentPage === '/' && linkHref === 'index.html')) {
-            link.classList.add('active');
-        }
+    // Si el HTML ya trae un activo marcado (páginas con el nav inline), respetarlo.
+    if (document.querySelector('.nav-links a.active')) return;
+
+    let current = window.location.pathname;
+    if (current.endsWith('/')) current += 'index.html';
+
+    // La sección es la primera carpeta: /servicios/web.html marca "Qué hacemos".
+    const section = current.split('/').filter(Boolean)[0] || '';
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        const href = new URL(link.getAttribute('href'), window.location.origin).pathname;
+        const linkSection = href.split('/').filter(Boolean)[0] || '';
+        const isHome = href === '/index.html';
+        const match = isHome
+            ? (current === '/index.html')
+            : (href === current || (linkSection && linkSection === section));
+        link.classList.toggle('active', match);
+        if (match) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
     });
 }
 
