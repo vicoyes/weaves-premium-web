@@ -75,7 +75,14 @@
 
 /* Success message */
 .success-message { text-align: center; padding: 3rem 2rem; }
-.success-message .icon { font-size: 4rem; margin-bottom: 1.5rem; }
+.status-icon {
+    width: 72px; height: 72px; margin: 0 auto 1.5rem;
+    border-radius: 22px; display: flex; align-items: center; justify-content: center;
+}
+.status-icon svg { width: 34px; height: 34px; stroke-width: 1.8; }
+.status-icon-success { color: var(--teal); background: rgba(0,180,166,0.12); border: 1px solid rgba(0,180,166,0.24); }
+.status-icon-error { color: #fb7185; background: rgba(251,113,133,0.1); border: 1px solid rgba(251,113,133,0.22); }
+#start-button svg, .btn-nav svg, .btn-continue svg { width: 18px; height: 18px; flex: 0 0 auto; stroke-width: 2; }
 .success-message h2 { font-size: 2.5rem; margin-bottom: 1rem; color: white; font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
 .success-message p { font-size: 1.1rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
 
