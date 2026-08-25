@@ -28,17 +28,21 @@ function getComponentsPath() {
     return '/components/';
 }
 
+// Versión de componentes para evitar que el navegador conserve header o footer antiguos
+const COMPONENT_VERSION = '20260825-3';
+
 // Función para cargar componentes HTML
 async function loadComponent(elementId, componentFile) {
     const basePath = getComponentsPath();
     const componentPath = basePath + componentFile;
+    const versionedPath = componentPath + '?v=' + COMPONENT_VERSION;
     
     try {
-        const response = await fetch(componentPath);
+        const response = await fetch(versionedPath, { cache: 'no-store' });
         if (!response.ok) {
             // Si falla, intentar con ruta absoluta desde la raíz
             const fallbackPath = '/components/' + componentFile;
-            const fallbackResponse = await fetch(fallbackPath);
+            const fallbackResponse = await fetch(fallbackPath + '?v=' + COMPONENT_VERSION, { cache: 'no-store' });
             if (!fallbackResponse.ok) throw new Error(`Error loading ${componentPath} and ${fallbackPath}`);
             const html = await fallbackResponse.text();
             const element = document.getElementById(elementId);
