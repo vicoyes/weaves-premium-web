@@ -164,9 +164,21 @@ nav {
 
 .hero-services-sub {
   font-size: 18px; font-weight: 300; line-height: 1.55;
-  color: rgba(255,255,255,0.65);
-  max-width: 560px;
+  color: rgba(255,255,255,0.72);
+  max-width: 680px;
   animation: rise 1s 0.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.hero-services-actions {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  margin-top: 32px;
+  animation: rise 1s 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.hero-services-note {
+  margin-top: 18px;
+  color: rgba(255,255,255,0.48);
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  animation: rise 1s 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 @keyframes rise {
@@ -573,18 +585,26 @@ footer {
   <div class="hero-services-bg"></div>
   <div class="hero-services-content">
     <div class="hero-services-eyebrow">Operaciones gestionadas con IA</div>
-    <h1 class="hero-services-title">Tres operaciones para darle<br><em>más capacidad a tu equipo.</em></h1>
-    <p class="hero-services-sub">Empezamos por un proceso concreto y lo convertimos en una operación continua, medible y supervisada. La IA y la automatización trabajan detrás; tu equipo mantiene el control.</p>
+    <h1 class="hero-services-title">Nos encargamos del trabajo repetitivo<br><em>que frena a tu equipo.</em></h1>
+    <p class="hero-services-sub">Diseñamos, implementamos y gestionamos procesos de atención, seguimiento comercial y administración. Pagas una mensualidad por la capacidad acordada; nosotros mantenemos la operación y tu equipo interviene cuando hace falta.</p>
+    <div class="hero-services-actions">
+      <a href="../pages/diagnostico-gratuito.html" class="btn-cta-primary">
+        Analizar un proceso
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#operaciones" class="btn-cta-secondary">Ver qué podemos gestionar</a>
+    </div>
+    <div class="hero-services-note">Empieza con un proceso concreto · Amplía la capacidad cuando lo necesites</div>
   </div>
 </section>
 
 <!-- OPERACIONES PRINCIPALES -->
-<section class="services-section">
+<section class="services-section" id="operaciones">
   <div class="services-inner">
     <div class="services-header reveal">
-      <div class="section-eyebrow">Operaciones que gestionamos</div>
-      <h2>Un resultado claro.<br><em>Tres frentes donde empezar.</em></h2>
-      <p>Las capacidades técnicas se combinan dentro de una operación; no tienes que contratar nueve herramientas o servicios por separado.</p>
+      <div class="section-eyebrow">¿Dónde se acumula el trabajo?</div>
+      <h2>Estas son las operaciones<br><em>que podemos asumir.</em></h2>
+      <p>No tienes que escoger tecnologías. Identificamos las tareas que se repiten, definimos las reglas y nos encargamos de que el proceso avance.</p>
     </div>
 
     <div class="services-grid">
@@ -593,12 +613,12 @@ footer {
         <div class="service-card-icon">
           <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
         </div>
-        <div class="service-card-title">Más capacidad para atender</div>
-        <div class="service-card-desc">Gestionamos consultas y solicitudes en WhatsApp, web y correo, con respuestas autorizadas y escalamiento humano cuando hace falta.</div>
+        <div class="service-card-title">Atención y comunicación</div>
+        <div class="service-card-desc">Para equipos que reciben consultas por varios canales y pierden tiempo clasificando, respondiendo o buscando contexto.</div>
         <ul class="service-card-list">
-          <li>Recepción y clasificación multicanal</li>
-          <li>Respuestas y seguimiento dentro del alcance</li>
-          <li>Derivación de excepciones al equipo adecuado</li>
+          <li>Recibimos y clasificamos cada solicitud</li>
+          <li>Respondemos consultas autorizadas</li>
+          <li>Damos seguimiento y escalamos excepciones</li>
         </ul>
         <a href="chatbot.html" class="service-card-cta">
           Ver atención gestionada
@@ -611,12 +631,12 @@ footer {
         <div class="service-card-icon">
           <svg viewBox="0 0 24 24"><path d="M22 7L13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
         </div>
-        <div class="service-card-title">Más seguimiento comercial</div>
-        <div class="service-card-desc">Capturamos, organizamos y damos continuidad a oportunidades para que el equipo comercial se concentre donde aporta criterio y relación.</div>
+        <div class="service-card-title">Crecimiento y seguimiento</div>
+        <div class="service-card-desc">Para empresas que generan contactos, pero pierden oportunidades porque el registro, la prioridad o el seguimiento dependen de tareas manuales.</div>
         <ul class="service-card-list">
-          <li>Captura y clasificación de contactos</li>
-          <li>Registro, recordatorios y seguimiento</li>
-          <li>Contenido y campañas conectados al proceso</li>
+          <li>Capturamos y clasificamos contactos</li>
+          <li>Actualizamos el CRM y activamos recordatorios</li>
+          <li>Damos continuidad a campañas y conversaciones</li>
         </ul>
         <a href="embudo.html" class="service-card-cta">
           Ver seguimiento comercial
@@ -629,12 +649,12 @@ footer {
         <div class="service-card-icon">
           <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         </div>
-        <div class="service-card-title">Menos carga repetitiva</div>
-        <div class="service-card-desc">Procesamos correos, documentos y datos con reglas claras, trazabilidad y revisión humana de las excepciones.</div>
+        <div class="service-card-title">Administración y documentos</div>
+        <div class="service-card-desc">Para equipos que pierden horas leyendo correos, moviendo datos, preparando documentos o actualizando diferentes sistemas.</div>
         <ul class="service-card-list">
-          <li>Lectura, extracción y clasificación de información</li>
-          <li>Actualización de CRM y sistemas internos</li>
-          <li>Control de errores y registro de actividad</li>
+          <li>Leemos, extraemos y clasificamos información</li>
+          <li>Actualizamos sistemas y generamos documentos</li>
+          <li>Registramos la actividad y revisamos errores</li>
         </ul>
         <a href="procesos.html" class="service-card-cta">
           Ver operaciones administrativas
@@ -650,10 +670,10 @@ footer {
   <div class="why-inner">
     <div class="why-header reveal">
       <div>
-        <div class="section-eyebrow">Por qué Weaves</div>
-        <h2>No solo automatizamos.<br><em>Gestionamos contigo.</em></h2>
+        <div class="section-eyebrow">Qué incluye el servicio mensual</div>
+        <h2>Una operación funcionando.<br><em>No solo una automatización.</em></h2>
       </div>
-      <p>Diseñamos el proceso, lo ponemos en marcha y lo acompañamos mes a mes con métricas, límites claros y supervisión humana.</p>
+      <p>Acordamos qué proceso gestionamos, hasta qué volumen, cuándo debe intervenir una persona y qué resultados podrás revisar.</p>
     </div>
 
     <div class="why-grid">
@@ -661,22 +681,22 @@ footer {
         <div class="why-icon-bg">
           <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         </div>
-        <div class="why-cell-title">Alcance claro</div>
-        <div class="why-cell-desc">Cada operación define qué incluye, qué volumen procesa, qué se escala a una persona y qué queda fuera.</div>
+        <div class="why-cell-title">Capacidad acordada</div>
+        <div class="why-cell-desc">Definimos las tareas, los canales y el volumen mensual que gestionará la operación.</div>
       </div>
       <div class="why-cell reveal reveal-delay-1">
         <div class="why-icon-bg">
           <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         </div>
-        <div class="why-cell-title">Medición continua</div>
-        <div class="why-cell-desc">Seguimos volumen, tiempos, errores, escalamientos y coste por operación para demostrar la mejora.</div>
+        <div class="why-cell-title">Operación y soporte</div>
+        <div class="why-cell-desc">Monitoreamos el proceso, atendemos incidencias y ajustamos reglas dentro del alcance acordado.</div>
       </div>
       <div class="why-cell reveal reveal-delay-2">
         <div class="why-icon-bg">
           <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
         </div>
-        <div class="why-cell-title">Supervisión humana</div>
-        <div class="why-cell-desc">Tu equipo conserva el control de las excepciones, las relaciones y las decisiones sensibles.</div>
+        <div class="why-cell-title">Control y métricas</div>
+        <div class="why-cell-desc">Tu equipo conserva las decisiones sensibles y recibe visibilidad sobre volumen, tiempos, errores y excepciones.</div>
       </div>
     </div>
   </div>
@@ -686,8 +706,8 @@ footer {
 <section class="cta-final-section">
   <div class="cta-final-inner">
     <div class="cta-final-eyebrow">Siguiente paso</div>
-    <h2 class="cta-final-title">Empieza por un proceso<br><em>concreto.</em></h2>
-    <p class="cta-final-sub">Cuéntanos dónde se acumula el trabajo repetitivo. Analizamos el encaje y te indicamos el siguiente paso.</p>
+    <h2 class="cta-final-title">¿Qué tarea se repite<br><em>todos los días?</em></h2>
+    <p class="cta-final-sub">Cuéntanos qué hace hoy tu equipo de forma manual. Revisamos si puede convertirse en una operación gestionada y con qué proceso conviene empezar.</p>
     <div class="cta-final-btns">
       <a href="../pages/diagnostico-gratuito.html" class="btn-cta-primary">
         Analizar un proceso
