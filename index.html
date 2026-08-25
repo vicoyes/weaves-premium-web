@@ -6,17 +6,44 @@
 <meta name="description" content="Transformamos tareas repetitivas de atención, seguimiento comercial y administración en procesos conectados, medibles y supervisados.">
 <title>Weaves — Más capacidad para tu equipo con IA y automatización</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styles.css?v=20260825-5">
 </head>
 <body>
 
 <!-- NAV -->
-<div id="header-placeholder"></div>
+<div id="header-placeholder">
+  <nav id="nav">
+    <div class="nav-left">
+      <a href="/" class="nav-logo">
+        <img class="nav-logo-image" src="/images/logo-weaves-on-dark.png?v=20260825-3" alt="Weaves">
+      </a>
+      <ul class="nav-links">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/servicios/index.html">Qué hacemos</a></li>
+        <li><a href="/sectores/index.html">Sectores</a></li>
+        <li><a href="/pages/casos-exito.html">Casos</a></li>
+        <li><a href="/pages/quienes-somos.html">Quiénes Somos</a></li>
+        <li><a href="/pages/blog.html">Blog</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+        <li class="nav-mobile-only"><a href="/pages/diagnostico-gratuito.html">Analizar mi proceso</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="/pages/diagnostico-gratuito.html" class="nav-cta">Analizar mi proceso</a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+</div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
+    <div class="hero-eyebrow">IA y automatización para PYMEs</div>
     <h1 class="hero-title">Ampliamos la capacidad de<br><em>tu equipo, sin aumentar su carga.</em></h1>
     <p class="hero-sub">
       Transformamos tareas manuales de atención, seguimiento comercial y administración en procesos conectados, medibles y supervisados. Tu equipo recupera tiempo para atender clientes, tomar decisiones y hacer crecer el negocio.
@@ -133,7 +160,7 @@
 <section class="feature-section" id="servicios">
   <div class="feature-inner">
     <div class="feature-text">
-      <div class="section-eyebrow reveal">01 — Atención y comunicación</div>
+      <div class="feature-eyebrow reveal"><span class="feature-eyebrow-num">01</span><span class="feature-eyebrow-label">Atención y comunicación</span></div>
       <h2 class="section-title reveal">¿Las consultas se acumulan?<br><em>Damos orden y continuidad.</em></h2>
       <p class="section-sub reveal reveal-delay-1">Conectamos WhatsApp, web y correo para que cada solicitud se clasifique, reciba respuesta dentro de las reglas y llegue a una persona cuando lo necesite.</p>
       <ul class="feature-checks reveal reveal-delay-2">
@@ -226,7 +253,7 @@
       </div>
     </div>
     <div class="feature-text">
-      <div class="section-eyebrow reveal">02 — Administración y documentos</div>
+      <div class="feature-eyebrow reveal"><span class="feature-eyebrow-num">02</span><span class="feature-eyebrow-label">Administración y documentos</span></div>
       <h2 class="section-title reveal">¿Tu equipo copia y pega datos?<br><em>Conectamos el proceso.</em></h2>
       <p class="section-sub reveal reveal-delay-1">Leemos correos y documentos, extraemos la información necesaria y actualizamos tus sistemas con reglas, validaciones y trazabilidad.</p>
       <ul class="feature-checks reveal reveal-delay-2">
@@ -255,7 +282,7 @@
 <section class="feature-section">
   <div class="feature-inner">
     <div class="feature-text">
-      <div class="section-eyebrow reveal">03 — Crecimiento y seguimiento comercial</div>
+      <div class="feature-eyebrow reveal"><span class="feature-eyebrow-num">03</span><span class="feature-eyebrow-label">Crecimiento y seguimiento comercial</span></div>
       <h2 class="section-title reveal">¿Se enfrían las oportunidades?<br><em>Activamos el seguimiento.</em></h2>
       <p class="section-sub reveal reveal-delay-1">Capturamos contactos, organizamos la información y activamos recordatorios o secuencias para que ventas intervenga en el momento adecuado.</p>
       <ul class="feature-checks reveal reveal-delay-2">
@@ -311,14 +338,17 @@
 </section>
 
 <!-- CTA — Ver todas las soluciones -->
-<section class="all-services-cta" style="text-align:center; padding: 120px 48px; background: var(--offwhite); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-  <div style="max-width: 1400px; margin: 0 auto;">
-    <div class="section-eyebrow reveal" style="justify-content: center;">Siguiente paso</div>
-    <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px,4vw,48px); color: var(--indigo); margin-bottom: 20px; letter-spacing: -0.03em; line-height: 1.1;">Muéstranos el proceso que más tiempo consume.</h2>
-    <p style="font-size: 18px; color: var(--muted); margin-bottom: 36px; font-weight: 300; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.65;">En una llamada inicial entendemos el problema, el volumen y las herramientas actuales. Si existe encaje, te explicamos cómo podríamos abordarlo.</p>
-    <div class="hero-ctas" style="justify-content: center;">
-      <a href="pages/diagnostico-gratuito.html" class="btn-hero-primary" style="background: var(--indigo); color: white;">Analizar mi proceso →</a>
-      <a href="servicios/index.html#operaciones" class="btn-hero-secondary" style="color: var(--indigo); border-color: rgba(30,42,74,0.25);">Ver casos de uso</a>
+<section class="all-services-cta">
+  <div class="all-services-cta-inner">
+    <div class="section-eyebrow reveal">Siguiente paso</div>
+    <h2 class="reveal">Muéstranos el proceso que más tiempo consume.</h2>
+    <p class="reveal reveal-delay-1">En una llamada inicial entendemos el problema, el volumen y las herramientas actuales. Si existe encaje, te explicamos cómo podríamos abordarlo.</p>
+    <div class="hero-ctas reveal reveal-delay-2">
+      <a href="pages/diagnostico-gratuito.html" class="btn-hero-primary">
+        Analizar mi proceso
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="servicios/index.html#operaciones" class="btn-hero-secondary">Ver casos de uso</a>
     </div>
   </div>
 </section>
@@ -333,24 +363,57 @@
     <p class="section-sub reveal reveal-delay-1" style="align-self: end;">Seleccionamos y conectamos la tecnología según el proceso, la seguridad y las herramientas de tu empresa. No tienes que decidir la arquitectura antes de hablar con nosotros.</p>
   </div>
   <div class="tech-grid">
-    <div class="tech-cell reveal"><span class="tech-num">01</span><span class="tech-name">OpenAI</span></div>
-    <div class="tech-cell reveal"><span class="tech-num">02</span><span class="tech-name">n8n</span></div>
-    <div class="tech-cell reveal"><span class="tech-num">03</span><span class="tech-name">Chatwoot</span></div>
-    <div class="tech-cell reveal"><span class="tech-num">04</span><span class="tech-name">Make</span></div>
-    <div class="tech-cell reveal"><span class="tech-num">05</span><span class="tech-name">Zapier</span></div>
-    <div class="tech-cell reveal"><span class="tech-num">06</span><span class="tech-name">Python</span></div>
-    <div class="tech-cell reveal reveal-delay-1"><span class="tech-num">07</span><span class="tech-name">Node.js</span></div>
-    <div class="tech-cell reveal reveal-delay-1"><span class="tech-num">08</span><span class="tech-name">Azure</span></div>
-    <div class="tech-cell reveal reveal-delay-1"><span class="tech-num">09</span><span class="tech-name">Google Cloud</span></div>
-    <div class="tech-cell reveal reveal-delay-1"><span class="tech-num">10</span><span class="tech-name">AWS</span></div>
-    <div class="tech-cell reveal reveal-delay-1"><span class="tech-num">11</span><span class="tech-name">Docker</span></div>
-    <div class="tech-cell reveal reveal-delay-1"><span class="tech-num">12</span><span class="tech-name">Gemini</span></div>
-    <div class="tech-cell reveal reveal-delay-2"><span class="tech-num">13</span><span class="tech-name">LangChain</span></div>
-    <div class="tech-cell reveal reveal-delay-2"><span class="tech-num">14</span><span class="tech-name">Supabase</span></div>
-    <div class="tech-cell reveal reveal-delay-2"><span class="tech-num">15</span><span class="tech-name">PostgreSQL</span></div>
-    <div class="tech-cell reveal reveal-delay-2"><span class="tech-num">16</span><span class="tech-name">Vector DBs</span></div>
-    <div class="tech-cell reveal reveal-delay-2"><span class="tech-num">17</span><span class="tech-name">Anthropic</span></div>
-    <div class="tech-cell reveal reveal-delay-2"><span class="tech-num">∞</span><span class="tech-name" style="color: var(--muted); font-style: italic;">y más</span></div>
+    <div class="tech-cell reveal"><span class="tech-num">01</span><span class="tech-logo"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg></span><span class="tech-name">OpenAI</span></div>
+    <div class="tech-cell reveal"><span class="tech-num">02</span><span class="tech-logo"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.4737 5.6842c-1.1772 0-2.1663.8051-2.4468 1.8947h-2.8955c-1.235 0-2.289.893-2.492 2.111l-.1038.623a1.263 1.263 0 0 1-1.246 1.0555H11.289c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947s-2.1663.8051-2.4467 1.8947H4.973c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947C1.1311 9.4737 0 10.6047 0 12s1.131 2.5263 2.5263 2.5263c1.1772 0 2.1663-.8051 2.4468-1.8947h1.4223c.2804 1.0896 1.2696 1.8947 2.4467 1.8947 1.1772 0 2.1663-.8051 2.4468-1.8947h1.0008a1.263 1.263 0 0 1 1.2459 1.0555l.1038.623c.203 1.218 1.257 2.111 2.492 2.111h.3692c.2804 1.0895 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263c-1.1772 0-2.1664.805-2.4468 1.8947h-.3692a1.263 1.263 0 0 1-1.246-1.0555l-.1037-.623A2.52 2.52 0 0 0 13.9607 12a2.52 2.52 0 0 0 .821-1.4794l.1038-.623a1.263 1.263 0 0 1 1.2459-1.0555h2.8955c.2805 1.0896 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263m0 1.2632a1.263 1.263 0 0 1 1.2631 1.2631 1.263 1.263 0 0 1-1.2631 1.2632 1.263 1.263 0 0 1-1.2632-1.2632 1.263 1.263 0 0 1 1.2632-1.2631M2.5263 10.7368A1.263 1.263 0 0 1 3.7895 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 1.2632 12a1.263 1.263 0 0 1 1.2631-1.2632m6.3158 0A1.263 1.263 0 0 1 10.1053 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 7.579 12a1.263 1.263 0 0 1 1.2632-1.2632m10.1053 3.7895a1.263 1.263 0 0 1 1.2631 1.2632 1.263 1.263 0 0 1-1.2631 1.2631 1.263 1.263 0 0 1-1.2632-1.2631 1.263 1.263 0 0 1 1.2632-1.2632"/></svg></span><span class="tech-name">n8n</span></div>
+    <div class="tech-cell reveal"><span class="tech-num">03</span><span class="tech-logo"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 12c0 6.629 5.371 12 12 12s12-5.371 12-12S18.629 0 12 0 0 5.371 0 12m17.008 5.29H11.44a5.57 5.57 0 0 1-5.562-5.567A5.57 5.57 0 0 1 11.44 6.16a5.57 5.57 0 0 1 5.567 5.563Z"/></svg></span><span class="tech-name">Chatwoot</span></div>
+    <div class="tech-cell reveal"><span class="tech-num">04</span><span class="tech-logo"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.38 3.498c-.27 0-.511.19-.566.465L9.85 18.986a.578.578 0 0 0 .453.678l4.095.826a.58.58 0 0 0 .682-.455l2.963-15.021a.578.578 0 0 0-.453-.678l-4.096-.826a.589.589 0 0 0-.113-.012zm-5.876.098a.576.576 0 0 0-.516.318L.062 17.697a.575.575 0 0 0 .256.774l3.733 1.877a.578.578 0 0 0 .775-.258l6.926-13.781a.577.577 0 0 0-.256-.776L7.762 3.658a.571.571 0 0 0-.258-.062zm11.74.115a.576.576 0 0 0-.576.576v15.426c0 .318.258.578.576.578h4.178a.58.58 0 0 0 .578-.578V4.287a.578.578 0 0 0-.578-.576Z"/></svg></span><span class="tech-name">Make</span></div>
+    <div class="tech-cell reveal"><span class="tech-num">05</span><span class="tech-logo"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.157 0A4.151 4.151 0 0 0 0 4.161v15.678A4.151 4.151 0 0 0 4.157 24h15.682A4.152 4.152 0 0 0 24 19.839V4.161A4.152 4.152 0 0 0 19.839 0H4.157Zm10.61 8.761h.03a.577.577 0 0 1 .23.038.585.585 0 0 1 .201.124.63.63 0 0 1 .162.431.612.612 0 0 1-.162.435.58.58 0 0 1-.201.128.58.58 0 0 1-.23.042.529.529 0 0 1-.235-.042.585.585 0 0 1-.332-.328.559.559 0 0 1-.038-.235.613.613 0 0 1 .17-.431.59.59 0 0 1 .405-.162Zm2.853 1.572c.03.004.061.004.095.004.325-.011.646.064.937.219.238.144.431.355.552.609.128.279.189.582.185.888v.193a2 2 0 0 1 0 .219h-2.498c.003.227.075.45.204.642a.78.78 0 0 0 .646.265.714.714 0 0 0 .484-.136.642.642 0 0 0 .23-.318l.915.257a1.398 1.398 0 0 1-.28.537c-.14.159-.321.284-.521.355a2.234 2.234 0 0 1-.836.136 1.923 1.923 0 0 1-1.001-.245 1.618 1.618 0 0 1-.665-.703 2.221 2.221 0 0 1-.227-1.036 1.95 1.95 0 0 1 .48-1.398 1.9 1.9 0 0 1 1.3-.488Zm-9.607.023c.162.004.325.026.48.079.207.065.4.174.563.314.26.302.393.692.366 1.088v2.276H8.53l-.109-.711h-.065c-.064.163-.155.31-.272.439a1.122 1.122 0 0 1-.374.264 1.023 1.023 0 0 1-.453.083 1.334 1.334 0 0 1-.866-.264.965.965 0 0 1-.329-.801.993.993 0 0 1 .076-.431 1.02 1.02 0 0 1 .242-.363 1.478 1.478 0 0 1 1.043-.303h.952v-.181a.696.696 0 0 0-.136-.454.553.553 0 0 0-.438-.154.695.695 0 0 0-.378.086.48.48 0 0 0-.193.254l-.99-.144a1.26 1.26 0 0 1 .257-.563c.14-.174.321-.302.533-.378.261-.091.54-.136.82-.129.053-.003.106-.007.163-.007Zm4.384.007c.174 0 .347.038.506.114.182.083.34.211.458.374.257.423.377.911.351 1.406a2.53 2.53 0 0 1-.355 1.448 1.148 1.148 0 0 1-1.009.517c-.204 0-.401-.045-.582-.136a1.052 1.052 0 0 1-.48-.457 1.298 1.298 0 0 1-.114-.234h-.045l.004 1.784h-1.059v-4.713h.904l.117.805h.057c.068-.208.177-.401.328-.56a1.129 1.129 0 0 1 .843-.344h.076v-.004Zm7.559.084h.903l.113.805h.053a1.37 1.37 0 0 1 .235-.484.813.813 0 0 1 .313-.242.82.82 0 0 1 .39-.076h.234v1.051h-.401a.662.662 0 0 0-.313.008.623.623 0 0 0-.272.155.663.663 0 0 0-.174.26.683.683 0 0 0-.027.314v1.875h-1.054v-3.666Zm-17.515.003h3.262v.896L3.73 13.104l.034.113h1.973l.042.9H2.4v-.9l1.931-1.754-.045-.117H2.441v-.896Zm11.815 0h1.055v3.659h-1.055V10.45Zm3.443.684.019.016a.69.69 0 0 0-.351.045.756.756 0 0 0-.287.204c-.11.155-.174.336-.189.522h1.545c-.034-.526-.257-.787-.74-.787h.003Zm-5.718.163c-.026 0-.057 0-.083.004a.78.78 0 0 0-.31.053.746.746 0 0 0-.257.189 1.016 1.016 0 0 0-.204.695v.064c-.015.257.057.507.204.711a.634.634 0 0 0 .253.196.638.638 0 0 0 .314.061.644.644 0 0 0 .578-.265c.14-.223.204-.48.189-.74a1.216 1.216 0 0 0-.181-.711.677.677 0 0 0-.503-.257Zm-4.509 1.266a.464.464 0 0 0-.268.102.373.373 0 0 0-.114.276c0 .053.008.106.027.155a.375.375 0 0 0 .087.132.576.576 0 0 0 .397.11v.004a.863.863 0 0 0 .563-.182.573.573 0 0 0 .211-.457v-.14h-.903Z"/></svg></span><span class="tech-name">Zapier</span></div>
+    <div class="tech-cell reveal"><span class="tech-num">06</span><span class="tech-logo"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg></span><span class="tech-name">Python</span></div>
+    <div class="tech-cell reveal reveal-delay-1"><span class="tech-num">07</span><span class="tech-logo"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"/></svg></span><span class="tech-name">Node.js</span></div>
+    <div class="tech-cell reveal reveal-delay-1"><span class="tech-num">08</span><span class="tech-logo"><?xml version="1.0" encoding="utf-8"?>
+
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
+
+<g fill="currentColor">
+
+<path d="M7.47 12.412l3.348-.592.031-.007-1.722-2.049a291.474 291.474 0 01-1.723-2.058c0-.01 1.779-4.909 1.789-4.926a788.95 788.95 0 012.934 5.066l2.95 5.115.023.039-10.948-.001 3.317-.587zM.9 11.788c0-.003.811-1.412 1.803-3.131L4.507 5.53l2.102-1.764C7.765 2.797 8.714 2 8.717 2a.37.37 0 01-.033.085L6.4 6.981 4.16 11.789l-1.63.002c-.897.001-1.63 0-1.63-.003z"/>
+
+</g>
+
+</svg></span><span class="tech-name">Azure</span></div>
+    <div class="tech-cell reveal reveal-delay-1"><span class="tech-num">09</span><span class="tech-logo"><?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill="currentColor" fill-rule="evenodd" d="M11.87 3.465l-.002-.003a5.935 5.935 0 00-5.586-1.217 5.89 5.89 0 00-3.98 4.092 4.206 4.206 0 00-.149 6.792 4.255 4.255 0 002.558.87h6.52a4.234 4.234 0 004.078-2.961A4.2 4.2 0 0013.637 6.3a5.835 5.835 0 00-1.767-2.835zm-7.828 7.78c.21.095.438.16.67.16l6.518.002c.9 0 1.63-.725 1.63-1.619s-.73-1.619-1.63-1.619v-.323a3.226 3.226 0 00-1.187-2.56h-.002c-1.339-1.078-3.305-.912-4.465.354l-.014.015c.996.2 1.897.751 2.525 1.568L6.198 9.101a1.63 1.63 0 00-3.097.439 1.617 1.617 0 00.942 1.704l-.001.001z" clip-rule="evenodd"/></svg></span><span class="tech-name">Google Cloud</span></div>
+    <div class="tech-cell reveal reveal-delay-1"><span class="tech-num">10</span><span class="tech-logo"><?xml version="1.0" encoding="utf-8"?>
+
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
+
+<g fill="currentColor">
+
+<path d="M4.51 7.687c0 .197.02.357.058.475.042.117.096.245.17.384a.233.233 0 01.037.123c0 .053-.032.107-.1.16l-.336.224a.255.255 0 01-.138.048c-.054 0-.107-.026-.16-.074a1.652 1.652 0 01-.192-.251 4.137 4.137 0 01-.164-.315c-.416.491-.937.737-1.565.737-.447 0-.804-.129-1.064-.385-.261-.256-.394-.598-.394-1.025 0-.454.16-.822.484-1.1.325-.278.756-.416 1.304-.416.18 0 .367.016.564.042.197.027.4.07.612.118v-.39c0-.406-.085-.689-.25-.854-.17-.166-.458-.246-.868-.246-.186 0-.377.022-.574.07a4.23 4.23 0 00-.575.181 1.525 1.525 0 01-.186.07.326.326 0 01-.085.016c-.075 0-.112-.054-.112-.166v-.262c0-.085.01-.15.037-.186a.399.399 0 01.15-.113c.185-.096.409-.176.67-.24.26-.07.537-.101.83-.101.633 0 1.096.144 1.394.432.293.288.442.726.442 1.314v1.73h.01zm-2.161.811c.175 0 .356-.032.548-.096.192-.064.362-.182.505-.342a.848.848 0 00.181-.341c.032-.129.054-.283.054-.465V7.03a4.43 4.43 0 00-.49-.09 3.996 3.996 0 00-.5-.033c-.357 0-.617.07-.793.214-.176.144-.26.347-.26.614 0 .25.063.437.196.566.128.133.314.197.559.197zm4.273.577c-.096 0-.16-.016-.202-.054-.043-.032-.08-.106-.112-.208l-1.25-4.127a.938.938 0 01-.048-.214c0-.085.042-.133.127-.133h.522c.1 0 .17.016.207.053.043.032.075.107.107.208l.894 3.535.83-3.535c.026-.106.058-.176.101-.208a.365.365 0 01.213-.053h.426c.1 0 .17.016.212.053.043.032.08.107.102.208l.84 3.578.92-3.578a.459.459 0 01.107-.208.347.347 0 01.208-.053h.495c.085 0 .133.043.133.133 0 .027-.006.054-.01.086a.768.768 0 01-.038.133l-1.283 4.127c-.031.107-.069.177-.111.209a.34.34 0 01-.203.053h-.457c-.101 0-.17-.016-.213-.053-.043-.038-.08-.107-.101-.214L8.213 5.37l-.82 3.439c-.026.107-.058.176-.1.213-.043.038-.118.054-.213.054h-.458zm6.838.144a3.51 3.51 0 01-.82-.096c-.266-.064-.473-.134-.612-.214-.085-.048-.143-.101-.165-.15a.38.38 0 01-.031-.149v-.272c0-.112.042-.166.122-.166a.3.3 0 01.096.016c.032.011.08.032.133.054.18.08.378.144.585.187.213.042.42.064.633.064.336 0 .596-.059.777-.176a.575.575 0 00.277-.508.52.52 0 00-.144-.373c-.095-.102-.276-.193-.537-.278l-.772-.24c-.388-.123-.676-.305-.851-.545a1.275 1.275 0 01-.266-.774c0-.224.048-.422.143-.593.096-.17.224-.32.384-.438.16-.122.34-.213.553-.277.213-.064.436-.091.67-.091.118 0 .24.005.357.021.122.016.234.038.346.06.106.026.208.052.303.085.096.032.17.064.224.096a.461.461 0 01.16.133.289.289 0 01.047.176v.251c0 .112-.042.171-.122.171a.552.552 0 01-.202-.064 2.428 2.428 0 00-1.022-.208c-.303 0-.543.048-.708.15-.165.1-.25.256-.25.475 0 .149.053.277.16.379.106.101.303.202.585.293l.756.24c.383.123.66.294.825.513.165.219.244.47.244.748 0 .23-.047.437-.138.619a1.435 1.435 0 01-.388.47c-.165.133-.362.23-.591.299-.24.075-.49.112-.761.112z"/>
+
+<path fill-rule="evenodd" d="M14.465 11.813c-1.75 1.297-4.294 1.986-6.481 1.986-3.065 0-5.827-1.137-7.913-3.027-.165-.15-.016-.353.18-.235 2.257 1.313 5.04 2.109 7.92 2.109 1.941 0 4.075-.406 6.039-1.239.293-.133.543.192.255.406z" clip-rule="evenodd"/>
+
+<path fill-rule="evenodd" d="M15.194 10.98c-.223-.287-1.479-.138-2.048-.069-.17.022-.197-.128-.043-.24 1-.705 2.645-.502 2.836-.267.192.24-.053 1.89-.99 2.68-.143.123-.281.06-.217-.1.212-.53.686-1.72.462-2.003z" clip-rule="evenodd"/>
+
+</g>
+
+</svg></span><span class="tech-name">AWS</span></div>
+    <div class="tech-cell reveal reveal-delay-1"><span class="tech-num">11</span><span class="tech-logo"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"/></svg></span><span class="tech-name">Docker</span></div>
+    <div class="tech-cell reveal reveal-delay-1"><span class="tech-num">12</span><span class="tech-logo"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg></span><span class="tech-name">Gemini</span></div>
+    <div class="tech-cell reveal reveal-delay-2"><span class="tech-num">13</span><span class="tech-logo"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.0988 5.9175C2.7359 5.9175 0 8.6462 0 12s2.736 6.0825 6.0988 6.0825h11.8024C21.2641 18.0825 24 15.3538 24 12s-2.736-6.0825-6.0988-6.0825ZM5.9774 7.851c.493.0124 1.02.2496 1.273.6228.3673.4592.4778 1.0668.8944 1.4932.5604.6118 1.199 1.1505 1.7161 1.802.4892.5954.8386 1.2937 1.1436 1.9975.1244.2335.1257.5202.31.7197.0908.1204.5346.4483.4383.5645.0555.1204.4702.286.3263.4027-.1944.04-.4129.0476-.5616-.1074-.0549.126-.183.0596-.2819.0432a4 4 0 0 0-.025.0736c-.3288.0219-.5754-.3126-.732-.565-.3111-.168-.6642-.2702-.982-.446-.0182.2895.0452.6485-.231.8353-.014.5565.8436.0656.9222.4804-.061.0067-.1286-.0095-.1774.0373-.2239.2172-.4805-.1645-.7385-.007-.3464.174-.3808.3161-.8096.352-.0237-.0359-.0143-.0592.0059-.0811.1207-.1399.1295-.3046.3356-.3643-.2122-.0334-.3899.0833-.5686.1757-.2323.095-.2304-.2141-.5878.0164-.0396-.0322-.0208-.0615.0018-.0864.0908-.1107.2102-.127.345-.1208-.663-.3686-.9751.4507-1.2813.0432-.092.0243-.1265.1068-.1845.1652-.05-.0548-.0123-.1212-.0099-.1857-.0598-.028-.1356-.041-.1179-.1366-.1171-.0395-.1988.0295-.286.0952-.0787-.0608.0532-.1492.0776-.2125.0702-.1216.23-.025.3111-.1126.2306-.1308.552.0814.8155.0455.203.0255.4544-.1825.3526-.39-.2171-.2767-.179-.6386-.1839-.9695-.0268-.1929-.491-.4382-.6252-.6462-.1659-.1873-.295-.4047-.4243-.6182-.4666-.9008-.3198-2.0584-.9077-2.8947-.266.1466-.6125.0774-.8418-.119-.1238.1125-.1292.2598-.139.4161-.297-.2962-.2593-.8559-.022-1.1855.0969-.1302.2127-.2373.342-.3316.0292-.0213.0391-.0419.0385-.0747.1174-.5267.5764-.7391 1.0694-.7267m12.4071.46c.5575 0 1.0806.2159 1.474.6082s.61.9145.61 1.4704c0 .556-.2167 1.078-.61 1.4698v.0006l-.902.8995a2.08 2.08 0 0 1-.8597.5166l-.0164.0047-.0058.0164a2.05 2.05 0 0 1-.474.7308l-.9018.8995c-.3934.3924-.917.6083-1.4745.6083s-1.0806-.216-1.474-.6083c-.813-.8107-.813-2.1294 0-2.9402l.9019-.8995a2.056 2.056 0 0 1 .858-.5143l.017-.0053.0058-.0158a2.07 2.07 0 0 1 .4752-.7337l.9018-.8995c.3934-.3924.9171-.6083 1.4745-.6083zm0 .8965a1.18 1.18 0 0 0-.8388.3462l-.9018.8995a1.181 1.181 0 0 0-.3427.9252l.0053.0572c.0323.2652.149.5044.3374.6917.13.1296.2733.2114.4471.2686a.9.9 0 0 1 .014.1582.884.884 0 0 1-.2609.6304l-.0554.0554c-.3013-.1028-.5525-.253-.7794-.4792a2.06 2.06 0 0 1-.5761-1.0968l-.0099-.0578-.0461.0368a1.1 1.1 0 0 0-.0876.0794l-.9024.8995c-.4623.461-.4623 1.212 0 1.673.2311.2305.535.346.8394.3461.3043 0 .6077-.1156.8388-.3462l.9019-.8995c.4623-.461.4623-1.2113 0-1.673a1.17 1.17 0 0 0-.4367-.2749 1 1 0 0 1-.014-.1611c0-.2591.1023-.505.2901-.6923.3019.1028.57.2694.7962.495.3007.2999.4994.679.5756 1.0968l.0105.0578.0455-.0373a1.1 1.1 0 0 0 .0887-.0794l.902-.8996c.4622-.461.4628-1.2124 0-1.6735a1.18 1.18 0 0 0-.8395-.3462Zm-9.973 5.1567-.0006.0006c-.0793.3078-.1048.8318-.506.847-.033.1776.1228.2445.2655.1874.141-.0645.2081.0508.2557.1657.2177.0317.5394-.0725.5516-.3298-.325-.1867-.4253-.5418-.5662-.8709"/></svg></span><span class="tech-name">LangChain</span></div>
+    <div class="tech-cell tech-cell-wide reveal reveal-delay-2">
+      <span class="tech-num">14 — ∞</span>
+      <div class="tech-chips">
+        <span class="tech-chip">Anthropic</span>
+        <span class="tech-chip">Supabase</span>
+        <span class="tech-chip">PostgreSQL</span>
+        <span class="tech-chip">Vector DBs</span>
+        <span class="tech-chip-more">y más según el proceso</span>
+      </div>
+      <span class="tech-cell-note">La arquitectura se define en el assessment, no antes.</span>
+    </div>
   </div>
 </section>
 
@@ -373,20 +436,32 @@
       </div>
       <div class="case-metrics-grid reveal reveal-delay-2">
         <div class="case-metric">
-          <div class="case-metric-num">Base</div>
-          <div class="case-metric-label">Punto de partida y proceso documentado</div>
+          <span class="case-metric-index">01</span>
+          <div>
+            <div class="case-metric-num">Línea base</div>
+            <div class="case-metric-label">Punto de partida y proceso documentado antes de tocar nada.</div>
+          </div>
         </div>
         <div class="case-metric">
-          <div class="case-metric-num">Vol.</div>
-          <div class="case-metric-label">Volumen procesado dentro del alcance</div>
+          <span class="case-metric-index">02</span>
+          <div>
+            <div class="case-metric-num">Volumen procesado</div>
+            <div class="case-metric-label">Cuántas operaciones entran realmente dentro del alcance acordado.</div>
+          </div>
         </div>
         <div class="case-metric">
-          <div class="case-metric-num">HITL</div>
-          <div class="case-metric-label">Casos que requieren intervención humana</div>
+          <span class="case-metric-index">03</span>
+          <div>
+            <div class="case-metric-num">Intervención humana</div>
+            <div class="case-metric-label">Qué proporción de casos sigue requiriendo a una persona, y por qué.</div>
+          </div>
         </div>
         <div class="case-metric">
-          <div class="case-metric-num">Coste</div>
-          <div class="case-metric-label">Coste por operación y consumo visible</div>
+          <span class="case-metric-index">04</span>
+          <div>
+            <div class="case-metric-num">Coste por operación</div>
+            <div class="case-metric-label">Consumo visible y coste unitario, sin sorpresas a fin de mes.</div>
+          </div>
         </div>
       </div>
     </div>
@@ -565,7 +640,24 @@
 </section>
 
 <!-- FOOTER -->
-<div id="footer-placeholder"></div>
+<div id="footer-placeholder">
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand-block">
+        <div class="footer-logo-row"><img class="footer-logo-image" src="/images/logo-weaves-on-dark.png?v=20260825-3" alt="Weaves"></div>
+        <p class="footer-blurb">Ampliamos la capacidad de tu equipo reduciendo la carga repetitiva, con IA, automatización y supervisión humana.</p>
+        <div class="footer-social"><a href="#" class="social-btn"><svg viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="1.5"></path><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5"></circle></svg></a><a href="#" class="social-btn"><svg viewBox="0 0 24 24" fill="none"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" stroke="currentColor" stroke-width="1.5"></path></svg></a><a href="#" class="social-btn"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="1.5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01" stroke="currentColor" stroke-width="1.5"></path></svg></a></div>
+      </div>
+      <div><div class="footer-col-title">Por qué Weaves</div><ul class="footer-links"><li><a href="/pages/quienes-somos.html">Sobre nosotros</a></li><li><a href="/pages/casos-exito.html">Nuestros clientes</a></li><li><a href="#">Carreras</a></li><li><a href="/pages/contacto.html">Contacto</a></li></ul></div>
+      <div><div class="footer-col-title">Operaciones</div><ul class="footer-links"><li><a href="/servicios/servicio.html?id=chatbot">Atención y comunicación</a></li><li><a href="/servicios/servicio.html?id=embudo">Crecimiento y seguimiento</a></li><li><a href="/servicios/servicio.html?id=procesos">Administración y documentos</a></li><li><a href="/servicios/servicio.html?id=consultoria">Assessment y diseño</a></li><li><a href="/servicios/servicio.html?id=mantenimiento">Mejora continua</a></li></ul></div>
+      <div><div class="footer-col-title">Recursos</div><ul class="footer-links"><li><a href="/pages/blog.html">Blog</a></li><li><a href="/pages/casos-exito.html">Casos de éxito</a></li><li><a href="/index.html#tecnologia">Tecnología</a></li><li><a href="#">Documentación</a></li></ul></div>
+      <div><div class="footer-col-title">Legal</div><ul class="footer-links"><li><a href="/legal/politica-privacidad.html">Privacidad</a></li><li><a href="/legal/aviso-legal.html">Aviso legal</a></li><li><a href="/legal/politica-cookies.html">Cookies</a></li><li><a href="#">RGPD</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">Weaves &copy; 2026 &middot; Todos los derechos reservados</div><div class="footer-legal-row"><a href="/">weavewp.com</a><span>España &middot; LatAm</span><span>ES</span></div></div>
+  </div>
+</footer>
+</div>
 
 <script src="js/components-loader.js"></script>
 <script>

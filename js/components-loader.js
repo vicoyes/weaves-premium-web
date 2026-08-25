@@ -29,10 +29,15 @@ function getComponentsPath() {
 }
 
 // Versión de componentes para evitar que el navegador conserve header o footer antiguos
-const COMPONENT_VERSION = '20260825-3';
+const COMPONENT_VERSION = '20260825-5';
 
 // Función para cargar componentes HTML
 async function loadComponent(elementId, componentFile) {
+    // Si la página ya trae el componente en el HTML (para que pinte en el primer
+    // frame, sin el salto de ver la página sin cabecera), no lo sobrescribimos.
+    const existing = document.getElementById(elementId);
+    if (existing && existing.children.length > 0) return;
+
     const basePath = getComponentsPath();
     const componentPath = basePath + componentFile;
     const versionedPath = componentPath + '?v=' + COMPONENT_VERSION;

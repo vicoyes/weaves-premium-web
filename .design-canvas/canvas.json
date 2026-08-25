@@ -1,0 +1,15 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 9600, "title": "Home — rediseño", "print": "flow", "expand": "fill" }
+  ],
+  "annotations": [
+    { "id": "nav-fix", "x": -430, "y": 0, "w": 360, "text": "NAV\nHoy el header se inyecta por fetch después de DOMContentLoaded, así que el hero pinta sin nav y aparece de golpe. Aquí va sólido desde el primer frame: el arreglo real es dejar el <nav> en el HTML." },
+    { "id": "pain-fix", "x": -430, "y": 1100, "w": 360, "text": "PAIN POINTS\nEl título usaba clamp(25px, 2.25vw, 36px). En 4 columnas de ~310px eso rompe \"Procesos dependientes\" en dos líneas desparejas. Fijado en 25px + text-wrap: balance." },
+    { "id": "feat-fix", "x": -430, "y": 2000, "w": 360, "text": "FEATURES 01–03\nEran tres splits con estructura idéntica y 140px de padding cada uno: 420px de ritmo repetido. Ahora el número grande ancla cada bloque, el 02 es full-bleed oscuro para cortar la secuencia, y el padding baja a 112px." },
+    { "id": "tech-fix", "x": -430, "y": 4700, "w": 360, "text": "TECNOLOGÍA — el cambio grande\nHay 13 logos SVG en images/tech/ que NINGÚN html referencia. El grid mostraba \"01 OpenAI\" en texto. Aquí van los SVG reales del repo. Los 5 sin logo (Anthropic, Supabase, PostgreSQL, Vector DBs) pasan a chips en una celda span-5 en vez de ocupar celdas vacías." },
+    { "id": "case-fix", "x": -430, "y": 6100, "w": 360, "text": "CASO\nLas métricas eran \"Base / Vol. / HITL / Coste\" a 40–72px en Space Grotesk: un estilo pensado para números, aplicado a abreviaturas. Reescritas como lista numerada con nombre completo y una línea de explicación." },
+    { "id": "testi-gap", "x": -430, "y": 7100, "w": 360, "text": "TESTIMONIOS\nEl marquee nombra 8 clientes pero el HTML sólo tiene 1 cita real (David Acuña). Dejé 2 tarjetas marcadas [PENDIENTE] en vez de inventar citas — hacen falta las reales." },
+    { "id": "logos-todo", "x": -430, "y": 640, "w": 360, "text": "MARQUEE\nTambién hay 8 logos de clientes sin usar en images/client/, pero vienen mezclados (png, webp, svg) y con proporciones distintas. Normalizarlos es tarea de contenido, así que dejé los nombres en texto." }
+  ],
+  "launch": { "view": "focused", "file": "Main.dc.html" }
+}
