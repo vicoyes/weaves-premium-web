@@ -2,46 +2,46 @@
 window.SERVICIOS = {
   consultoria: {
     slug: "consultoria",
-    titulo: "Consultoría en Automatización",
-    tagline: "Sabrás exactamente qué automatizar y cuánto vas a ahorrar.",
-    descripcion: "Analizamos tus procesos operativos y te entregamos una hoja de ruta de 30/60/90 días con el ROI de cada automatización proyectado. Sin promesas vacías.",
+    titulo: "Assessment y diseño operativo",
+    tagline: "Entiende el proceso antes de decidir qué construir.",
+    descripcion: "Mapeamos el proceso, el volumen, los sistemas, las excepciones y las métricas necesarias para decidir si merece un Pilot.",
     icono: "target",
     color: "teal",
     caracteristicas: [
       { titulo: "Análisis de procesos", desc: "Identificamos cuellos de botella y tareas repetitivas que consumen tiempo valioso de tu equipo.", icono: "search" },
-      { titulo: "Hoja de ruta 30/60/90 días", desc: "Te entregamos un plan estructurado con prioridades claras y plazos realistas.", icono: "map" },
-      { titulo: "Proyección de ROI", desc: "Cada automatización viene con números claros: inversión, ahorro y tiempo de retorno.", icono: "trending-up" },
+      { titulo: "Roadmap de operación", desc: "Te entregamos un plan estructurado con prioridades, límites y siguientes pasos.", icono: "map" },
+      { titulo: "Métricas base", desc: "Definimos qué medir: volumen, tiempos, errores, escalamientos y coste por operación.", icono: "trending-up" },
       { titulo: "Sin promesas vacías", desc: "No te vendemos humo. Solo automatizaciones que podemos ejecutar y que tienen sentido económico.", icono: "shield" }
     ],
     pasos: [
-      { num: "01", titulo: "Auditamos tus procesos", desc: "Identificamos los cuellos de botella y oportunidades de automatización." },
-      { num: "02", titulo: "Diseñamos la hoja de ruta", desc: "Priorizamos por impacto y viabilidad técnica y económica." },
-      { num: "03", titulo: "Te presentamos el plan", desc: "Con métricas, ROI proyectado y un plan de implementación claro." }
+      { num: "01", titulo: "Mapeamos el proceso", desc: "Identificamos entradas, tareas, sistemas, personas y excepciones." },
+      { num: "02", titulo: "Revisamos el encaje", desc: "Priorizamos por impacto, riesgo y viabilidad técnica y económica." },
+      { num: "03", titulo: "Definimos el siguiente paso", desc: "Assessment, Pilot, implementación o una recomendación de no avanzar." }
     ],
     casos: [
       { titulo: "Automatización de reportes", desc: "Reportes que se generan y envían solos, sin que nadie abra Excel." },
       { titulo: "Optimización de atención", desc: "Reducimos tiempos de respuesta y derivación automática por tipo de consulta." },
       { titulo: "Reducción de errores", desc: "Procesos que antes dependían de copia manual ahora se ejecutan sin intervención." }
     ],
-    cta: "Pide tu hoja de ruta →"
+    cta: "Analiza tu proceso →"
   },
   chatbot: {
     slug: "chatbot",
-    titulo: "Chatbot de Atención al Cliente",
-    tagline: "Responde el 70% de las consultas sin intervención humana.",
-    descripcion: "Chatbots inteligentes en WhatsApp y web que responden preguntas frecuentes, derivan casos complejos a tu equipo, y aprenden de cada interacción. Tus clientes reciben respuesta instantánea. Tu equipo se enfoca en lo que importa.",
+    titulo: "Atención multicanal gestionada",
+    tagline: "Más capacidad para atender, sin perder el control.",
+    descripcion: "Gestionamos recepción, clasificación, respuestas autorizadas, seguimiento y escalamiento humano en los canales donde ya están tus clientes.",
     icono: "message-circle",
     color: "teal",
     caracteristicas: [
       { titulo: "Integración con WhatsApp y Chatwoot", desc: "Conexión directa con los canales donde ya están tus clientes. Sin fricción, sin cambios en su experiencia.", icono: "message-circle" },
-      { titulo: "Respuesta 24/7", desc: "Tu negocio sigue atendiendo mientras duermes. Sin esperas, sin colas, sin límites de capacidad.", icono: "clock" },
-      { titulo: "Escalado inteligente a humanos", desc: "Cuando el chatbot detecta complejidad, deriva la conversación a tu equipo con todo el contexto cargado.", icono: "arrow-up-right" },
-      { titulo: "Entrenado con tu información", desc: "El chatbot conoce tus procesos, productos y políticas. No respuestas genéricas — conocimiento real de tu negocio.", icono: "brain" }
+      { titulo: "Reglas y conocimiento autorizado", desc: "La operación responde con la información y el tono que tu empresa aprueba.", icono: "brain" },
+      { titulo: "Escalamiento humano", desc: "Las excepciones y decisiones sensibles llegan a la persona adecuada con contexto.", icono: "arrow-up-right" },
+      { titulo: "Seguimiento medible", desc: "Observamos volumen, tiempos, motivos de contacto e incidencias para mejorar.", icono: "activity" }
     ],
     pasos: [
-      { num: "01", titulo: "Configuramos el chatbot", desc: "Definimos las preguntas frecuentes y el tono de tu marca." },
-      { num: "02", titulo: "Lo conectamos", desc: "Integración con WhatsApp y tu CRM." },
-      { num: "03", titulo: "Aprende y mejora", desc: "El chatbot aprende de cada interacción y se hace más preciso." }
+      { num: "01", titulo: "Definimos el alcance", desc: "Acordamos canales, tipos de solicitud y acciones permitidas." },
+      { num: "02", titulo: "Conectamos el proceso", desc: "Integramos conocimiento, herramientas y reglas de escalamiento." },
+      { num: "03", titulo: "Operamos y mejoramos", desc: "Revisamos calidad, incidencias y cambios dentro del alcance." }
     ],
     casos: [
       { titulo: "Respuesta a preguntas frecuentes", desc: "Horarios, precios, ubicaciones, estados de pedido. Respondidos al instante, sin esperar a un humano." },
@@ -49,7 +49,7 @@ window.SERVICIOS = {
       { titulo: "Generación de tickets automático", desc: "Cada conversación compleja genera un ticket con todo el contexto para tu equipo." },
       { titulo: "Seguimiento post-consulta", desc: "El bot envía seguimiento automático después de una consulta sin resolver." }
     ],
-    cta: "Automatiza tu atención →"
+    cta: "Habla de tu atención →"
   },
   marketing: {
     slug: "marketing",
@@ -78,28 +78,28 @@ window.SERVICIOS = {
   },
   procesos: {
     slug: "procesos",
-    titulo: "Automatización de Procesos (RPA)",
-    tagline: "Lo que hacía alguien en 3 horas, ahora se hace solo.",
-    descripcion: "Automatizamos facturación, sincronización de datos, reportes contables y cualquier tarea operativa repetitiva. Menos tiempo en administrativo. Más tiempo en estrategia.",
+    titulo: "Operaciones administrativas",
+    tagline: "Procesos continuos que no se pierden.",
+    descripcion: "Organizamos correos, documentos, datos y actualizaciones entre sistemas para reducir trabajo repetitivo sin perder trazabilidad.",
     icono: "settings-2",
     color: "teal",
     caracteristicas: [
-      { titulo: "Facturación automática", desc: "Generación y envío de facturas sin intervención. Con validación de datos.", icono: "file-text" },
+      { titulo: "Documentos y datos", desc: "Recibimos, clasificamos, extraemos y validamos información según reglas acordadas.", icono: "file-text" },
       { titulo: "Sincronización de datos", desc: "CRM, ERP, hoja de cálculo. Todo conectado y actualizado en tiempo real.", icono: "refresh-cw" },
-      { titulo: "Reportes programados", desc: "Reportes que se generan solos y llegan a tu email cuando los necesitas.", icono: "calendar" },
-      { titulo: "Validación de errores", desc: "Cada proceso tiene controles que detectan anomalías antes de que sean un problema.", icono: "shield-check" }
+      { titulo: "Reportes programados", desc: "La información llega con la frecuencia y el formato que necesita tu operación.", icono: "calendar" },
+      { titulo: "Excepciones visibles", desc: "Los controles detectan información incompleta o anomalías antes de que escalen.", icono: "shield-check" }
     ],
     pasos: [
       { num: "01", titulo: "Mapeamos el proceso", desc: "Identificamos tareas repetitivas y cuantificamos el tiempo que consumen." },
-      { num: "02", titulo: "Automatizamos", desc: "Construimos el flujo sin código. No necesitas tocar tu sistema actual." },
-      { num: "03", titulo: "Monitoreamos", desc: "Logs y alertas automáticas. Si algo falla, lo sabemos antes que tú." }
+      { num: "02", titulo: "Implementamos", desc: "Conectamos herramientas, reglas, permisos y puntos de revisión." },
+      { num: "03", titulo: "Operamos", desc: "Registramos ejecuciones, incidencias y cambios para mantener trazabilidad." }
     ],
     casos: [
       { titulo: "Facturación recurrente", desc: "Facturas automáticas para clientes con contratos periódicos." },
       { titulo: "Reportes contables", desc: "Reportes financieros que se generan y envían sin abrir Excel." },
       { titulo: "Sincronización CRM", desc: "Datos que fluyen entre tu CRM y otras herramientas sin copia manual." }
     ],
-    cta: "Menos manual, más estratégico →"
+    cta: "Analiza tu operación →"
   },
   integraciones: {
     slug: "integraciones",
@@ -153,16 +153,16 @@ window.SERVICIOS = {
   },
   embudo: {
     slug: "embudo",
-    titulo: "Automatización de Embudo de Ventas",
-    tagline: "Desde que entra un lead hasta que cierra, cada paso avanza solo.",
-    descripcion: "Secuencias de seguimiento por email y WhatsApp, puntuación automática de leads, alertas a tu equipo cuando un lead está listo para comprar.",
+    titulo: "Seguimiento comercial",
+    tagline: "Más seguimiento. Menos oportunidades perdidas.",
+    descripcion: "Capturamos, clasificamos, registramos y seguimos leads con reglas de prioridad y escalamiento para tu equipo comercial.",
     icono: "filter",
     color: "teal",
     caracteristicas: [
       { titulo: "Secuencias email/WhatsApp", desc: "Nurturing automatizado por email y WhatsApp según el comportamiento del lead.", icono: "mail" },
       { titulo: "Puntuación de leads", desc: "Score dinámico que prioriza los leads más fríos y alerta a tu equipo cuando están listos.", icono: "star" },
       { titulo: "Alertas a ventas", desc: "Cuando un lead alcanza el score objetivo, tu vendedor recibe la alerta con todo el contexto.", icono: "bell" },
-      { titulo: "Seguimiento sin olvido", desc: "Ningún lead se queda sin respuesta. Cada uno tiene una secuencia activa hasta que convierte o se draining.", icono: "clock" }
+      { titulo: "Seguimiento con reglas", desc: "Cada lead tiene un siguiente paso definido hasta que convierte, se descarta o necesita intervención humana.", icono: "clock" }
     ],
     pasos: [
       { num: "01", titulo: "Mapeamos el embudo", desc: "Etapas, puntos de decisión y criterios de avance del lead." },
@@ -174,7 +174,7 @@ window.SERVICIOS = {
       { titulo: "Seguimiento post-demo", desc: "Después de una demo, el lead recibe un seguimiento automático con recursos relevantes." },
       { titulo: "Reactivación de leads fríos", desc: "Leads que no han interactuado en 30 días reciben una campaña de reactivación automática." }
     ],
-    cta: "Tu embudo se mueve solo →"
+    cta: "Habla de tu seguimiento →"
   },
   dashboard: {
     slug: "dashboard",
@@ -203,27 +203,27 @@ window.SERVICIOS = {
   },
   mantenimiento: {
     slug: "mantenimiento",
-    titulo: "Mantenimiento y Soporte Continuo",
-    tagline: "Tu automatización sigue funcionando. Siempre.",
-    descripcion: "Monitoreo activo de tus flujos, actualizaciones cuando cambia alguna herramienta, y soporte directo cuando algo no funciona como esperas.",
+    titulo: "Operación y mejora continua",
+    tagline: "La operación se mantiene, se mide y mejora.",
+    descripcion: "Monitoreamos lo que está en producción, resolvemos incidencias y ajustamos el proceso dentro del alcance contratado.",
     icono: "shield-check",
     color: "teal",
     caracteristicas: [
       { titulo: "Monitoreo activo", desc: "Alertas antes de que fallen. Si algo se rompe, lo sabemos antes que tú.", icono: "eye" },
       { titulo: "Actualizaciones incluidas", desc: "Cuando cambia una API o una herramienta, actualizamos tus flujos sin costo adicional.", icono: "refresh-cw" },
       { titulo: "Soporte directo", desc: "Un canal directo con el equipo que construyó tu automatización. Sin tickets ni esperas.", icono: "headphones" },
-      { titulo: "Uptime garantizado", desc: "Si tu flujo se cae, lo resolvemos. Eso es parte del contrato, no un extra.", icono: "shield" }
+      { titulo: "Continuidad definida", desc: "Acordamos cobertura, tiempos de respuesta y qué ocurre cuando aparece una incidencia.", icono: "shield" }
     ],
     pasos: [
-      { num: "01", titulo: "Monitoreamos 24/7", desc: "Alertas automáticas antes de que fallen. Logs y métricas siempre visibles." },
-      { num: "02", titulo: "Actualizamos", desc: "Cuando cambia alguna API o herramienta, actualizamos tus flujos sin cobrarte por ello." },
-      { num: "03", titulo: "Soporte reactivo", desc: "Si algo falla, lo resolvemos. Eso es parte del contrato, no un extra." }
+      { num: "01", titulo: "Monitoreamos", desc: "Revisamos alertas, ejecuciones e incidencias dentro de la cobertura acordada." },
+      { num: "02", titulo: "Mantenemos", desc: "Actualizamos integraciones y reglas cuando cambia el contexto del proceso." },
+      { num: "03", titulo: "Mejoramos", desc: "Usamos las métricas y los casos escalados para priorizar ajustes." }
     ],
     casos: [
       { titulo: "Caídas de integraciones", desc: "Detectamos cuando una integración se cae y la restauramos antes de que Impacte tu operación." },
       { titulo: "Actualizaciones de APIs", desc: "Cuando WhatsApp o alguna herramienta cambia su API, actualizamos tus flujos." },
       { titulo: "Errores no detectados", desc: "Errores que pasan inadvertidos en flujos complejos los detectamos y corregimos proactivamente." }
     ],
-    cta: "Mantenimiento incluido →"
+    cta: "Habla de continuidad →"
   }
 };

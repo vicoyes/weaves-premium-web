@@ -48,15 +48,11 @@ nav.scrolled {
   display: flex; align-items: center; gap: 10px;
   text-decoration: none;
 }
-.nav-logo-mark {
-  width: 28px; height: 28px;
-  display: flex; align-items: center; justify-content: center;
-}
-.nav-logo-mark svg { width: 28px; height: 28px; }
-.nav-wordmark {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600; font-size: 20px;
-  color: white; letter-spacing: -0.02em;
+.nav-logo-image {
+  width: 136px;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 .nav-links {
   display: flex; gap: 32px; list-style: none; align-items: center;
@@ -835,11 +831,13 @@ footer {
 }
 .footer-brand-block {}
 .footer-logo-row {
-  display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+  display: flex; align-items: center; margin-bottom: 18px;
 }
-.footer-wordmark {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600; font-size: 19px; color: white;
+.footer-logo-image {
+  width: 154px;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 .footer-blurb {
   font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6;
@@ -924,6 +922,7 @@ footer {
 @media (max-width: 640px) {
   nav { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; padding: 0 16px; }
   .nav-left, .nav-right { min-width: 0; }
+  .nav-logo-image { width: 118px; }
   .nav-right { gap: 0; }
   .nav-right > .nav-cta { display: none; }
   .nav-links { display: none; }

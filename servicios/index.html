@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../css/styles.css">
-    <title>Servicios — Automatización e IA para Empresas | Weaves</title>
-<meta name="description" content="9 soluciones de automatización e IA para pymes. Chatbots, RPA, marketing, webs inteligentes y más. Consulta gratuita sin compromiso.">
+    <title>Operaciones gestionadas y capacidades de IA | Weaves</title>
+<meta name="description" content="Capacidades de atención, seguimiento comercial, administración e integración para operaciones gestionadas con IA y supervisión humana.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -52,16 +52,7 @@ nav {
   display: flex; align-items: center; gap: 10px;
   text-decoration: none;
 }
-.nav-logo-mark {
-  width: 28px; height: 28px;
-  display: flex; align-items: center; justify-content: center;
-}
-.nav-logo-mark svg { width: 28px; height: 28px; }
-.nav-wordmark {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600; font-size: 20px;
-  color: white; letter-spacing: -0.02em;
-}
+.nav-logo-image { width: 136px; height: auto; display: block; object-fit: contain; }
 .nav-links {
   display: flex; gap: 32px; list-style: none; align-items: center;
 }
@@ -450,13 +441,8 @@ footer {
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 .footer-brand-block {}
-.footer-logo-row {
-  display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
-}
-.footer-wordmark {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600; font-size: 19px; color: white;
-}
+.footer-logo-row { display: flex; align-items: center; margin-bottom: 18px; }
+.footer-logo-image { width: 154px; height: auto; display: block; object-fit: contain; }
 .footer-blurb {
   font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6;
   max-width: 280px; margin-bottom: 24px; font-weight: 300;
@@ -537,6 +523,7 @@ footer {
 @media (max-width: 640px) {
   nav { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; padding: 0 16px; }
   .nav-left, .nav-right { min-width: 0; }
+  .nav-logo-image { width: 118px; }
   .nav-right { gap: 0; }
   .nav-right > .nav-cta { display: none; }
   .nav-links { display: none; }
@@ -562,9 +549,9 @@ footer {
 <section class="hero-services">
   <div class="hero-services-bg"></div>
   <div class="hero-services-content">
-    <div class="hero-services-eyebrow">Nuestras soluciones</div>
-    <h1 class="hero-services-title">Esto es lo que <em>automatizamos</em> por ti.</h1>
-    <p class="hero-services-sub">9 soluciones diseñadas para que tu empresa trabaje mejor, más rápido y con menos recursos. Sin letra pequeña.</p>
+    <div class="hero-services-eyebrow">Operaciones gestionadas con IA</div>
+    <h1 class="hero-services-title">Capacidades que ponemos a trabajar<br><em>contigo.</em></h1>
+    <p class="hero-services-sub">No vendemos herramientas aisladas. Diseñamos, conectamos y gestionamos procesos de atención, ventas y administración con alcance, métricas y supervisión humana.</p>
   </div>
 </section>
 
@@ -572,8 +559,8 @@ footer {
 <section class="services-section">
   <div class="services-inner">
     <div class="services-header reveal">
-      <div class="section-eyebrow">Lo que hacemos</div>
-      <h2>Cada servicio resuelto con <em>profundidad</em> y atención al detalle.</h2>
+      <div class="section-eyebrow">Capacidades dentro de una operación</div>
+      <h2>Empezamos por el proceso.<br><em>La tecnología viene después.</em></h2>
     </div>
 
     <div class="services-grid">
@@ -584,8 +571,8 @@ footer {
         <div class="service-card-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
         </div>
-        <div class="service-card-title">Consultoría en Automatización</div>
-        <div class="service-card-desc">Sabrás exactamente qué automatizar y cuánto vas a ahorrar. Un plan con prioridades claras y ROI proyectado desde el día uno.</div>
+        <div class="service-card-title">Assessment y diseño operativo</div>
+        <div class="service-card-desc">Mapeamos el proceso, el volumen, los sistemas, las excepciones y las métricas necesarias para decidir si merece un piloto.</div>
         <a href="consultoria.html" class="service-card-cta">
           Conocer más
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -598,8 +585,8 @@ footer {
         <div class="service-card-icon">
           <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
         </div>
-        <div class="service-card-title">Chatbot de Atención al Cliente</div>
-        <div class="service-card-desc">Responde el 70% de las consultas sin intervención humana. WhatsApp, web y redes — tu marca disponible siempre.</div>
+        <div class="service-card-title">Atención multicanal gestionada</div>
+        <div class="service-card-desc">Clasificación, respuestas autorizadas, seguimiento y escalamiento humano en WhatsApp, web, correo y otros canales.</div>
         <a href="chatbot.html" class="service-card-cta">
           Conocer más
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -612,8 +599,8 @@ footer {
         <div class="service-card-icon">
           <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
         </div>
-        <div class="service-card-title">Marketing y Redes Sociales</div>
-        <div class="service-card-desc">Tu marca presente en redes sin que nadie toque una tecla. Agentes de IA que planifican, crean y publican contenido automáticamente.</div>
+        <div class="service-card-title">Contenido y campañas</div>
+        <div class="service-card-desc">Planificación, preparación y seguimiento de campañas como capacidad complementaria dentro de una operación comercial.</div>
         <a href="marketing.html" class="service-card-cta">
           Conocer más
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -626,8 +613,8 @@ footer {
         <div class="service-card-icon">
           <svg viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
         </div>
-        <div class="service-card-title">Automatización de Procesos (RPA)</div>
-        <div class="service-card-desc">Lo que hacía alguien en 3 horas, ahora se hace solo. Facturas, reportes, sincronizaciones — sin errores, sin olvidos.</div>
+        <div class="service-card-title">Operaciones administrativas</div>
+        <div class="service-card-desc">Procesamos correos, documentos, datos y tareas repetitivas con reglas claras, registro de actividad y revisión de excepciones.</div>
         <a href="procesos.html" class="service-card-cta">
           Conocer más
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -640,8 +627,8 @@ footer {
         <div class="service-card-icon">
           <svg viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
         </div>
-        <div class="service-card-title">Integraciones y Flujos de Datos</div>
-        <div class="service-card-desc">Tu CRM, email y WhatsApp hablando entre sí automáticamente. Información siempre sincronizada, sin duplicados, sin tareas manuales.</div>
+        <div class="service-card-title">Integraciones y flujos de datos</div>
+        <div class="service-card-desc">Conectamos CRM, email, WhatsApp y herramientas internas para que la operación avance sin depender de copiar y pegar.</div>
         <a href="integraciones.html" class="service-card-cta">
           Conocer más
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -654,8 +641,8 @@ footer {
         <div class="service-card-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
         </div>
-        <div class="service-card-title">Sitio Web Inteligente</div>
-        <div class="service-card-desc">Una web que no solo muestra información: capta leads y trabaja. Chatbot integrado, formularios automatizados y optimización SEO.</div>
+        <div class="service-card-title">Web como punto de entrada</div>
+        <div class="service-card-desc">Una web que recoge contexto, capta oportunidades y conecta el primer contacto con el proceso comercial adecuado.</div>
         <a href="web.html" class="service-card-cta">
           Conocer más
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -668,8 +655,8 @@ footer {
         <div class="service-card-icon">
           <svg viewBox="0 0 24 24"><path d="M22 7L13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
         </div>
-        <div class="service-card-title">Automatización de Embudo de Ventas</div>
-        <div class="service-card-desc">Desde que entra un lead hasta que cierra, cada paso avanza solo. nurturing automático, recordatorios, seguimiento y cierre.</div>
+        <div class="service-card-title">Seguimiento comercial</div>
+        <div class="service-card-desc">Captura, clasificación, registro y seguimiento de leads con reglas de prioridad y escalamiento para el equipo.</div>
         <a href="embudo.html" class="service-card-cta">
           Conocer más
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -682,8 +669,8 @@ footer {
         <div class="service-card-icon">
           <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
         </div>
-        <div class="service-card-title">Dashboard y Reportes Automatizados</div>
-        <div class="service-card-desc">Los datos que necesitas para decidir, llegan a tu bandeja sin que los pidas. Métricas en tiempo real, reportes programados y alertas inteligentes.</div>
+        <div class="service-card-title">Métricas y observabilidad</div>
+        <div class="service-card-desc">Visibilidad sobre volumen, tiempos, errores, escalamientos y coste por operación para mejorar con datos.</div>
         <a href="dashboard.html" class="service-card-cta">
           Conocer más
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -696,8 +683,8 @@ footer {
         <div class="service-card-icon">
           <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
         </div>
-        <div class="service-card-title">Mantenimiento y Soporte Continuo</div>
-        <div class="service-card-desc">Tu automatización sigue funcionando. Siempre. Monitoreo 24/7, correcciones proactivas y mejoras continuas sin costes sorpresa.</div>
+        <div class="service-card-title">Operación y mejora continua</div>
+        <div class="service-card-desc">Monitoreamos lo que está en producción, resolvemos incidencias y mejoramos el proceso según resultados y cambios del negocio.</div>
         <a href="mantenimiento.html" class="service-card-cta">
           Conocer más
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -714,9 +701,9 @@ footer {
     <div class="why-header reveal">
       <div>
         <div class="section-eyebrow">Por qué Weaves</div>
-        <h2>No vendemos herramientas.<br><em>Entregamos resultados.</em></h2>
+        <h2>No vendemos herramientas.<br><em>Gestionamos operaciones.</em></h2>
       </div>
-      <p>Somos el equipo que se encarga de todo — estrategia, implementación y soporte — para que tú solo disfrutes de los resultados.</p>
+      <p>Analizamos, implementamos y acompañamos el proceso con métricas, límites claros y supervisión humana cuando hace falta.</p>
     </div>
 
     <div class="why-grid">
@@ -724,22 +711,22 @@ footer {
         <div class="why-icon-bg">
           <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         </div>
-        <div class="why-cell-title">Sin letra pequeña</div>
-        <div class="why-cell-desc">Costes claros desde el inicio. Sin sorpresas en la factura ni tarifas ocultas. Sabes exactamente qué obtienes y cuánto pagas.</div>
+        <div class="why-cell-title">Alcance claro</div>
+        <div class="why-cell-desc">Cada operación define qué incluye, qué volumen procesa, qué se escala a una persona y qué queda fuera.</div>
       </div>
       <div class="why-cell reveal reveal-delay-1">
         <div class="why-icon-bg">
           <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         </div>
-        <div class="why-cell-title">ROI primero</div>
-        <div class="why-cell-desc">Priorizamos tu retorno de inversión antes que la tecnología por moda. Cada decisión se mide en impacto real en tu negocio.</div>
+        <div class="why-cell-title">Medición continua</div>
+        <div class="why-cell-desc">Seguimos volumen, tiempos, errores, escalamientos y coste por operación para demostrar la mejora.</div>
       </div>
       <div class="why-cell reveal reveal-delay-2">
         <div class="why-icon-bg">
           <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
         </div>
-        <div class="why-cell-title">Acompañamiento total</div>
-        <div class="why-cell-desc">Te acompañamos antes, durante y después. No te dejamos solo con una herramienta que no sabes usar.</div>
+        <div class="why-cell-title">Supervisión humana</div>
+        <div class="why-cell-desc">Tu equipo conserva el control de las excepciones, las relaciones y las decisiones sensibles.</div>
       </div>
     </div>
   </div>
@@ -749,14 +736,14 @@ footer {
 <section class="cta-final-section">
   <div class="cta-final-inner">
     <div class="cta-final-eyebrow">Siguiente paso</div>
-    <h2 class="cta-final-title">Automatiza tu empresa<br><em>hoy mismo.</em></h2>
-    <p class="cta-final-sub">Agenda tu diagnóstico gratuito y recibe una propuesta adaptada a tus objetivos. Sin compromiso, respuesta en 24h.</p>
+    <h2 class="cta-final-title">Empieza por un proceso<br><em>concreto.</em></h2>
+    <p class="cta-final-sub">Cuéntanos dónde se acumula el trabajo repetitivo. Analizamos el encaje y te indicamos el siguiente paso.</p>
     <div class="cta-final-btns">
-      <a href="#" class="btn-cta-primary">
-        Agenda tu diagnóstico gratuito
+      <a href="../pages/diagnostico-gratuito.html" class="btn-cta-primary">
+        Analizar un proceso
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="#" class="btn-cta-secondary">Contactar ahora</a>
+      <a href="../pages/contacto.html" class="btn-cta-secondary">Contactar ahora</a>
     </div>
     <div class="cta-final-assurances">
       <div class="cta-ass">
@@ -765,11 +752,11 @@ footer {
       </div>
       <div class="cta-ass">
         <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Respuesta en 24h
+        Proceso claro
       </div>
       <div class="cta-ass">
         <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        100% confidencial
+        Información confidencial
       </div>
     </div>
   </div>
