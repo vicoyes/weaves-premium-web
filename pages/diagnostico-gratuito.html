@@ -10,8 +10,84 @@
 <link rel="stylesheet" href="../css/diagnostic-chat.css">
 
 <style>
-/* Adjust specific animations if necessary, relying mostly on styles.css */
-#diagnostic-modal { backdrop-filter: blur(8px); }
+.diagnostic-hero { min-height: 82vh; padding-top: 140px; justify-content: center; text-align: center; }
+.diagnostic-hero .hero-content { max-width: 940px; }
+.diagnostic-trust {
+  color: rgba(255,255,255,0.55); font-size: 13px; margin-top: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.diagnostic-trust svg { width: 16px; height: 16px; color: var(--teal); }
+
+.diagnostic-card-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0,1fr));
+  border-top: 1px solid var(--border); border-left: 1px solid var(--border);
+}
+.diagnostic-card {
+  min-width: 0; padding: 40px 34px;
+  background: white; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.diagnostic-card:hover { transform: translateY(-4px); box-shadow: 0 18px 45px rgba(30,42,74,.08); z-index: 1; }
+.diagnostic-icon {
+  width: 52px; height: 52px; border-radius: 15px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--teal); background: rgba(0,180,166,.09); border: 1px solid rgba(0,180,166,.16);
+  margin-bottom: 24px;
+}
+.diagnostic-icon svg { width: 24px; height: 24px; stroke-width: 1.8; }
+.diagnostic-card h3 {
+  font-family: 'Space Grotesk', sans-serif; font-size: 21px; line-height: 1.2;
+  color: var(--indigo); margin-bottom: 12px; letter-spacing: -.02em;
+}
+.diagnostic-card p { color: var(--muted); font-size: 14px; line-height: 1.65; font-weight: 300; }
+
+.diagnostic-outcome-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0,1fr));
+  max-width: 1400px; margin: 0 auto; padding: 0 48px;
+}
+.diagnostic-outcome-card {
+  padding: 42px 36px; background: white;
+  border: 1px solid var(--border); margin-left: -1px;
+}
+.diagnostic-outcome-card:nth-child(2) .diagnostic-icon { color: var(--amber); background: rgba(245,158,11,.1); border-color: rgba(245,158,11,.18); }
+.diagnostic-outcome-card h3 {
+  font-family: 'Space Grotesk', sans-serif; font-size: 20px; color: var(--indigo);
+  margin-bottom: 12px; letter-spacing: -.02em;
+}
+.diagnostic-outcome-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+#diagnostic-modal { backdrop-filter: blur(12px); }
+.diagnostic-modal-wrap {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;
+}
+.diagnostic-modal-panel {
+  background: #0B1220; border: 1px solid rgba(255,255,255,.1); border-radius: 20px;
+  max-width: 920px; width: 100%; position: relative; padding: 28px;
+  max-height: 92vh; display: flex; flex-direction: column;
+  box-shadow: 0 30px 90px rgba(0,0,0,.5);
+}
+.diagnostic-modal-close {
+  position: absolute; top: 18px; right: 18px; z-index: 5;
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+  color: white; cursor: pointer; transition: .2s;
+}
+.diagnostic-modal-close:hover { background: rgba(255,255,255,.12); transform: rotate(4deg); }
+.diagnostic-modal-close svg { width: 20px; height: 20px; }
+#diagnostic-chat-content { flex: 1; display: flex; flex-direction: column; overflow: hidden; margin-top: 34px; }
+
+@media (max-width: 900px) {
+  .diagnostic-card-grid, .diagnostic-outcome-grid { grid-template-columns: 1fr; }
+  .diagnostic-outcome-grid { padding: 0 24px; }
+  .diagnostic-outcome-card { margin-left: 0; margin-top: -1px; }
+}
+@media (max-width: 640px) {
+  .diagnostic-hero { min-height: auto; padding-top: 120px; padding-bottom: 80px; }
+  .diagnostic-card { padding: 32px 24px; }
+  .diagnostic-modal-wrap { padding: 10px; }
+  .diagnostic-modal-panel { padding: 18px; border-radius: 16px; max-height: 96vh; }
+}
 </style>
 <!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/dc631879d65242ce24a26ab58c89d599/script.js"></script> <!-- End cookieyes banner -->
 </head>
@@ -19,9 +95,9 @@
 <div id="header-placeholder"></div>
 
 <!-- HERO DIAGNOSTICO -->
-<section class="hero" style="min-height: 85vh; padding-top: 140px; justify-content: center; text-align: center;">
+<section class="hero diagnostic-hero">
   <div class="hero-bg"></div>
-  <div class="hero-content" style="max-width: 900px;">
+  <div class="hero-content">
     <div class="section-eyebrow reveal" style="justify-content: center;">Conversación de encaje</div>
     <h1 class="hero-title reveal" style="max-width: 100%; font-size: clamp(40px, 6vw, 76px); margin-bottom: 24px;">¿Qué proceso está quitando<br><em>capacidad a tu equipo?</em></h1>
     <p class="hero-sub reveal reveal-delay-1" style="max-width: 700px; margin: 0 auto 40px auto; font-size: 18px;">Cuéntanos cómo funciona hoy una parte de tu operación. Revisamos volumen, fricción, sistemas y excepciones para decidir si tiene sentido avanzar.</p>
@@ -29,11 +105,11 @@
     <div class="reveal reveal-delay-2">
       <button class="btn-hero-primary" onclick="startDiagnostic()" style="padding: 18px 36px; font-size: 16px; margin-bottom: 16px;">
         Analizar mi proceso
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px; margin-left: 8px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <i data-lucide="arrow-right"></i>
       </button>
-      <div style="color: var(--muted); font-size: 13px; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" style="width: 16px;"><polyline points="20 6 9 17 4 12"/></svg>
-        Gratuito · Conversación inicial sin compromiso.
+      <div class="diagnostic-trust">
+        <i data-lucide="circle-check"></i>
+        Gratuito · Conversación inicial sin compromiso
       </div>
     </div>
   </div>
@@ -49,19 +125,22 @@
       </div>
     </div>
     
-    <div class="results-grid results-grid-three">
-      <div class="result-cell reveal">
-        <div class="result-label" style="font-size: 20px; color: var(--indigo); font-weight: 600; margin-bottom: 16px;">Trabajo repetitivo</div>
-        <div class="result-desc">Tu equipo dedica demasiadas horas a clasificar, copiar, responder o actualizar información.</div>
-      </div>
-      <div class="result-cell reveal reveal-delay-1">
-        <div class="result-label" style="font-size: 20px; color: var(--indigo); font-weight: 600; margin-bottom: 16px;">Sistemas desconectados</div>
-        <div class="result-desc">Tus herramientas contienen la información, pero el proceso depende de mover datos manualmente entre ellas.</div>
-      </div>
-      <div class="result-cell reveal reveal-delay-2">
-        <div class="result-label" style="font-size: 20px; color: var(--indigo); font-weight: 600; margin-bottom: 16px;">Necesidad de control</div>
-        <div class="result-desc">Quieres ampliar capacidad sin entregar decisiones sensibles a un sistema sin límites ni supervisión.</div>
-      </div>
+    <div class="diagnostic-card-grid">
+      <article class="diagnostic-card reveal">
+        <div class="diagnostic-icon"><i data-lucide="timer-reset"></i></div>
+        <h3>Trabajo repetitivo</h3>
+        <p>Tu equipo dedica demasiadas horas a clasificar, copiar, responder o actualizar información.</p>
+      </article>
+      <article class="diagnostic-card reveal reveal-delay-1">
+        <div class="diagnostic-icon"><i data-lucide="workflow"></i></div>
+        <h3>Sistemas desconectados</h3>
+        <p>Tus herramientas contienen la información, pero el proceso depende de mover datos manualmente entre ellas.</p>
+      </article>
+      <article class="diagnostic-card reveal reveal-delay-2">
+        <div class="diagnostic-icon"><i data-lucide="shield-check"></i></div>
+        <h3>Necesidad de control</h3>
+        <p>Quieres ampliar capacidad sin entregar decisiones sensibles a un sistema sin límites ni supervisión.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -72,19 +151,20 @@
     <div class="feature-visual reveal" style="background: transparent; border: none;">
       <div class="workflow" style="box-shadow: none; border: 1px solid rgba(255,255,255,0.1);">
          <div class="wf-node">
-            <div class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+            <div class="wf-node-icon"><i data-lucide="messages-square"></i></div>
             <div class="wf-node-title">Contexto del proceso</div>
          </div>
          <div class="wf-node amber">
-            <div class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="wf-node-icon"><i data-lucide="scan-search"></i></div>
             <div class="wf-node-title">Análisis inicial</div>
          </div>
          <div class="wf-node" style="grid-column: span 2; background: rgba(0,180,166,0.2); border-color: rgba(0,180,166,0.5);">
-            <div class="wf-node-icon" style="background: var(--teal);"><svg viewBox="0 0 24 24" fill="none"><path d="M20 12V8H6a2 2 0 01-2-2c0-1.1.9-2 2-2h12v4"/><path d="M20 12v-4H6a2 2 0 00-2 2v10a2 2 0 002 2h14v-4"/><path d="M18 12a2 2 0 000 4h4v-4z" stroke="white"/></svg></div>
+            <div class="wf-node-icon" style="background: var(--teal); color: white;"><i data-lucide="user-check"></i></div>
             <div class="wf-node-title" style="color: white;">Revisión humana</div>
          </div>
          <div class="wf-node" style="grid-column: span 2;">
-            <div class="wf-node-title">Siguiente paso recomendado</div>
+            <div class="wf-node-icon"><i data-lucide="route"></i></div>
+             <div class="wf-node-title">Siguiente paso recomendado</div>
          </div>
       </div>
     </div>
@@ -111,22 +191,22 @@
        <h2 class="section-title reveal" style="margin: 0 auto;">Una decisión clara<br><em>sobre el siguiente paso.</em></h2>
     </div>
   </div>
-  <div class="tech-grid tech-grid-report">
-     <div class="tech-cell tech-cell-report reveal">
-        <div style="font-size: 24px;">📊</div>
-        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: var(--indigo);">Mapa inicial</div>
-        <div style="font-size: 14px; color: var(--muted); line-height: 1.6;">Una primera lectura de dónde se acumula el trabajo y qué parte del proceso merece atención.</div>
-     </div>
-     <div class="tech-cell tech-cell-report reveal reveal-delay-1">
-        <div style="font-size: 24px;">⚙️</div>
-        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: var(--indigo);">Encaje técnico</div>
-        <div style="font-size: 14px; color: var(--muted); line-height: 1.6;">Una orientación sobre sistemas, integraciones y límites que habría que revisar en un Assessment.</div>
-     </div>
-     <div class="tech-cell tech-cell-report tech-cell-span-2 reveal reveal-delay-2" style="background: var(--offwhite);">
-        <div style="font-size: 24px;">💡</div>
-        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: var(--indigo);">El siguiente paso</div>
-        <div style="font-size: 14px; color: var(--muted); line-height: 1.6;">Si el encaje es claro, proponemos un Assessment o un Pilot. Si no podemos aportar, también te lo diremos.</div>
-     </div>
+  <div class="diagnostic-outcome-grid">
+    <article class="diagnostic-outcome-card reveal">
+      <div class="diagnostic-icon"><i data-lucide="map"></i></div>
+      <h3>Mapa inicial</h3>
+      <p>Una primera lectura de dónde se acumula el trabajo y qué parte del proceso merece atención.</p>
+    </article>
+    <article class="diagnostic-outcome-card reveal reveal-delay-1">
+      <div class="diagnostic-icon"><i data-lucide="blocks"></i></div>
+      <h3>Encaje técnico</h3>
+      <p>Una orientación sobre sistemas, integraciones y límites que habría que revisar en un Assessment.</p>
+    </article>
+    <article class="diagnostic-outcome-card reveal reveal-delay-2">
+      <div class="diagnostic-icon"><i data-lucide="signpost"></i></div>
+      <h3>El siguiente paso</h3>
+      <p>Si el encaje es claro, proponemos un Assessment o un Pilot. Si no podemos aportar, también te lo diremos.</p>
+    </article>
   </div>
 </section>
 
@@ -136,7 +216,7 @@
     <h2 class="bigcta-title reveal">Empieza por un proceso<br><em>concreto.</em></h2>
     <p class="bigcta-sub reveal reveal-delay-1">La conversación inicial es gratuita y sirve para decidir si tiene sentido avanzar.</p>
     <div class="bigcta-btns reveal reveal-delay-2" style="justify-content: center;">
-      <button class="btn-hero-primary" onclick="startDiagnostic()" style="font-family: 'Space Grotesk', sans-serif;">Analizar mi proceso</button>
+      <button class="btn-hero-primary" onclick="startDiagnostic()" style="font-family: 'Space Grotesk', sans-serif;">Analizar mi proceso <i data-lucide="arrow-right"></i></button>
     </div>
   </div>
 </section>
@@ -145,20 +225,25 @@
 <div id="footer-placeholder"></div>
 
 <!-- Step Form Modal (Chat conversacional) -->
-<div id="diagnostic-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; overflow-y: auto;">
-    <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px;">
-        <div style="background: var(--dark); border: 1px solid var(--border); border-radius: 12px; max-width: 900px; width: 100%; position: relative; padding: 20px; max-height: 90vh; display: flex; flex-direction: column;">
-            <button onclick="closeDiagnostic()" style="position: absolute; top: 16px; right: 24px; background: transparent; border: none; color: white; font-size: 32px; cursor: pointer; line-height: 1; transition: 0.2s;">&times;</button>
-            <div id="diagnostic-chat-content" style="flex: 1; display: flex; flex-direction: column; overflow: hidden; margin-top: 40px;"></div>
-        </div>
+<div id="diagnostic-modal" style="display: none; position: fixed; inset: 0; width: 100%; height: 100%; background: rgba(3,8,18,0.88); z-index: 9999; overflow-y: auto;">
+  <div class="diagnostic-modal-wrap">
+    <div class="diagnostic-modal-panel">
+      <button class="diagnostic-modal-close" onclick="closeDiagnostic()" type="button" aria-label="Cerrar diagnóstico">
+        <i data-lucide="x"></i>
+      </button>
+      <div id="diagnostic-chat-content"></div>
     </div>
+  </div>
 </div>
 
 <!-- Scripts -->
+<script src="https://unpkg.com/lucide@latest"></script>
 <script src="../js/components-loader.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/diagnostic-chat.js"></script>
 <script>
+if (typeof lucide !== 'undefined') lucide.createIcons();
+
 // reveal animations for scroll
 const reveals = document.querySelectorAll('.reveal');
 const obs = new IntersectionObserver((entries) => {

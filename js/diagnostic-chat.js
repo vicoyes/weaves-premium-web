@@ -19,7 +19,7 @@ class DiagnosticChat {
             {
                 id: 'welcome',
                 type: 'message',
-                text: '¡Hola! 👋 Soy el asistente de diagnóstico de Weaves.\n\nVoy a hacerte algunas preguntas para entender cómo funciona tu negocio y dónde podríamos ayudarte con automatización inteligente.\n\nNo te preocupes, esto no es un formulario aburrido. Es una conversación. Y puedes tomarte el tiempo que necesites.'
+                text: 'Hola, soy el asistente de diagnóstico de Weaves.\n\nVoy a hacerte algunas preguntas para entender cómo funciona tu negocio y dónde podríamos ayudarte con automatización inteligente.\n\nNo es un formulario genérico. Es una conversación y puedes tomarte el tiempo que necesites.'
             },
             {
                 id: 'role',
@@ -331,12 +331,12 @@ class DiagnosticChat {
             <div class="question-container" id="question-container"></div>
             <div class="navigation-area">
                 <button class="btn-nav" id="btn-back" style="visibility: hidden;">
-                    <span>←</span>
+                    <i data-lucide="arrow-left"></i>
                     <span>Atrás</span>
                 </button>
                 <button class="btn-continue" id="btn-next" style="display: none;">
                     <span>Continuar</span>
-                    <span>→</span>
+                    <i data-lucide="arrow-right"></i>
                 </button>
             </div>
         `;
@@ -371,6 +371,7 @@ class DiagnosticChat {
 
         // Render question
         container.innerHTML = this.renderQuestion(question);
+        this.refreshIcons();
 
         // Fade in
         await this.sleep(50);
@@ -400,8 +401,8 @@ class DiagnosticChat {
             case 'message':
                 html += `
                     <button class="typeform-option" id="start-button" style="margin-top: 2rem; max-width: 400px;">
-                        <span>✨</span>
-                        <span>Listo, ¡empecemos!</span>
+                        <i data-lucide="sparkles"></i>
+                        <span>Listo, empecemos</span>
                     </button>
                 `;
                 break;
@@ -873,7 +874,7 @@ class DiagnosticChat {
 
             container.innerHTML = `
                 <div class="success-message">
-                    <div class="icon">✨</div>
+                    <div class="status-icon status-icon-success"><i data-lucide="circle-check-big"></i></div>
                     <h2>¡Diagnóstico completado!</h2>
                     <p>Gracias por tu tiempo. Hemos recibido tu información y nuestra IA está generando tu diagnóstico personalizado.</p>
                     <p style="margin-top: 1.5rem;">En unos minutos recibirás un email con:</p>
@@ -882,20 +883,28 @@ class DiagnosticChat {
                         <li>Áreas prioritarias de automatización</li>
                         <li>Recomendaciones específicas</li>
                     </ul>
-                    <p style="margin-top: 2rem; color: var(--primary-color); font-weight: 600;">Un experto de nuestro equipo revisará tu caso y te contactará pronto. 🚀</p>
+                    <p style="margin-top: 2rem; color: var(--primary-color); font-weight: 600;">Un experto de nuestro equipo revisará tu caso y te contactará pronto.</p>
                 </div>
             `;
+            this.refreshIcons();
 
         } catch (error) {
             console.error('Error:', error);
             container.innerHTML = `
                 <div class="success-message">
-                    <div class="icon">⚠️</div>
+                    <div class="status-icon status-icon-error"><i data-lucide="triangle-alert"></i></div>
                     <h2>Error al enviar</h2>
                     <p>Hubo un problema al enviar tu diagnóstico. Por favor, inténtalo de nuevo o contáctanos directamente.</p>
                     <button class="btn-continue" onclick="location.reload()" style="margin-top: 2rem;">Reintentar</button>
                 </div>
             `;
+            this.refreshIcons();
+        }
+    }
+
+    refreshIcons() {
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
         }
     }
 
