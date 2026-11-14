@@ -1,77 +1,29 @@
-# Sistema de Componentes Modulares
+# Componentes Weaves
 
-Este proyecto utiliza un sistema de componentes modulares para Header y Footer, facilitando el mantenimiento del sitio.
+Biblioteca HTML + CSS sin framework. `../design-system.html` muestra los tokens y los patrones; la referencia visual es `../DESIGN.md`. Estos archivos son independientes de las páginas publicadas.
 
-## 📁 Estructura
+## Uso
 
-```
-weaves/
-├── components/
-│   ├── header.html      # Navegación principal
-│   └── footer.html      # Pie de página
-├── js/
-│   └── components-loader.js  # Script que carga los componentes
-└── *.html               # Páginas del sitio
-```
+1. Sirve el repositorio por HTTP: `python3 -m http.server 8000` desde la raíz. Abre `/design-system.html`.
+2. Incluye `components/weaves.css` y carga las familias Space Grotesk, Inter y JetBrains Mono (como en la página de muestra). Ajusta la ruta relativa según la página; si no cargan, hay fuentes de respaldo.
+3. Envuelve los componentes en un contenedor con `class="wv-scope"` y copia el marcado del fragmento que corresponda. Los fragmentos no se cargan solos: no son web components ni plantillas parametrizadas. Adapta textos, destinos y IDs a cada instancia.
 
-## 🚀 Uso en nuevas páginas
+| Fragmento | Uso |
+| --- | --- |
+| `buttons.html` | `.wv-btn--primary`, `--secondary` o `--ghost`; `<a>` para navegar, `<button>` para acciones. Usa `disabled` en botones deshabilitados. |
+| `cards.html` | `wv-card--service` para un servicio; `wv-card--case` para un caso. Cambia textos, enlaces y resultado; no publiques cifras sin verificar. |
+| `forms.html` | Campos con `<label>`, ayudas vinculadas y consentimiento. El ejemplo **no envía datos**: conecta el backend y sustituye el botón por `type="submit"` al implementar. Usa IDs únicos en cada copia. |
+| `badges.html` | Etiquetas de contexto; variantes base, `--amber` y `--neutral`. No comuniques un estado solo con color. |
+| `alerts.html` | Mensajes de información, advertencia y error. Para errores dinámicos, aplica `role="alert"` al contenedor actualizado; evita anunciar alertas estáticas innecesariamente. |
+| `navigation.html` | Patrón autónomo, fluido y envolvente, con enlaces reales. Ajusta destinos y `aria-current` según la página. |
+| `footer-pattern.html` | Pie autónomo de ejemplo. Actualiza el contenido y los destinos antes de usarlo. |
 
-Para usar los componentes en cualquier página HTML:
+Las clases `is-hover` e `is-focus` son **solo para muestras**: los estados reales funcionan con `:hover` y `:focus-visible`. Evita `aria-disabled` en enlaces navegables: para una acción no disponible usa un botón con `disabled` o elimina el enlace.
 
-### 1. Agregar placeholders en el HTML
+## Cabecera y pie existentes
 
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <!-- Tu head aquí -->
-</head>
-<body>
-    <!-- Header Placeholder -->
-    <div id="header-placeholder"></div>
+`header.html` y `footer.html` son los componentes históricos del sitio. El cargador `js/components-loader.js` los inserta en `#header-placeholder` y `#footer-placeholder`; dependen de CSS y JS del sitio. No se sustituyeron ni modificaron: `navigation.html` y `footer-pattern.html` son ejemplos alternativos aislados.
 
-    <!-- Tu contenido aquí -->
+## Accesibilidad
 
-    <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
-
-    <!-- Scripts - IMPORTANTE: components-loader.js debe ir primero -->
-    <script src="js/components-loader.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/animations.js"></script>
-</body>
-</html>
-```
-
-## ✏️ Modificar Header o Footer
-
-Para actualizar el header o footer en **todas las páginas** simultáneamente:
-
-1. Edita el archivo correspondiente:
-   - `components/header.html` para el header
-   - `components/footer.html` para el footer
-
-2. Guarda los cambios
-
-3. Los cambios se aplicarán automáticamente a todas las páginas
-
-## ✨ Características
-
-- ✅ **Mantenimiento centralizado**: Edita una vez, aplica en todas partes
-- ✅ **Navegación activa automática**: El enlace de la página actual se marca como activo
-- ✅ **Menú móvil funcional**: Se reinicializa automáticamente después de cargar
-- ✅ **SEO-friendly**: Los componentes se cargan rápidamente
-- ✅ **Compatible con GitHub Pages**: No requiere servidor PHP
-
-## 🔧 Funcionalidades del components-loader.js
-
-- Carga automática de header y footer
-- Marca el enlace de navegación activo según la página actual
-- Reinicializa el menú móvil después de cargar
-- Manejo de errores en caso de que falten archivos
-
-## 📝 Notas
-
-- El script usa `fetch()` API, funciona en todos los navegadores modernos
-- Para desarrollo local, usa un servidor local (como Live Server de VS Code)
-- Si editas rutas de imágenes/links, hazlo en los archivos de componentes
+Mantén foco visible y orden lógico; vincula cada error al campo con `aria-describedby` y `aria-invalid`; comprueba contraste sobre el fondo final, especialmente en glassmorphism; conserva la adaptación móvil y `prefers-reduced-motion`. Prueba formularios, navegación por teclado y tecnologías de asistencia en cada integración. El contraste de los colores de marca depende de su combinación, no se garantiza por token.
