@@ -24,7 +24,7 @@ El tono visual es: **dark premium con acentos de energía**. Fondos oscuros con 
 **Graphic Material Rules (Web vs Social Media)**
 - **Backgrounds:** Marketing graphics must use the `Dark / Indigo Deep` foundations to maintain the premium tech look. Avoid solid flat colors; use subtle dark radial gradients with `rgba(245,158,11,0.15)` (Amber glow) or `rgba(0,180,166,0.15)` (Teal glow) to create depth.
 - **Glassmorphism:** Overlays or feature cards in social media graphics should map to the `rgba(255,255,255,0.03)` background with a `rgba(255,255,255,0.08)` border.
-- **Photography/Imagery:** Avoid generic "people in suits pointing at a laptop". Use conceptual vectors, node architectures, code snippets (`feTurbulence` noises), or dark-themed abstract UI representations.
+- **Photography/Imagery:** Prohibido el cliché de stock corporativo (trajes señalando un portátil, apretones de manos, equipo riendo en una sala de cristal). Preferente: fotografía editorial de personas reales en su entorno de trabajo real —luz lateral natural y ventana sin quemar, sujetos descentrados y en acción, algo delante y detrás en foco, ropa del sector con arrugas, edad real (núcleo 35-50), objetos con desgaste y etiqueta, una sola media sonrisa y el resto concentrado—; nadie mira a cámara. Lo aspiracional se consigue por luz, composición y atrezzo, nunca por postura. Los vectores conceptuales, las arquitecturas de nodos y las UI se reservan para explicar sistemas y procesos, no para representar personas. Una foto por sección, y muestra siempre el mundo del cliente, nunca el nuestro.
 - **Iconography:** Strict use of **Lucide Icons** (round, 1.5px to 2px stroke, minimal).
 
 ### Color Palette (Expanded for Designers)

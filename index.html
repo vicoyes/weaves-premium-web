@@ -6,7 +6,8 @@
 <meta name="description" content="Transformamos tareas repetitivas de atención, seguimiento comercial y administración en procesos conectados, medibles y supervisados.">
 <title>Weaves — Más capacidad para tu equipo con IA y automatización</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=20260825-5">
+<link rel="stylesheet" href="css/styles.css?v=20261123-4">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js"}}</script>
 </head>
 <body>
 
@@ -40,23 +41,36 @@
 </div>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">IA y automatización para PYMEs</div>
-    <h1 class="hero-title">Ampliamos la capacidad de<br><em>tu equipo, sin aumentar su carga.</em></h1>
-    <p class="hero-sub">
-      Transformamos tareas manuales de atención, seguimiento comercial y administración en procesos conectados, medibles y supervisados. Tu equipo recupera tiempo para atender clientes, tomar decisiones y hacer crecer el negocio.
-    </p>
-    <div class="hero-ctas">
-      <a href="pages/diagnostico-gratuito.html" class="btn-hero-primary">
-        Analizar mi proceso
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="servicios/index.html#operaciones" class="btn-hero-secondary">
-        Ver casos de uso
-      </a>
+<section class="hero-w" id="inicio">
+  <div class="hero-w-grid" aria-hidden="true"></div>
+  <div class="hero-w-scene" id="hero-scene" aria-hidden="true"></div>
+  <div class="hero-w-labels" id="hero-labels" aria-hidden="true"></div>
+  <div class="hero-w-chips" id="hero-chips" aria-hidden="true"></div>
+  <div class="hero-w-inner">
+    <div class="hero-w-left">
+      <p class="hero-w-kicker aw" style="--d:.05s">IA y automatización para PYMEs</p>
+      <h1 class="hero-w-title">
+        <span class="lw"><i class="aw" style="--d:.16s">Más capacidad</i></span>
+        <span class="lw"><i class="aw" style="--d:.26s">para tu equipo,</i></span>
+        <span class="lw"><i class="aw lw-accent" style="--d:.36s">y menos carga.</i></span>
+      </h1>
+      <p class="hero-w-sub aw" style="--d:.52s">
+        Convertimos tareas manuales de atención, seguimiento comercial y administración en procesos conectados, medibles y supervisados. Tu equipo recupera tiempo para atender clientes y tomar decisiones.
+      </p>
+      <div class="hero-w-ctas aw" style="--d:.62s">
+        <a href="pages/diagnostico-gratuito.html" class="btn-w btn-w--primary">
+          Analizar mi proceso
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="servicios/index.html#operaciones" class="btn-w btn-w--ghost">Ver casos de uso</a>
+      </div>
+      <div class="hero-w-stats aw" style="--d:.74s">
+        <div class="sw"><b>08</b><span>empresas acompañadas</span></div>
+        <div class="sw"><b>06</b><span>sectores atendidos</span></div>
+        <div class="sw"><b>03</b><span>frentes de operación</span></div>
+      </div>
     </div>
+    <div class="hero-w-space" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -67,40 +81,24 @@
   </div>
   <div class="marquee-wrap">
     <div class="marquee-track">
-      <span class="marquee-item">Rubik Express</span>
-      <span class="marquee-item">·</span>
-      <span class="marquee-item">Empieza de Cero</span>
-      <span class="marquee-item">·</span>
-      <span class="marquee-item">Ananta Seguridad</span>
-      <span class="marquee-item">·</span>
-      <span class="marquee-item">Stellamia</span>
-      <span class="marquee-item">·</span>
-      <span class="marquee-item">Lunea</span>
-      <span class="marquee-item">·</span>
-      <span class="marquee-item">Transi</span>
-      <span class="marquee-item">·</span>
-      <span class="marquee-item">iWisit</span>
-      <span class="marquee-item">·</span>
-      <span class="marquee-item">Zuzel Amelia</span>
-      <span class="marquee-item">·</span>
+      <span class="marquee-logo"><img src="images/client/logo-rubik.png" alt="Rubik Express" width="200" height="120" decoding="async"></span>
+      <span class="marquee-logo"><img src="images/client/logo-empieza.png" alt="Empieza de Cero" width="404" height="86" decoding="async"></span>
+      <span class="marquee-logo"><img src="images/client/logo-ananta.png" alt="Ananta Seguridad" width="189" height="120" decoding="async"></span>
+      <span class="marquee-logo"><img src="images/client/logo-stellamia.png" alt="Stellamia" width="213" height="120" decoding="async"></span>
+      <span class="marquee-logo"><img src="images/client/logo-lunea.svg" alt="Lunea" width="200" height="112" decoding="async"></span>
+      <span class="marquee-logo"><img src="images/client/logo-transi.png" alt="Transi" width="459" height="120" decoding="async"></span>
+      <span class="marquee-logo"><img src="images/client/logo-iwisit-mono.svg" alt="iSwift" width="114" height="40" decoding="async"></span>
+      <span class="marquee-logo"><img src="images/client/logo-zuzel.png" alt="Zuzel Amelia" width="289" height="95" decoding="async"></span>
     </div>
     <div class="marquee-track" aria-hidden="true">
-      <span class="marquee-item">Rubik Express</span>
-      <span class="marquee-item">·</span>
-      <span class="marquee-item">Empieza de Cero</span>
-      <span class="marquee-item">·</span>
-      <span class="marquee-item">Ananta Seguridad</span>
-      <span class="marquee-item">·</span>
-      <span class="marquee-item">Stellamia</span>
-      <span class="marquee-item">·</span>
-      <span class="marquee-item">Lunea</span>
-      <span class="marquee-item">·</span>
-      <span class="marquee-item">Transi</span>
-      <span class="marquee-item">·</span>
-      <span class="marquee-item">iWisit</span>
-      <span class="marquee-item">·</span>
-      <span class="marquee-item">Zuzel Amelia</span>
-      <span class="marquee-item">·</span>
+      <span class="marquee-logo"><img src="images/client/logo-rubik.png" alt="" width="200" height="120" loading="lazy" decoding="async"></span>
+      <span class="marquee-logo"><img src="images/client/logo-empieza.png" alt="" width="404" height="86" loading="lazy" decoding="async"></span>
+      <span class="marquee-logo"><img src="images/client/logo-ananta.png" alt="" width="189" height="120" loading="lazy" decoding="async"></span>
+      <span class="marquee-logo"><img src="images/client/logo-stellamia.png" alt="" width="213" height="120" loading="lazy" decoding="async"></span>
+      <span class="marquee-logo"><img src="images/client/logo-lunea.svg" alt="" width="200" height="112" loading="lazy" decoding="async"></span>
+      <span class="marquee-logo"><img src="images/client/logo-transi.png" alt="" width="459" height="120" loading="lazy" decoding="async"></span>
+      <span class="marquee-logo"><img src="images/client/logo-iwisit-mono.svg" alt="" width="114" height="40" loading="lazy" decoding="async"></span>
+      <span class="marquee-logo"><img src="images/client/logo-zuzel.png" alt="" width="289" height="95" loading="lazy" decoding="async"></span>
     </div>
   </div>
 </section>
@@ -157,6 +155,8 @@
 </section>
 
 <!-- FEATURE 1 — Atención al cliente -->
+<!-- FOTOS: previsualizaciones generadas (23-nov-2026) aprobadas por Héctor como dirección visual.
+     Sustituir por fotografía real de un cliente con área administrativa, manteniendo encuadre y ratio 3:2. -->
 <section class="feature-section" id="servicios">
   <div class="feature-inner">
     <div class="feature-text">
@@ -182,76 +182,28 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
-    <div class="feature-visual reveal reveal-delay-2">
-      <div class="chat-mock">
-        <div class="chat-header">
-          <div class="chat-avatar">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-          </div>
-          <div>
-            <div class="chat-name">Asistente Weaves</div>
-            <div class="chat-status">En línea · responde al instante</div>
-          </div>
-        </div>
-        <div class="chat-bubble them">Hola, quisiera información sobre sus servicios de automatización 👋</div>
-        <div class="chat-bubble me">¡Hola! Claro. ¿Qué tipo de proceso te gustaría automatizar? Puedo ayudarte con atención al cliente, facturación, o marketing.</div>
-        <div class="chat-bubble them">Atención al cliente en WhatsApp. ¿Cuánto tarda en implementarse?</div>
-        <div class="chat-bubble me">Primero analizamos el proceso y definimos el alcance. Después acordamos qué puede gestionarse automáticamente y cuándo interviene una persona.</div>
-        <div class="chat-meta"><span class="dot"></span>Reglas activas · Escalamiento disponible</div>
-      </div>
-    </div>
+    <figure class="feature-visual feature-visual--photo reveal reveal-delay-2">
+      <img class="feature-photo"
+           src="assets/home/atencion-operacion.webp"
+           srcset="assets/home/atencion-operacion-900.webp 900w, assets/home/atencion-operacion.webp 1500w"
+           sizes="(max-width: 900px) 100vw, 560px"
+           width="1500" height="1000" loading="lazy" decoding="async"
+           alt="Jefa de operaciones señala en un portátil el panel de pedidos a un compañero que sostiene albaranes impresos, en una nave con cajas etiquetadas">
+    </figure>
   </div>
 </section>
 
 <!-- FEATURE 2 — Procesos internos (DARK, reversed) -->
 <section class="feature-section dark reversed">
   <div class="feature-inner">
-    <div class="feature-visual reveal">
-      <div class="workflow">
-        <div class="wf-node">
-          <div class="wf-node-icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          </div>
-          <div class="wf-node-title">Factura recibida</div>
-          <div class="wf-node-desc">→ email_in</div>
-        </div>
-        <div class="wf-node">
-          <div class="wf-node-icon">
-            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div class="wf-node-title">IA procesa datos</div>
-          <div class="wf-node-desc">→ ocr + extract</div>
-        </div>
-        <div class="wf-node amber">
-          <div class="wf-node-icon">
-            <svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div class="wf-node-title">Validación</div>
-          <div class="wf-node-desc">→ ok</div>
-        </div>
-        <div class="wf-node">
-          <div class="wf-node-icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M20 12V8H6a2 2 0 01-2-2c0-1.1.9-2 2-2h12v4"/><path d="M20 12v-4H6a2 2 0 00-2 2v10a2 2 0 002 2h14v-4"/><path d="M18 12a2 2 0 000 4h4v-4z"/></svg>
-          </div>
-          <div class="wf-node-title">ERP actualizado</div>
-          <div class="wf-node-desc">→ odoo_push</div>
-        </div>
-        <div class="wf-node">
-          <div class="wf-node-icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
-          </div>
-          <div class="wf-node-title">Email al cliente</div>
-          <div class="wf-node-desc">→ sendmail</div>
-        </div>
-        <div class="wf-node amber">
-          <div class="wf-node-icon">
-            <svg viewBox="0 0 24 24" fill="none"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-          </div>
-          <div class="wf-node-title">Reporte</div>
-          <div class="wf-node-desc">→ dashboard</div>
-        </div>
-      </div>
-    </div>
+    <figure class="feature-visual feature-visual--photo reveal">
+      <img class="feature-photo"
+           src="assets/home/administracion-traspaso.webp"
+           srcset="assets/home/administracion-traspaso-900.webp 900w, assets/home/administracion-traspaso.webp 1500w"
+           sizes="(max-width: 900px) 100vw, 560px"
+           width="1500" height="1000" loading="lazy" decoding="async"
+           alt="Una administrativa entrega una carpeta de facturas impresas a un compañero en una oficina luminosa, con escáner y papeles en la mesa">
+    </figure>
     <div class="feature-text">
       <div class="feature-eyebrow reveal"><span class="feature-eyebrow-num">02</span><span class="feature-eyebrow-label">Administración y documentos</span></div>
       <h2 class="section-title reveal">¿Tu equipo copia y pega datos?<br><em>Conectamos el proceso.</em></h2>
@@ -304,36 +256,14 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
-    <div class="feature-visual reveal reveal-delay-2">
-      <div class="dashboard-mock">
-        <div class="dash-header">
-          <div class="dash-title">Operación — métricas</div>
-          <div class="dash-tag">· seguimiento</div>
-        </div>
-        <div class="dash-stats">
-          <div class="dash-stat">
-            <div class="dash-stat-label">SLA</div>
-            <div class="dash-stat-val">Definido <span class="up">✓</span></div>
-          </div>
-          <div class="dash-stat">
-            <div class="dash-stat-label">HITL</div>
-            <div class="dash-stat-val">Activo <span class="up">✓</span></div>
-          </div>
-        </div>
-        <div class="dash-chart">
-          <svg viewBox="0 0 300 60" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#00B4A6" stop-opacity="0.35"/>
-                <stop offset="100%" stop-color="#00B4A6" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <path d="M0,45 L30,42 L60,38 L90,40 L120,30 L150,28 L180,22 L210,18 L240,20 L270,12 L300,8 L300,60 L0,60 Z" fill="url(#chartGrad)"/>
-            <path d="M0,45 L30,42 L60,38 L90,40 L120,30 L150,28 L180,22 L210,18 L240,20 L270,12 L300,8" fill="none" stroke="#00B4A6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-          </svg>
-        </div>
-      </div>
-    </div>
+    <figure class="feature-visual feature-visual--photo reveal reveal-delay-2">
+      <img class="feature-photo"
+           src="assets/home/seguimiento-comercial.webp"
+           srcset="assets/home/seguimiento-comercial-900.webp 900w, assets/home/seguimiento-comercial.webp 1500w"
+           sizes="(max-width: 900px) 100vw, 560px"
+           width="1500" height="1000" loading="lazy" decoding="async"
+           alt="Responsable comercial al teléfono junto a la ventana, con portátil, cuaderno y un tablero de seguimiento al fondo">
+    </figure>
   </div>
 </section>
 
@@ -660,6 +590,7 @@
 </div>
 
 <script src="js/components-loader.js"></script>
+<script type="module" src="js/hero-scene.js"></script>
 <script>
 // reveal animations
 const reveals = document.querySelectorAll('.reveal');
