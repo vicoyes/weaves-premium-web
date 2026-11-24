@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ananta: Chatwoot propio y sistema de notificaciones | Weaves</title>
+<meta name="description" content="Implentación de Chatwoot y un sistema de notificaciones para una empresa de seguridad privada.">
+<meta property="og:title" content="Ananta: Chatwoot propio y sistema de notificaciones | Weaves">
+<meta property="og:description" content="Implentación de Chatwoot y un sistema de notificaciones para una empresa de seguridad privada.">
+<meta property="og:type" content="article">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css?v=20261123-8">
+<!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/dc631879d65242ce24a26ab58c89d599/script.js"></script> <!-- End cookieyes banner -->
+<style>
+/* ═══════════ FICHA DE PROYECTO ═══════════ */
+.caso-hero { position: relative; background: var(--dark); color: #fff; padding: 150px 0 0; overflow: hidden; }
+.caso-hero::before { content:''; position:absolute; inset:0;
+  background: radial-gradient(ellipse 55% 60% at 80% 0%, rgba(0,180,166,0.16) 0%, transparent 62%),
+              radial-gradient(ellipse 45% 55% at 10% 100%, rgba(124,92,255,0.13) 0%, transparent 60%); }
+.caso-hero .inner { position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; padding: 0 48px; }
+.crumbs { font-family:'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 26px; }
+.crumbs a { color: rgba(255,255,255,.65); text-decoration: none; }
+.crumbs a:hover { color: var(--teal); }
+.caso-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.caso-tag { font-family:'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase;
+  padding: 7px 13px; border-radius: 999px; background: rgba(0,180,166,.14); color: #7FE7DC; border: 1px solid rgba(0,180,166,.28); }
+.caso-hero h1 { font-family:'Space Grotesk', sans-serif; font-weight: 400; font-size: clamp(34px, 5.2vw, 68px);
+  line-height: 1.05; letter-spacing: -.01em; max-width: 980px; }
+.caso-hero h1 em { font-style: normal; color: var(--teal); }
+.caso-hero .lead { margin-top: 26px; font-size: 18px; line-height: 1.6; color: rgba(255,255,255,.72); max-width: 700px; }
+.caso-stack { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; margin-top: 34px; }
+.caso-cliente { font-family: 'Space Grotesk', sans-serif; font-size: 15px; letter-spacing: .02em; color: #fff; }
+.caso-cliente small { display:block; font-family:'JetBrains Mono', monospace; font-size: 9px; letter-spacing:.16em;
+  text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 3px; }
+.stack-sep { width: 1px; height: 26px; background: rgba(255,255,255,.18); }
+.caso-techs { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+.caso-techs img { height: 20px; width: auto; opacity: .9; }
+.caso-chip { font-family:'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+  color: rgba(255,255,255,.55); border: 1px solid rgba(255,255,255,.16); border-radius: 999px; padding: 5px 10px; }
+.caso-cover { position: relative; z-index: 1; max-width: 1240px; margin: 52px auto 0; padding: 0 48px; }
+.caso-cover img { width: 100%; height: 380px; object-fit: cover; border-radius: 18px 18px 0 0; display: block; }
+
+.caso-body { max-width: 1240px; margin: 0 auto; padding: 0 48px 40px; }
+.caso-ficha { display: grid; grid-template-columns: 1.05fr 1fr; gap: 28px; align-items: start; padding: 52px 0 0; }
+.caso-dl { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 26px; background:#fff; border:1px solid var(--border);
+  border-radius: 16px; padding: 28px; }
+.caso-dl dt { font-family:'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing:.12em; text-transform: uppercase; color: #6B7280; }
+.caso-dl dd { margin: 6px 0 0; font-size: 15px; font-weight: 500; color: var(--indigo); }
+.caso-dl .wide { grid-column: span 2; }
+.caso-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.caso-kpi { background:#fff; border:1px solid var(--border); border-radius: 16px; padding: 24px; }
+.caso-kpi .n { font-family:'Space Grotesk', sans-serif; font-size: 40px; line-height: 1; color: var(--indigo); }
+.caso-kpi .n small { font-size: 16px; color: var(--muted); margin-left: 4px; }
+.caso-kpi p { margin: 10px 0 0; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+
+.caso-sec { display: grid; grid-template-columns: 300px 1fr; gap: 48px; padding: 84px 0; border-top: 1px solid var(--border); }
+.caso-sec:first-of-type { border-top: none; }
+.caso-sec .label { font-family:'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing:.14em; text-transform: uppercase; color: var(--teal); }
+.caso-sec h2 { font-family:'Space Grotesk', sans-serif; font-weight: 400; font-size: clamp(26px, 2.6vw, 38px); line-height: 1.12; color: var(--indigo); margin: 12px 0 0; }
+.caso-sec h2 em { font-style: normal; color: var(--teal); }
+.caso-sec .body p { font-size: 16px; line-height: 1.78; color: var(--muted); margin: 0 0 18px; }
+.caso-sec ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 15.5px; line-height: 1.75; }
+
+.caso-mods { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 22px; margin-top: 6px; }
+.caso-mod { border-top: 2px solid var(--teal); padding-top: 14px; }
+.caso-mod h3 { font-family:'Space Grotesk', sans-serif; font-size: 16px; font-weight: 500; color: var(--indigo); margin: 0 0 6px; }
+.caso-mod p { font-size: 14.5px; line-height: 1.6; color: var(--muted); margin: 0; }
+
+.caso-flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 10px; margin-top: 34px; }
+.caso-flow .step { flex: 1 1 150px; background: var(--offwhite); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; font-size: 13.5px; color: var(--muted); }
+.caso-flow .step b { display: block; font-family:'Space Grotesk', sans-serif; font-weight: 500; color: var(--indigo); font-size: 14px; margin-bottom: 3px; }
+.caso-flow .arrow { align-self: center; color: var(--teal); font-size: 20px; margin: 0 4px; }
+.caso-flow .step { min-width: 140px; }
+
+.caso-table { width: 100%; border-collapse: collapse; font-size: 15px; margin-top: 8px; }
+.caso-table th, .caso-table td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+.caso-table th { font-family:'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing:.12em; text-transform: uppercase; color: #6B7280; }
+.caso-table td:first-child { color: var(--indigo); font-weight: 500; }
+.caso-nota { margin-top: 22px; font-size: 13.5px; line-height: 1.6; color: var(--muted); border-left: 2px solid var(--amber); padding-left: 14px; }
+
+.caso-rel { padding: 72px 0 96px; border-top: 1px solid var(--border); }
+.caso-rel h2 { font-family:'Space Grotesk', sans-serif; font-weight: 400; font-size: 28px; color: var(--indigo); margin: 0 0 24px; }
+.caso-rel-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
+.caso-rel a { display: block; text-decoration: none; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background:#fff; transition: transform .3s, box-shadow .3s; }
+.caso-rel a:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(21,30,55,.10); }
+.caso-rel img { width: 100%; height: 150px; object-fit: cover; display: block; }
+.caso-rel .txt { padding: 18px 20px; }
+.caso-rel .sector { font-family:'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing:.12em; text-transform: uppercase; color: #0B6B63; }
+.caso-rel .q { font-family:'Space Grotesk', sans-serif; font-size: 16px; line-height: 1.35; color: var(--indigo); margin-top: 8px; }
+
+@media (max-width: 980px) {
+  .caso-hero { padding-top: 120px; }
+  .caso-hero .inner, .caso-cover, .caso-body { padding: 0 24px; }
+  .caso-cover img { height: 220px; }
+  .caso-ficha, .caso-kpis, .caso-sec, .caso-mods, .caso-rel-grid { grid-template-columns: 1fr; }
+  .caso-sec { gap: 20px; padding: 56px 0; }
+  .caso-dl { grid-template-columns: 1fr; }
+  .caso-dl .wide { grid-column: span 1; }
+}
+</style>
+</head>
+<body>
+<div id="header-placeholder">
+<nav id="nav">
+  <div class="nav-left">
+    <a href="/" class="nav-logo">
+      <img class="nav-logo-image" src="/images/logo-weaves-on-dark.png?v=20260825-3" alt="Weaves">
+    </a>
+    <ul class="nav-links">
+      <li><a href="/index.html">Inicio</a></li>
+      <li><a href="/servicios/index.html">Qué hacemos</a></li>
+      <li><a href="/sectores/index.html">Sectores</a></li>
+      <li><a href="/pages/casos-exito.html" class="active" aria-current="page">Casos</a></li>
+      <li><a href="/pages/quienes-somos.html">Quiénes Somos</a></li>
+      <li><a href="/pages/blog.html">Blog</a></li>
+      <li><a href="/pages/contacto.html">Contacto</a></li>
+      <li class="nav-mobile-only"><a href="/pages/diagnostico-gratuito.html">Analizar mi proceso</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <a href="/pages/diagnostico-gratuito.html" class="nav-cta">Analizar mi proceso</a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+</div>
+
+<section class="caso-hero">
+  <div class="inner">
+    <div class="crumbs"><a href="/pages/casos-exito.html">Casos</a> / Seguridad privada</div>
+    <div class="caso-tags"><span class="caso-tag">Infraestructura</span><span class="caso-tag">Atención</span><span class="caso-tag">Notificaciones</span></div>
+    <h1>Chatwoot propio y notificaciones<br>para una empresa de <em>seguridad</em>.</h1>
+    <p class="lead">Ananta necesitaba atender por WhatsApp desde un sistema propio y enviar los avisos importantes sin depender de que alguien se acuerde.</p>
+    <div class="caso-stack">
+      <div class="caso-cliente"><small>Cliente</small>Ananta Seguridad</div>
+      <span class="stack-sep"></span>
+      <div class="caso-techs"><img src="/assets/logos/chatwoot.svg" alt="chatwoot" width="24" height="24"><img src="/assets/logos/whatsapp.svg" alt="whatsapp" width="24" height="24"><span class="caso-chip">Supabase</span></div>
+    </div>
+  </div>
+  <div class="caso-cover"><img src="/assets/cases/card-ananta.webp" alt=""></div>
+</section>
+
+<div class="caso-body">
+  <div class="caso-ficha">
+    <dl class="caso-dl"><div><dt>Cliente</dt><dd>Ananta Seguridad</dd></div><div><dt>Sector</dt><dd>Seguridad privada</dd></div><div><dt>Dónde</dt><dd>Alicante, España</dd></div><div><dt>Estado</dt><dd>Entregado</dd></div><div class="wide"><dt>Stack</dt><dd>Chatwoot · WhatsApp · Supabase · notificaciones</dd></div><div class="wide"><dt>Alcance</dt><dd>Infraestructura de atención y capa de avisos sobre la base de datos</dd></div></dl>
+    <div class="caso-kpis"><div class="caso-kpi"><div class="n">1<small></small></div><p>instancia propia de Chatwoot, sin plan compartido</p></div><div class="caso-kpi"><div class="n">2<small>fases</small></div><p>Chatwoot entregado y capa de IA en definición</p></div><div class="caso-kpi"><div class="n">3<small>canales</small></div><p>de aviso sobre la misma base de datos</p></div><div class="caso-kpi"><div class="n">0<small></small></div><p>tareas de atención que dependen de la memoria de alguien</p></div></div>
+  </div>
+
+  <section class="caso-sec">
+    <div><div class="label">01 · El reto</div><h2>Atender y avisar sin sistema propio</h2></div>
+    <div class="body"><p>La atención a clientes iba por WhatsApp, sin bandeja común. Cada persona veía su parte y nadie tenía toda la conversación cuando hacía falta.</p><p>Los avisos dependían de que alguien se acordara o de hilos de correo. En una empresa de seguridad, un aviso que no llega es un riesgo.</p><ul><li>WhatsApp sin bandeja compartida.</li><li>Avisos manuales y sin registro.</li><li>Sin base de datos propia sobre la que automatizar.</li></ul></div>
+  </section>
+
+  <section class="caso-sec">
+    <div><div class="label">02 · Lo que montamos</div><h2>Una bandeja propia y avisos automáticos</h2></div>
+    <div class="body">
+      <div class="caso-mods"><div class="caso-mod"><h3>Chatwoot desplegado</h3><p>Instancia propia para todo el equipo, con toda la conversación en un solo sitio.</p></div><div class="caso-mod"><h3>WhatsApp conectado</h3><p>El canal que ya usaban, integrado en la bandeja.</p></div><div class="caso-mod"><h3>Base de datos</h3><p>Supabase como base para guardar contactos, conversaciones y avisos.</p></div><div class="caso-mod"><h3>Sistema de notificaciones</h3><p>Avisos automáticos a partir de eventos, sin depender de que alguien los recuerde.</p></div></div>
+      <div class="caso-flow"><div class="step"><b>Cliente</b>Escribe por WhatsApp</div><span class="arrow" aria-hidden="true">→</span><div class="step"><b>Chatwoot</b>Bandeja compartida</div><span class="arrow" aria-hidden="true">→</span><div class="step"><b>Equipo</b>Responde con contexto</div><span class="arrow" aria-hidden="true">→</span><div class="step"><b>Evento</b>Se registra en la base</div><span class="arrow" aria-hidden="true">→</span><div class="step"><b>Aviso</b>Notificación automática</div></div>
+    </div>
+  </section>
+
+  <section class="caso-sec">
+    <div><div class="label">03 · Estado y resultados</div><h2>Qué cambió y qué falta por medir</h2></div>
+    <div class="body">
+      <table class="caso-table">
+        <thead><tr><th>Qué</th><th>Antes</th><th>Ahora</th></tr></thead>
+        <tbody><tr><td>Conversaciones</td><td>Repartidas por teléfonos</td><td>Una bandeja compartida</td></tr><tr><td>Contexto</td><td>Dependía de quién atendiera</td><td>Historial completo en Chatwoot</td></tr><tr><td>Avisos</td><td>Manuales</td><td>Disparados por eventos</td></tr><tr><td>Datos</td><td>En el móvil de cada uno</td><td>Base propia en Supabase</td></tr><tr><td>Tiempos de respuesta</td><td>Sin medir</td><td>Sin medir todavía</td></tr></tbody>
+      </table>
+      <p class="caso-nota">El volumen de operación no equivale a resultados de negocio. Lo que no podemos medir, no lo publicamos.</p>
+    </div>
+  </section>
+
+  <section class="caso-rel">
+    <h2>Otros proyectos</h2>
+    <div class="caso-rel-grid"><a href="/pages/caso-empieza-de-cero.html"><img src="/assets/cases/card-cobros.webp" alt="" loading="lazy"><div class="txt"><div class="sector">Formación · Cobros</div><div class="q">¿Cómo perseguir 300 cobros al mes sin que se coma la operación del equipo?</div></div></a><a href="/pages/caso-spazio-bodywork.html"><img src="/assets/cases/card-formacion.webp" alt="" loading="lazy"><div class="txt"><div class="sector">Formación · Reservas</div><div class="q">¿Cómo vender formación en tres ciudades sin perder el control de los cupos?</div></div></a></div>
+  </section>
+</div>
+
+<!-- CONTACTO — CTA compartido -->
+<div data-contact-form></div>
+<script src="../js/contact-form.js?v=20261123-7"></script>
+<script src="../js/contact-form-loader.js?v=20261123-7"></script>
+
+<div id="footer-placeholder">
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand-block">
+        <div class="footer-logo-row"><img class="footer-logo-image" src="/images/logo-weaves-on-dark.png?v=20260825-3" alt="Weaves"></div>
+        <p class="footer-blurb">Ampliamos la capacidad de tu equipo reduciendo la carga repetitiva, con IA, automatización y supervisión humana.</p>
+      </div>
+      <div><div class="footer-col-title">Por qué Weaves</div><ul class="footer-links"><li><a href="/pages/quienes-somos.html">Sobre nosotros</a></li><li><a href="/pages/casos-exito.html">Nuestros clientes</a></li><li><a href="/pages/contacto.html">Contacto</a></li></ul></div>
+      <div><div class="footer-col-title">Operaciones</div><ul class="footer-links"><li><a href="/servicios/servicio.html?id=chatbot">Atención y comunicación</a></li><li><a href="/servicios/servicio.html?id=embudo">Crecimiento y seguimiento</a></li><li><a href="/servicios/servicio.html?id=procesos">Administración y documentos</a></li><li><a href="/servicios/servicio.html?id=consultoria">Assessment y diseño</a></li><li><a href="/servicios/servicio.html?id=mantenimiento">Mejora continua</a></li></ul></div>
+      <div><div class="footer-col-title">Recursos</div><ul class="footer-links"><li><a href="/pages/blog.html">Blog</a></li><li><a href="/pages/casos-exito.html">Casos de éxito</a></li><li><a href="/index.html#tecnologia">Tecnología</a></li></ul></div>
+      <div><div class="footer-col-title">Legal</div><ul class="footer-links"><li><a href="/legal/politica-privacidad.html">Privacidad</a></li><li><a href="/legal/aviso-legal.html">Aviso legal</a></li><li><a href="/legal/politica-cookies.html">Cookies</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">Weaves &copy; 2026 &middot; Todos los derechos reservados</div><div class="footer-legal-row"><a href="/">weavewp.com</a><span>España &middot; LatAm</span><span>ES</span></div></div>
+  </div>
+</footer>
+</div>
+
+<script src="../js/components-loader.js"></script>
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
