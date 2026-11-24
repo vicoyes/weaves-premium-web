@@ -1,6 +1,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
+  --hero-min: 72vh;
   --indigo: #1E2A4A;
   --indigo-deep: #151E37;
   --teal: #00B4A6;
@@ -117,7 +118,7 @@ nav.scrolled {
 /* ═══════════ HERO ═══════════ */
 .hero {
   position: relative;
-  min-height: 88vh;
+  min-height: var(--hero-min);
   background: var(--dark);
   overflow: hidden;
   display: flex; flex-direction: column; justify-content: flex-end;
@@ -982,6 +983,9 @@ nav.scrolled {
 .bigcta-ass { display: flex; align-items: center; gap: 6px; }
 .bigcta-ass svg { width: 13px; height: 13px; stroke: var(--teal); }
 
+.hero-services,
+.service-hero { min-height: var(--hero-min); }
+
 /* ═══════════ CONTACTO — formulario de la home ═══════════ */
 .contact-section { padding: 130px 48px; text-align: left; }
 .contact-inner {
@@ -1244,7 +1248,7 @@ footer {
 
 /* ═══════════ DIAGNÓSTICO — página analizar proceso ═══════════ */
 .diag-hero {
-  min-height: 82vh;
+  min-height: var(--hero-min);
   padding-top: 140px;
   justify-content: center;
   text-align: center;
@@ -1335,7 +1339,7 @@ footer {
 .diag-report-desc { font-size: 14px; color: var(--muted); line-height: 1.6; font-weight: 300; }
 
 @media (max-width: 640px) {
-  .diag-hero { padding-top: 110px; min-height: 78vh; }
+  .diag-hero { padding-top: 110px; min-height: var(--hero-min); }
   .diag-step { font-size: 14px; gap: 12px; }
 }
 

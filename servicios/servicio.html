@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Procesos — Weaves</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>/* FOOTER: los estilos viven en css/styles.css?v=20261123-5. Antes se duplicaban aqui
+<style>/* FOOTER: los estilos viven en css/styles.css?v=20261123-6. Antes se duplicaban aqui
    con una copia vieja que ganaba por ir en el <head> despues del <link>. */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -26,7 +26,7 @@ nav.scrolled{background:rgba(11,18,32,0.8);backdrop-filter:blur(20px);border-bot
 .nav-ghost:hover{color:white}
 .nav-cta{background:white;color:var(--indigo);font-weight:500;font-size:14px;padding:10px 18px;border-radius:10px;text-decoration:none;transition:all 0.18s;letter-spacing:-0.005em}
 .nav-cta:hover{background:var(--amber)}.nav-mobile-only{display:none}.menu-toggle{display:none;width:42px;height:42px;border:1px solid rgba(255,255,255,0.18);border-radius:10px;background:rgba(255,255,255,0.06);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}.menu-toggle span{width:18px;height:2px;border-radius:999px;background:white;transition:transform 0.18s,opacity 0.18s}.menu-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}.menu-toggle.active span:nth-child(2){opacity:0}.menu-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.service-hero{position:relative;min-height:82vh;background:var(--dark);display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 80px;overflow:hidden}
+.service-hero{position:relative;min-height: var(--hero-min);background:var(--dark);display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 80px;overflow:hidden}
 .service-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 75% 35%,rgba(245,158,11,0.5) 0%,transparent 55%),radial-gradient(ellipse 60% 55% at 85% 55%,rgba(245,158,11,0.35) 0%,transparent 60%),radial-gradient(ellipse 55% 60% at 65% 75%,rgba(0,180,166,0.35) 0%,transparent 55%),radial-gradient(ellipse 40% 50% at 20% 85%,rgba(30,42,74,0.6) 0%,transparent 60%),linear-gradient(135deg,var(--indigo-deep) 0%,#1A1530 60%,#2A1A3A 100%)}
 .service-hero-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 30% 45% at 85% 30%,rgba(255,200,100,0.25),transparent 60%),radial-gradient(ellipse 35% 30% at 70% 85%,rgba(0,180,166,0.2),transparent 60%);mix-blend-mode:screen}
 .service-hero-bg::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");opacity:0.5;mix-blend-mode:overlay}
@@ -100,7 +100,7 @@ nav.scrolled{background:rgba(11,18,32,0.8);backdrop-filter:blur(20px);border-bot
 .delay-2{transition-delay:0.2s}
 .delay-3{transition-delay:0.3s}
 </style>
-  <link rel="stylesheet" href="../css/styles.css?v=20261123-5">
+  <link rel="stylesheet" href="../css/styles.css?v=20261123-6">
 </head>
 <body>
 
