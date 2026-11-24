@@ -10,7 +10,7 @@ ejecutar tantas veces como haga falta; reescribe el bloque seo entre marcadores.
 import os, re, sys, html, datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DOM = "https://getweaves.com"
+DOM = os.environ.get("WEAVES_DOMAIN", "https://weavewp.com")
 HOY = datetime.date.today().isoformat()
 OG_DIR = "images/og"
 
@@ -149,10 +149,10 @@ STUBS = ["servicios/bot.html"]
 OG_DEFAULT = "images/og/default.jpg"
 
 
-JSONLD_HOME = """<script type="application/ld+json">
+JSONLD_HOME_TMPL = """<script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
- {"@type":"Organization","@id":"https://getweaves.com/#org","name":"Weaves","url":"https://getweaves.com/","logo":"https://getweaves.com/images/logo-weaves-on-dark.png","email":"info@weavewp.com","areaServed":["ES","MX","CO","AR","CL"],"description":"Operaciones gestionadas con IA: atención al cliente, seguimiento comercial y administración."},
- {"@type":"WebSite","@id":"https://getweaves.com/#site","url":"https://getweaves.com/","name":"Weaves","inLanguage":"es","publisher":{"@id":"https://getweaves.com/#org"}}
+ {"@type":"Organization","@id":"__DOM__/#org","name":"Weaves","url":"__DOM__/","logo":"__DOM__/images/logo-weaves-on-dark.png","email":"info@weavewp.com","areaServed":["ES","MX","CO","AR","CL"],"description":"Operaciones gestionadas con IA: atención al cliente, seguimiento comercial y administración."},
+ {"@type":"WebSite","@id":"__DOM__/#site","url":"__DOM__/","name":"Weaves","inLanguage":"es","publisher":{"@id":"__DOM__/#org"}}
 ]}
 </script>"""
 
@@ -184,7 +184,7 @@ def bloque_seo(path, meta):
         f'<meta name="twitter:image" content="{img}">',
     ])
     if path == "index.html":
-        bloque += "\n" + JSONLD_HOME
+        bloque += "\n" + JSONLD_HOME_TMPL.replace("__DOM__", DOM)
     return bloque + "\n<!-- /seo -->"
 
 
