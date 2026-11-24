@@ -6,6 +6,26 @@
 <title>Quiénes Somos — Operaciones gestionadas con IA | Weaves</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/styles.css?v=20261123-5">
+<style>
+/* Hero de quiénes somos con cinta de vidrio — solo esta página.
+   El contenido de la imagen vive a la derecha (iconos de equipo y chispa),
+   así que se ancla abajo-derecha y el recorte se come la zona oscura. */
+.hero--nosotros .hero-bg {
+  background:
+    radial-gradient(ellipse 56% 68% at 50% 42%, rgba(9,14,26,0.94) 0%, rgba(9,14,26,0.86) 46%, rgba(9,14,26,0.42) 74%, rgba(9,14,26,0.12) 100%),
+    url("/assets/about/hero-nosotros.webp") right bottom / cover no-repeat,
+    linear-gradient(135deg, var(--indigo-deep) 0%, #1A1530 60%, #2A1A3A 100%);
+}
+.hero--nosotros .hero-bg::before { content: none; }
+@media (max-width: 640px) {
+  .hero--nosotros .hero-bg {
+    background:
+      linear-gradient(180deg, rgba(9,14,26,0.96) 0%, rgba(9,14,26,0.84) 52%, rgba(9,14,26,0.95) 100%),
+      url("/assets/about/hero-nosotros-1200.webp") right bottom / cover no-repeat,
+      #0B1220;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -38,7 +58,7 @@
 </div>
 
 <!-- HERO -->
-<section class="hero" style="min-height: 85vh; padding-top: 160px; justify-content: center; text-align: center;">
+<section class="hero hero--nosotros" style="min-height: 85vh; padding-top: 160px; justify-content: center; text-align: center;">
   <div class="hero-bg"></div>
   <div class="hero-content" style="max-width: 1000px;">
     <div class="section-eyebrow reveal" style="justify-content: center;">Sobre Nosotros</div>
