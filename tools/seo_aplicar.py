@@ -87,8 +87,8 @@ P = {
    "Contacto", "Hablemos de tus procesos, no de IA en abstracto.", "0.6", None),
 
  "pages/blog.html": (
-   "Blog de automatización con IA para pymes | Weaves",
-   "Guías prácticas, casos reales y automatizaciones explicadas paso a paso para pymes que quieren ordenar su operación sin sumar herramientas.",
+   "Blog de automatización con IA para empresas | Weaves",
+   "Guías prácticas, casos reales y automatizaciones explicadas paso a paso para empresas que quieren ordenar su operación sin sumar herramientas.",
    "Blog", "Inteligencia artificial aplicada.", "0.6", None),
 
  "pages/caso-spazio-bodywork.html": (
@@ -127,18 +127,18 @@ P = {
    "Caso · Editorial", "Un libro impreso por pedido, sin que nadie lo maquete.", "0.8", "assets/cases/card-stellamia.webp"),
 
  "legal/aviso-legal.html": (
-   "Aviso legal | Weaves",
+   "Aviso legal y datos del titular | Weaves",
    "Titularidad, condiciones de uso y responsabilidad del sitio getweaves.com. Datos del titular y vía de contacto para cualquier consulta legal.",
    "Legal", "Aviso legal.", "0.3", None),
 
  "legal/politica-privacidad.html": (
-   "Política de privacidad | Weaves",
+   "Política de privacidad y datos tratados | Weaves",
    "Qué datos tratamos, con qué base legal, durante cuánto tiempo y cómo ejercer tus derechos sobre ellos. Responsable y vías de contacto.",
    "Legal", "Política de privacidad.", "0.3", None),
 
  "legal/politica-cookies.html": (
-   "Política de cookies | Weaves",
-   "Este sitio no usa cookies de analítica ni publicidad. Qué se guarda, qué piden los servicios externos al cargar y cómo cambiar tu decisión.",
+   "Política de cookies de getweaves.com | Weaves",
+   "Sin cookies de analítica ni de publicidad: medimos con una herramienta propia, sin identificadores. Qué se guarda y cómo cambiar tu decisión.",
    "Legal", "Política de cookies.", "0.3", None),
 }
 
