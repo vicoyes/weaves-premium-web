@@ -99,10 +99,15 @@
 
 @media (max-width: 980px) {
   .proj-grid { grid-template-columns: 1fr; gap: 18px; }
-  .proj-card--cta { grid-column: span 1; }
+  /* La regla base de .proj-card--cta (más abajo) pide span 2; aquí se anula con más especificidad.
+     Sin esto, en móvil se crea una segunda columna implícita de 0 px y la mitad de las tarjetas desaparece. */
+  .proj-grid .proj-card--cta { grid-column: auto; }
   .proj-card { min-height: 0; }
+  .proj-card-body { padding: 22px 22px 64px; }
+  .proj-more { left: 22px; bottom: 22px; }
+  .proj-plus { right: 18px; bottom: 18px; }
   .proj-media { height: 150px; }
-  .proj-q { font-size: 18.5px; }
+  .proj-q { font-size: 18.5px; padding-right: 0; }
   .proj-inner { padding: 0 24px; }
   .proj-section { padding: 72px 0 80px; }
 }
