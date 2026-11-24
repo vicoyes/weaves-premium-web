@@ -42,8 +42,11 @@
     var CTA = /(^|\s)(nav-cta|btn|btn-hero-primary|btn-hero-secondary|btn-primary|btn-cta-primary|btn-outline|btn-w|service-card-cta|feature-cta|proj-more|proj-card|link-arrow)(\s|$)/;
 
     function ubicacion(el) {
-        var s = el.closest('section[id], header[id], footer[id], [id]');
-        return s && s.id ? s.id : (s ? s.tagName.toLowerCase() : 'sin-seccion');
+        var conId = el.closest('section[id], header[id], footer[id], div[id]');
+        if (conId && conId.id) return conId.id;
+        var bloque = el.closest('section, header, footer, nav, aside, main');
+        if (bloque) return bloque.id || bloque.tagName.toLowerCase();
+        return 'cuerpo';
     }
 
     function destino(href) {
