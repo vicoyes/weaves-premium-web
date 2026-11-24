@@ -53,6 +53,26 @@
     box-shadow: 0 0 0 3px rgba(0, 180, 166, 0.1);
 }
 </style>
+<style>
+/* Hero de contacto con cinta de vidrio — solo esta página.
+   La cinta cruza todo el ancho; el asset es 16:9, así que 'cover' recorta
+   el cielo oscuro superior y conserva la curva y los paneles. */
+.hero--contacto .hero-bg {
+  background:
+    radial-gradient(ellipse 58% 72% at 50% 42%, rgba(9,14,26,0.95) 0%, rgba(9,14,26,0.87) 46%, rgba(9,14,26,0.42) 74%, rgba(9,14,26,0.12) 100%),
+    url("/assets/contact/hero-contacto.webp") center bottom / cover no-repeat,
+    linear-gradient(135deg, var(--indigo-deep) 0%, #1A1530 60%, #2A1A3A 100%);
+}
+.hero--contacto .hero-bg::before { content: none; }
+@media (max-width: 640px) {
+  .hero--contacto .hero-bg {
+    background:
+      linear-gradient(180deg, rgba(9,14,26,0.96) 0%, rgba(9,14,26,0.85) 52%, rgba(9,14,26,0.95) 100%),
+      url("/assets/contact/hero-contacto-1200.webp") center bottom / cover no-repeat,
+      #0B1220;
+  }
+}
+</style>
 </head>
 <body>
 <div id="header-placeholder">
@@ -84,7 +104,7 @@
 </div>
 
 <!-- HERO -->
-<section class="hero" style="min-height: 60vh; padding-top: 140px; justify-content: center; text-align: center;">
+<section class="hero hero--contacto" style="min-height: 60vh; padding-top: 140px; justify-content: center; text-align: center;">
   <div class="hero-bg"></div>
   <div class="hero-content" style="max-width: 900px;">
     <div class="section-eyebrow reveal" style="justify-content: center;">Contacto y Sesión Vía Videollamada</div>
