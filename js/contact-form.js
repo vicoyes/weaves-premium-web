@@ -165,6 +165,13 @@
             .then(function (data) {
                 if (!data || data.ok !== true) throw new Error('Respuesta no válida');
                 showSuccess(form);
+                // Solo aquí: el camino de la trampa de bots también llama a showSuccess.
+                document.dispatchEvent(new CustomEvent('weave:form-success', {
+                    detail: {
+                        form: 'contacto',
+                        proceso: (form.elements.proceso && form.elements.proceso.value) || ''
+                    }
+                }));
             })
             .catch(function () {
                 setStatus(form, 'No pudimos enviar el formulario. Vuelve a intentarlo o escríbenos a info@weavewp.com — tus datos siguen aquí.', true);

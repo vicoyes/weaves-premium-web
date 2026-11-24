@@ -170,6 +170,9 @@
 
             var response = await fetch(webhookUrl, { method: 'POST', body: fd });
             if (response.ok) {
+                document.dispatchEvent(new CustomEvent('weave:form-success', {
+                    detail: { form: 'solicitud' }
+                }));
                 openFeedbackModal(
                     'Solicitud recibida',
                     'Hemos recibido tu solicitud correctamente. Te responderemos según urgencia y cola de trabajo.',
