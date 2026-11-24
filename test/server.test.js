@@ -203,6 +203,48 @@ describe('servidor', () => {
     c.server.close();
   });
 
+  test('plantilla de agradecimiento: sin @import, sin enlaces 404 conocidos, con referencia', async () => {
+    reset();
+    const r = await postJson(ctx.port, '/api/contacto', homeLead);
+    assert.equal(r.status, 200);
+    const thanks = ctx.transporter.sent[1];
+    assert.ok(!thanks.html.includes('@import'));
+    assert.ok(!thanks.html.includes('https://weavewp.com/casos'));
+    assert.ok(!thanks.html.includes('https://weavewp.com/blog'));
+    assert.ok(thanks.html.includes('https://getweaves.com/pages/casos-exito.html'));
+    assert.match(thanks.html, /#WV-\d{6}-[0-9A-F]{4}/);
+    assert.match(thanks.text, /Referencia: #WV-\d{6}-[0-9A-F]{4}/);
+  });
+
+  test('diagnóstico con la forma real del chat (contact_info anidado)', async () => {
+    reset();
+    const r = await postJson(ctx.port, '/api/diagnostico', {
+      diagnostic_id: 'diag_1_abc', timestamp: '2026-11-24T10:00:00Z',
+      answers: {
+        role: 'founder', sector: 'tech', company_size: '6-20',
+        communication_tools: ['whatsapp_business', 'email'], internal_tools: ['crm'],
+        preferred_contact: 'whatsapp',
+        contact_info: { name: 'Marta Ruiz', email: 'marta@z.co', phone: '', company: 'Zeta SA' },
+      },
+    });
+    assert.equal(r.status, 200);
+    assert.deepEqual(r.json, { ok: true });
+    assert.equal(ctx.transporter.sent.length, 2);
+    const [internal, thanks] = ctx.transporter.sent;
+    assert.equal(thanks.to, 'marta@z.co');
+    assert.equal(internal.replyTo, 'marta@z.co');
+    assert.match(internal.subject, /Zeta SA/);
+    assert.ok(internal.html.includes('Zeta SA'));
+    assert.ok(internal.text.includes('whatsapp_business, email'));
+    assert.ok(thanks.html.includes('Gracias, Marta.'));
+    assert.ok(thanks.html.includes('Zeta SA'));
+    assert.match(thanks.html, /#WV-\d{6}-[0-9A-F]{4}/);
+
+    const bad = await postJson(ctx.port, '/api/diagnostico', { answers: { contact_info: { email: 'a@b.co' } } });
+    assert.equal(bad.status, 400);
+    assert.equal(bad.json.error, 'Falta el nombre.');
+  });
+
   test('rate limit -> 429', async () => {
     const c = await start({ rateLimitMax: 2 });
     for (let i = 0; i < 2; i++) assert.equal((await postJson(c.port, '/api/contacto', {})).status, 400);

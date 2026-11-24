@@ -7,12 +7,16 @@
 const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
+const crypto = require('node:crypto');
 
 const ROOT = __dirname;
 const MAX_BODY = 200 * 1024;
 const MAX_FIELD = 4000;
 const BRAND_DARK = '#1E2A4A';
 const BRAND_TEAL = '#00B4A6';
+const BRAND_TEAL_DARK = '#0F766E';
+const SITE_URL = 'https://getweaves.com';
+const WHATSAPP_URL = 'https://wa.me/573219610765?text=Hola%2C%20acabo%20de%20enviar%20una%20solicitud%20en%20la%20web';
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -47,6 +51,11 @@ function escapeHtml(value) {
 
 function oneLine(value) {
   return String(value ?? '').replace(/[\r\n]+/g, ' ').trim();
+}
+
+function snippet(value, max) {
+  const s = oneLine(value);
+  return s.length > max ? `${s.slice(0, max - 1).trimEnd()}…` : s;
 }
 
 function clean(value) {
@@ -189,20 +198,185 @@ ${inner}
 </div></div></body></html>`;
 }
 
-function thanksMail(name, intro) {
+function summaryRowsHtml(rows) {
+  const active = rows.filter(([, v]) => v !== '' && v !== undefined && v !== null);
+  if (!active.length) return '';
+  const cells = active.map(([k, v], i) => {
+    const border = i < active.length - 1 ? 'border-bottom:1px solid #EEF2F6;' : '';
+    const valStyle = `color:#1F2937;${i === 0 ? 'font-weight:600;' : ''}`;
+    return `<tr>` +
+      `<td class="sum-k" width="108" valign="top" style="padding:7px 12px 7px 0;${border}color:#6B7280;font-size:13px;white-space:nowrap;">${escapeHtml(k)}</td>` +
+      `<td class="sum-v" valign="top" style="padding:7px 0;${border}${valStyle}font-size:14px;line-height:1.5;word-break:break-word;overflow-wrap:anywhere;">${escapeHtml(v)}</td>` +
+      `</tr>`;
+  }).join('');
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${cells}</table>`;
+}
+
+function thanksMail(name, intro, opts = {}) {
   const first = oneLine(name).split(/\s+/)[0] || '';
-  const greeting = first ? `Hola ${first},` : 'Hola,';
-  const text = `${greeting}\n\n${intro} Te responderemos en menos de 24 h hábiles.\n\nSi necesitas añadir algo, responde a este correo.\n\nUn saludo,\nEl equipo de Weaves\nhttps://getweaves.com`;
-  const html = layout('Hemos recibido tu solicitud',
-    `<p style="line-height:1.6;">${escapeHtml(greeting)}</p>` +
-    `<p style="line-height:1.6;">${escapeHtml(intro)} Te responderemos en <strong style="color:${BRAND_TEAL};">menos de 24 h hábiles</strong>.</p>` +
-    `<p style="line-height:1.6;">Si necesitas añadir algo, responde a este correo.</p>` +
-    `<p style="line-height:1.6;margin-bottom:0;">Un saludo,<br>El equipo de Weaves</p>`);
+  const greeting = first ? `Gracias, ${first}.` : 'Gracias por escribirnos.';
+  const eyebrow = opts.eyebrow || 'SOLICITUD RECIBIDA';
+  const subtitle = opts.subtitle || 'Ya estamos en ello.';
+  const summaryTitle = opts.summaryTitle || 'RESUMEN DE TU SOLICITUD';
+  const rows = Array.isArray(opts.summaryRows) ? opts.summaryRows : [];
+  const preheader = opts.preheader || 'Te respondemos en menos de 24 h hábiles. Aquí tienes el resumen de tu solicitud.';
+
+  const summaryText = tableText(rows);
+  const textParts = [
+    first ? `Hola ${first},` : 'Hola,',
+    `${intro} Te responderemos en menos de 24 h hábiles.`,
+    opts.reference ? `Referencia: #${opts.reference}` : '',
+    summaryText ? `${summaryTitle}:\n${summaryText}` : '',
+    '¿Quieres añadir algo? Responde a este correo y lo sumamos a tu solicitud.',
+    `WhatsApp directo: ${WHATSAPP_URL}`,
+    `Casos de éxito: ${SITE_URL}/pages/casos-exito.html`,
+    `Un saludo,\nEl equipo de Weaves\n${SITE_URL}`,
+  ].filter(Boolean);
+  const text = textParts.join('\n\n');
+
+  const summaryHtml = summaryRowsHtml(rows);
+  const summaryBlock = summaryHtml
+    ? `<tr><td class="px" style="padding:20px 40px 4px;">` +
+      `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F8F9FC;border:1px solid #E5E7EB;border-radius:12px;">` +
+      `<tr><td class="box-pad" style="padding:18px 22px;font-family:Arial,Helvetica,sans-serif;">` +
+      `<p style="margin:0 0 10px;font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:1.4px;color:#6B7280;font-weight:700;">${escapeHtml(summaryTitle)}</p>` +
+      summaryHtml +
+      `</td></tr></table></td></tr>`
+    : '';
+
+  const refBadge = opts.reference
+    ? `<td align="right" valign="middle" style="font-family:'Courier New',Courier,monospace;font-size:11px;color:${BRAND_TEAL_DARK};"><span style="display:inline-block;background:#E6F8F6;border:1px solid #99F6E4;color:${BRAND_TEAL_DARK};padding:5px 10px;border-radius:999px;font-weight:700;">#${escapeHtml(opts.reference)}</span></td>`
+    : '';
+
+  const html = `<!doctype html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>Hemos recibido tu solicitud · Weaves</title>
+<!--[if mso]><style>table,td,div,p,a,h1{font-family:Arial,sans-serif !important;}</style><![endif]-->
+<style>
+body{margin:0;padding:0;background:#F8F9FC;}
+a{text-decoration:none;}
+@media (max-width:620px){
+  .outer-pad{padding:16px 8px !important;}
+  .container{width:100% !important;}
+  .px{padding-left:20px !important;padding-right:20px !important;}
+  .head-pad{padding:24px 20px 22px !important;}
+  .foot-pad{padding:24px 20px 28px !important;}
+  .box-pad{padding:16px !important;}
+  .h1{font-size:25px !important;line-height:1.2 !important;}
+  .step{display:block !important;width:100% !important;box-sizing:border-box !important;padding:0 0 10px 0 !important;}
+  .step-last{padding-bottom:0 !important;}
+  .btn-td{display:block !important;width:100% !important;box-sizing:border-box !important;padding:0 0 10px 0 !important;}
+  .btn-a{display:block !important;width:100% !important;box-sizing:border-box !important;text-align:center !important;}
+  .sum-k{width:88px !important;}
+}
+</style>
+</head>
+<body style="margin:0;padding:0;background:#F8F9FC;color:#1F2937;">
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#F8F9FC;">${escapeHtml(preheader)}&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F8F9FC;">
+<tr><td class="outer-pad" align="center" style="padding:28px 12px;">
+<table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;">
+<tr><td style="padding:0 4px 16px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+    <td valign="middle" style="font-family:'Space Grotesk',Arial,Helvetica,sans-serif;font-size:22px;font-weight:700;color:${BRAND_DARK};">
+      <a href="${SITE_URL}/" style="color:${BRAND_DARK};text-decoration:none;">
+        <img src="${SITE_URL}/images/logo-weaves-on-light.png" width="132" height="54" alt="Weaves" style="display:block;border:0;width:132px;height:auto;font-family:Arial,sans-serif;font-size:22px;font-weight:700;color:${BRAND_DARK};">
+      </a>
+    </td>
+    ${refBadge}
+  </tr></table>
+</td></tr>
+<tr><td style="background:#FFFFFF;border:1px solid #E5E7EB;border-radius:16px;overflow:hidden;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr><td style="height:4px;line-height:4px;font-size:0;background:${BRAND_TEAL};">&nbsp;</td></tr>
+    <tr><td class="head-pad" style="padding:32px 40px 24px;border-bottom:1px solid #EEF2F6;background:#FFFFFF;">
+      <p style="margin:0 0 10px;font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:1.8px;color:${BRAND_TEAL_DARK};font-weight:700;">— ${escapeHtml(eyebrow)}</p>
+      <h1 class="h1" style="margin:0;font-family:'Space Grotesk',Arial,Helvetica,sans-serif;font-size:30px;line-height:1.18;font-weight:600;color:${BRAND_DARK};">${escapeHtml(greeting)}<br><span style="color:${BRAND_TEAL_DARK};">${escapeHtml(subtitle)}</span></h1>
+    </td></tr>
+    <tr><td class="px" style="padding:24px 40px 8px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.65;color:#1F2937;">
+      ${escapeHtml(intro)} Te responderemos en <strong style="color:${BRAND_TEAL_DARK};">menos de 24 h hábiles</strong>.
+    </td></tr>
+    <tr><td class="px" style="padding:18px 40px 4px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+        <td class="step" width="33%" valign="top" style="padding-right:6px;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F0FDFA;border:1px solid #99F6E4;border-top:3px solid ${BRAND_TEAL};border-radius:10px;"><tr><td style="padding:11px 12px;font-family:Arial,Helvetica,sans-serif;">
+            <p style="margin:0;font-size:12px;font-weight:700;color:${BRAND_TEAL_DARK};">&#10003; 1. Recibida</p>
+            <p style="margin:3px 0 0;font-size:12px;color:#475569;">Ahora</p>
+          </td></tr></table>
+        </td>
+        <td class="step" width="33%" valign="top" style="padding:0 3px;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F8F9FC;border:1px solid #E5E7EB;border-top:3px solid #99F6E4;border-radius:10px;"><tr><td style="padding:11px 12px;font-family:Arial,Helvetica,sans-serif;">
+            <p style="margin:0;font-size:12px;font-weight:700;color:${BRAND_DARK};">2. En revisión</p>
+            <p style="margin:3px 0 0;font-size:12px;color:#6B7280;">Analizamos tu caso</p>
+          </td></tr></table>
+        </td>
+        <td class="step step-last" width="33%" valign="top" style="padding-left:6px;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F8F9FC;border:1px solid #E5E7EB;border-top:3px solid #CBD5E1;border-radius:10px;"><tr><td style="padding:11px 12px;font-family:Arial,Helvetica,sans-serif;">
+            <p style="margin:0;font-size:12px;font-weight:700;color:${BRAND_DARK};">3. Respuesta</p>
+            <p style="margin:3px 0 0;font-size:12px;color:#6B7280;">&lt; 24 h hábiles</p>
+          </td></tr></table>
+        </td>
+      </tr></table>
+    </td></tr>
+    ${summaryBlock}
+    <tr><td class="px" style="padding:22px 40px 8px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#1F2937;">
+      ¿Quieres añadir algo? <strong>Responde a este correo</strong> y lo sumamos a tu solicitud. Si es urgente, escríbenos por WhatsApp.
+    </td></tr>
+    <tr><td class="px" style="padding:14px 40px 8px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+        <td class="btn-td" style="padding-right:10px;">
+          <a class="btn-a" href="${WHATSAPP_URL}" style="display:inline-block;background:${BRAND_TEAL_DARK};color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;line-height:1.2;padding:13px 22px;border-radius:999px;border:1px solid ${BRAND_TEAL_DARK};">Escribir por WhatsApp</a>
+        </td>
+        <td class="btn-td">
+          <a class="btn-a" href="${SITE_URL}/pages/casos-exito.html" style="display:inline-block;background:#FFFFFF;color:${BRAND_DARK};font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;line-height:1.2;padding:13px 22px;border-radius:999px;border:1px solid #CBD5E1;">Ver casos de éxito</a>
+        </td>
+      </tr></table>
+    </td></tr>
+    <tr><td class="foot-pad" style="padding:26px 40px 32px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #EEF2F6;">
+        <tr><td style="padding-top:20px;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+            <td width="42" valign="middle" style="width:42px;height:42px;border-radius:21px;background:#E6F8F6;border:1px solid #99F6E4;color:${BRAND_TEAL_DARK};font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:16px;text-align:center;">W</td>
+            <td valign="middle" style="padding-left:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.4;">
+              <p style="margin:0;font-weight:700;color:${BRAND_DARK};">El equipo de Weaves</p>
+              <p style="margin:2px 0 0;font-size:13px;color:#6B7280;">Web · Automatizaciones · IA</p>
+            </td>
+          </tr></table>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</td></tr>
+<tr><td align="center" style="padding:20px 16px 8px;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.6;color:#6B7280;">
+  <a href="${SITE_URL}/" style="color:${BRAND_TEAL_DARK};font-weight:600;">getweaves.com</a> &nbsp;·&nbsp;
+  <a href="${SITE_URL}/pages/blog.html" style="color:#6B7280;">Blog</a> &nbsp;·&nbsp;
+  <a href="${SITE_URL}/pages/casos-exito.html" style="color:#6B7280;">Casos de éxito</a> &nbsp;·&nbsp;
+  <a href="${SITE_URL}/legal/politica-privacidad.html" style="color:#6B7280;">Privacidad</a><br>
+  Recibes este correo porque nos escribiste desde la web de Weaves.<br>
+  Weaves · España y Latinoamérica
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>`;
   return { text, html };
 }
 
 function formatDate(date) {
   return date.toISOString();
+}
+
+function makeRef(date) {
+  const day = formatDate(date).slice(2, 10).replace(/-/g, '');
+  const rand = crypto.randomBytes(2).toString('hex').toUpperCase();
+  return `WV-${day}-${rand}`;
 }
 
 // ---------- aplicación ----------
@@ -311,9 +485,11 @@ function createApp(options = {}) {
     if (!d.privacidad) return sendResult(req, res, 400, false, 'Necesitamos tu autorización de privacidad para poder responderte.');
 
     const ip = clientIp(req);
-    const fecha = formatDate(now());
+    const current = now();
+    const fecha = formatDate(current);
+    const ref = makeRef(current);
     const rows = [
-      ['Nombre', d.nombre], ['Empresa', d.empresa], ['Email', d.email], ['Teléfono', d.telefono],
+      ['Referencia', ref], ['Nombre', d.nombre], ['Empresa', d.empresa], ['Email', d.email], ['Teléfono', d.telefono],
       ['Proceso / sector', d.proceso], ['Tamaño del equipo', d.equipo], ['Mensaje', d.mensaje],
       ['Contacto preferido', d.preferencia],
       ['Página', d.pagina], ['Origen', d.origen],
@@ -331,7 +507,14 @@ function createApp(options = {}) {
     const thanks = {
       to: d.email,
       subject: 'Hemos recibido tu solicitud · Weaves',
-      ...thanksMail(d.nombre, 'Gracias por escribirnos: hemos recibido tu solicitud.'),
+      ...thanksMail(d.nombre, 'Hemos recibido tu solicitud y empieza la revisión.', {
+        reference: ref,
+        summaryRows: [
+          ['Servicio', d.proceso],
+          ['Empresa', d.empresa],
+          ['Mensaje', snippet(d.mensaje, 400)],
+        ],
+      }),
     };
 
     try {
@@ -352,23 +535,35 @@ function createApp(options = {}) {
       return sendJson(res, err.status || 400, { ok: false, error: err.message });
     }
     const answers = body.answers && typeof body.answers === 'object' && !Array.isArray(body.answers) ? body.answers : null;
-    const name = answers ? clean(answers.name) : '';
-    const email = answers ? clean(answers.email) : '';
+    // El chat guarda los datos de contacto anidados en answers.contact_info;
+    // se aceptan también en plano (answers.name) para no depender de la forma.
+    const nested = answers && answers.contact_info && typeof answers.contact_info === 'object' && !Array.isArray(answers.contact_info)
+      ? answers.contact_info : {};
+    const field = (key) => clean(answers && answers[key] !== undefined ? answers[key] : nested[key]);
+    const name = answers ? field('name') : '';
+    const email = answers ? field('email') : '';
     if (!name) return sendJson(res, 400, { ok: false, error: 'Falta el nombre.' });
     if (!EMAIL_RE.test(email)) return sendJson(res, 400, { ok: false, error: 'Escribe un correo válido.' });
 
     const ip = clientIp(req);
-    const fecha = formatDate(now());
-    const answerRows = Object.entries(answers).map(([k, v]) => [
+    const current = now();
+    const fecha = formatDate(current);
+    const diagId = clean(body.diagnostic_id);
+    const ref = makeRef(current);
+    // Tabla interna plana: los datos de contacto anidados suben al mismo nivel.
+    const flat = { ...nested, ...(answers || {}) };
+    delete flat.contact_info;
+    const answerRows = Object.entries(flat).map(([k, v]) => [
       k, Array.isArray(v) ? v.map(clean).join(', ') : clean(v),
     ]);
     const rows = [
-      ['ID del diagnóstico', clean(body.diagnostic_id)],
+      ['Referencia', ref],
+      ['ID del diagnóstico', diagId],
       ['Enviado en (navegador)', clean(body.timestamp)],
       ['Recibido', fecha], ['IP', ip],
       ...answerRows,
     ];
-    const company = clean(answers.company);
+    const company = field('company');
     const internal = {
       replyTo: email,
       subject: `Nuevo diagnóstico gratuito: ${oneLine(name)}${company ? ` (${oneLine(company)})` : ''}`,
@@ -378,7 +573,13 @@ function createApp(options = {}) {
     const thanks = {
       to: email,
       subject: 'Hemos recibido tu diagnóstico · Weaves',
-      ...thanksMail(name, 'Gracias por completar el diagnóstico: hemos recibido tus respuestas y nuestro equipo las revisará.'),
+      ...thanksMail(name, 'Hemos recibido tus respuestas y empieza la revisión.', {
+        eyebrow: 'DIAGNÓSTICO RECIBIDO',
+        summaryTitle: 'RESUMEN DE TU DIAGNÓSTICO',
+        reference: ref,
+        preheader: 'Te respondemos en menos de 24 h hábiles. Aquí tienes el resumen de tu diagnóstico.',
+        summaryRows: [['Empresa', company]],
+      }),
     };
     try {
       await sendPair(internal, thanks);
@@ -470,7 +671,7 @@ function createApp(options = {}) {
   });
 }
 
-module.exports = { createApp, createServer: createApp, escapeHtml };
+module.exports = { createApp, createServer: createApp, escapeHtml, thanksMail };
 
 if (require.main === module) {
   const PORT = Number(process.env.PORT || 80);
