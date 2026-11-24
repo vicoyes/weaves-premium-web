@@ -1658,8 +1658,8 @@ footer {
 .blog-card-content > p:not(.blog-label) { color: #536172; font-size: 15px; line-height: 1.65; }
 .blog-more { display: block; color: #08786e; font-weight: 600; margin-top: 22px; }
 .blog-empty { margin-top: 30px; color: var(--muted); }
-.blog-layout { max-width: 1200px; margin: 0 auto; padding: 56px 24px 24px; display: grid; grid-template-columns: 220px minmax(0,700px); gap: 48px; align-items: start; }
-.blog-toc { position: sticky; top: 100px; } .blog-toc ol { list-style: none; border-left: 2px solid var(--border); padding-left: 14px; margin-top: 14px; }
+.blog-layout { max-width: 1200px; margin: 0 auto; padding: 56px 24px 24px; display: grid; grid-template-columns: 220px minmax(0,700px); gap: 48px; align-items: start; justify-content: center; }
+.blog-toc { position: sticky; top: 100px; padding-top: 23px; } .blog-toc ol { list-style: none; border-left: 2px solid var(--border); padding-left: 14px; margin-top: 14px; }
 .blog-toc li + li { margin-top: 10px; } .blog-toc a { font-size: 14px; line-height: 1.4; text-decoration: none; color: #475569; } .blog-toc a:hover { color: #08786e; }
 .blog-prose { min-width: 0; color: var(--text); font-size: 18px; line-height: 1.75; }
 .blog-prose h2 { scroll-margin-top: 100px; font: 600 clamp(27px,3vw,32px)/1.2 'Space Grotesk', sans-serif; color: var(--indigo-deep); margin: 48px 0 16px; }
@@ -1677,6 +1677,6 @@ footer {
 .blog-cta a { flex-shrink: 0; padding: 14px 22px; border-radius: 100px; background: #79e2d7; color: var(--dark); font-weight: 600; text-decoration: none; }
 .blog-related { padding-bottom: 50px; } .blog-related-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 24px; }
 .blog-related-heading h2 { font: 600 30px 'Space Grotesk', sans-serif; } .blog-related-heading a { color: #08786e; }
-@media (max-width: 800px) { .blog-layout { grid-template-columns: 1fr; gap: 32px; } .blog-toc { position: static; } .blog-cta, .blog-related { margin-left: 24px; margin-right: 24px; } .blog-cta { align-items: flex-start; flex-direction: column; padding: 32px 24px; } }
+@media (max-width: 800px) { .blog-layout { grid-template-columns: 1fr; gap: 32px; justify-content: stretch; } .blog-toc { position: static; padding-top: 0; } .blog-cta, .blog-related { margin-left: 24px; margin-right: 24px; } .blog-cta { align-items: flex-start; flex-direction: column; padding: 32px 24px; } }
 @media (max-width: 480px) { .blog-index-hero, .blog-single-hero { padding-top: 120px; } .blog-prose { font-size: 16px; } .blog-related-heading { flex-wrap: wrap; } }
 

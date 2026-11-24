@@ -116,7 +116,7 @@ def article(p, posts, nav, footer):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{E(p['title'])} | Weaves</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../css/styles.css?v=20261124-blog1">
+<link rel="stylesheet" href="../../css/styles.css?v=20261124-1">
 <script id="cookieyes" src="https://cdn-cookieyes.com/client_data/dc631879d65242ce24a26ab58c89d599/script.js"></script>
 <script defer src="https://analytics.weavewp.com/script.js" data-website-id="e6709a17-7e16-4762-8fa7-0f1dd75b4264" data-domains="getweaves.com,www.getweaves.com"></script>
 <script defer src="../../js/analytics-events.js?v=20261124-2"></script>
@@ -149,7 +149,8 @@ def main():
     else:
         source = source[:source.index('<!-- HERO -->')] + area + '\n' + source[source.index('<!-- NEWSLETTER / BIG CTA -->'):]
     source = re.sub(r'<style>.*?</style>\s*', '', source, flags=re.S)
-    source = source.replace('../css/styles.css?v=20261123-8', '../css/styles.css?v=20261124-blog1')
+    source = source.replace('../css/styles.css?v=20261123-8', '../css/styles.css?v=20261124-1')
+    source = source.replace('../css/styles.css?v=20261124-blog1', '../css/styles.css?v=20261124-1')
     source = source.replace('family=JetBrains+Mono:wght@400;500', 'family=Space+Mono:wght@400;700')
     source = source.replace('<script src="../js/main.js"></script>\n', '')
     source = re.sub(r'<script>\s*// reveal animations.*?</script>', '', source, flags=re.S)
