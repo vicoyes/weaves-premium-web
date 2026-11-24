@@ -988,6 +988,23 @@ nav.scrolled {
 
 /* ═══════════ CONTACTO — formulario de la home ═══════════ */
 .contact-section { padding: 130px 48px; text-align: left; }
+
+/* Fuera de la home el CTA no va dentro de .bigcta-section, así que trae su propio
+   fondo oscuro; si no, el texto blanco del formulario queda sobre blanco. */
+.contact-section:not(.bigcta-section) {
+  background: var(--dark);
+  position: relative; overflow: hidden;
+}
+.contact-section:not(.bigcta-section)::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(245,158,11,0.2) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(0,180,166,0.12) 0%, transparent 55%);
+  pointer-events: none;
+}
+.contact-section:not(.bigcta-section) > .contact-inner {
+  position: relative; z-index: 1;
+}
 .contact-inner {
   max-width: 1160px; margin: 0 auto;
   display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
