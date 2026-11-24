@@ -6,7 +6,7 @@
 <meta name="description" content="Transformamos tareas repetitivas de atención, seguimiento comercial y administración en procesos conectados, medibles y supervisados.">
 <title>Weaves — Más capacidad para tu equipo con IA y automatización</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=20261123-4">
+<link rel="stylesheet" href="css/styles.css?v=20261123-5">
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js"}}</script>
 </head>
 <body>
@@ -58,8 +58,8 @@
         Convertimos tareas manuales de atención, seguimiento comercial y administración en procesos conectados, medibles y supervisados. Tu equipo recupera tiempo para atender clientes y tomar decisiones.
       </p>
       <div class="hero-w-ctas aw" style="--d:.62s">
-        <a href="pages/diagnostico-gratuito.html" class="btn-w btn-w--primary">
-          Analizar mi proceso
+        <a href="#contacto" class="btn-w btn-w--primary">
+          Cuéntanos tu caso
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a href="servicios/index.html#operaciones" class="btn-w btn-w--ghost">Ver casos de uso</a>
@@ -274,8 +274,8 @@
     <h2 class="reveal">Muéstranos el proceso que más tiempo consume.</h2>
     <p class="reveal reveal-delay-1">En una llamada inicial entendemos el problema, el volumen y las herramientas actuales. Si existe encaje, te explicamos cómo podríamos abordarlo.</p>
     <div class="hero-ctas reveal reveal-delay-2">
-      <a href="pages/diagnostico-gratuito.html" class="btn-hero-primary">
-        Analizar mi proceso
+      <a href="#contacto" class="btn-hero-primary">
+        Cuéntanos tu caso
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       <a href="servicios/index.html#operaciones" class="btn-hero-secondary">Ver casos de uso</a>
@@ -541,30 +541,115 @@
   </div>
 </section>
 
-<!-- BIG CTA -->
-<section class="bigcta-section">
-  <div class="bigcta-inner">
-    <h2 class="bigcta-title reveal">¿Qué tarea se repite<br><em>todos los días?</em></h2>
-    <p class="bigcta-sub reveal reveal-delay-1">Cuéntanos qué hace hoy tu equipo de forma manual. En una llamada inicial revisamos si existe una oportunidad real de mejorar el proceso.</p>
-    <div class="bigcta-btns reveal reveal-delay-2">
-      <a href="pages/diagnostico-gratuito.html" class="btn-hero-primary">
-        Analizar mi proceso
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+<!-- CONTACTO -->
+<section class="bigcta-section contact-section" id="contacto" aria-labelledby="contacto-title">
+  <div class="bigcta-inner contact-inner">
+    <div class="contact-copy">
+      <h2 class="bigcta-title reveal" id="contacto-title">¿Qué tarea se repite<br><em>todos los días?</em></h2>
+      <p class="bigcta-sub reveal reveal-delay-1">Cuéntanos qué hace hoy tu equipo de forma manual. Revisamos el caso y, si hay una oportunidad real, te proponemos una llamada de 30 minutos.</p>
+      <ul class="contact-assurances reveal reveal-delay-2">
+        <li>Respondemos en menos de 24&nbsp;h hábiles.</li>
+        <li>Sin compromiso y sin presentación de ventas.</li>
+        <li>Lo que compartas se queda aquí: no se usa para nada más.</li>
+      </ul>
+      <p class="contact-alt reveal reveal-delay-3">¿Prefieres correo directo? <a href="mailto:info@weavewp.com">info@weavewp.com</a></p>
     </div>
-    <div class="bigcta-assurances reveal reveal-delay-3">
-      <div class="bigcta-ass">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Sin compromiso
+
+    <form class="contact-form reveal reveal-delay-2" id="contacto-form"
+          action="https://n8n.weavewp.com/webhook/formulario-home-9f3c" method="post" novalidate>
+      <div class="cf-grid">
+        <div class="cf-field">
+          <label for="cf-nombre">Nombre y apellidos <span class="cf-req" aria-hidden="true">*</span></label>
+          <input id="cf-nombre" name="nombre" type="text" autocomplete="name" maxlength="80" required
+                 aria-describedby="cf-nombre-err">
+          <p class="cf-error" id="cf-nombre-err" hidden>Escribe tu nombre.</p>
+        </div>
+        <div class="cf-field">
+          <label for="cf-empresa">Empresa <span class="cf-req" aria-hidden="true">*</span></label>
+          <input id="cf-empresa" name="empresa" type="text" autocomplete="organization" maxlength="80" required
+                 aria-describedby="cf-empresa-err">
+          <p class="cf-error" id="cf-empresa-err" hidden>Escribe el nombre de tu empresa.</p>
+        </div>
+        <div class="cf-field">
+          <label for="cf-email">Correo corporativo <span class="cf-req" aria-hidden="true">*</span></label>
+          <input id="cf-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="120" required
+                 aria-describedby="cf-email-err">
+          <p class="cf-error" id="cf-email-err" hidden>Escribe un correo válido.</p>
+        </div>
+        <div class="cf-field">
+          <label for="cf-telefono">Teléfono o WhatsApp <span class="cf-opt">(opcional)</span></label>
+          <input id="cf-telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" maxlength="30">
+        </div>
+        <div class="cf-field">
+          <label for="cf-proceso">Proceso que más te frena <span class="cf-req" aria-hidden="true">*</span></label>
+          <select id="cf-proceso" name="proceso" required aria-describedby="cf-proceso-err">
+            <option value="">Selecciona una opción</option>
+            <option>Atención al cliente y WhatsApp</option>
+            <option>Administración, facturas y documentos</option>
+            <option>Seguimiento comercial y CRM</option>
+            <option>Otro proceso</option>
+          </select>
+          <p class="cf-error" id="cf-proceso-err" hidden>Elige el proceso que quieres revisar.</p>
+        </div>
+        <div class="cf-field">
+          <label for="cf-equipo">Tamaño del equipo <span class="cf-opt">(opcional)</span></label>
+          <select id="cf-equipo" name="equipo">
+            <option value="">Selecciona una opción</option>
+            <option>1 a 10 personas</option>
+            <option>11 a 50 personas</option>
+            <option>51 a 200 personas</option>
+            <option>Más de 200 personas</option>
+          </select>
+        </div>
+        <div class="cf-field cf-full">
+          <label for="cf-mensaje">¿Qué pasa hoy? <span class="cf-opt">(opcional)</span></label>
+          <textarea id="cf-mensaje" name="mensaje" rows="3" maxlength="600"
+                    placeholder="Ej.: recibimos 800 mensajes al mes por WhatsApp y tres personas los contestan a mano."></textarea>
+        </div>
       </div>
-      <div class="bigcta-ass">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Llamada inicial
+
+      <div class="cf-consent">
+        <div class="cf-check">
+          <input id="cf-privacidad" name="privacidad" type="checkbox" value="si" required
+                 aria-describedby="cf-privacidad-err">
+          <label for="cf-privacidad">Autorizo a Weaves a tratar mis datos personales conforme a la
+            <a href="/legal/politica-privacidad.html" target="_blank" rel="noopener">política de privacidad</a>,
+            únicamente para responder a esta solicitud. <span class="cf-req" aria-hidden="true">*</span></label>
+        </div>
+        <p class="cf-error" id="cf-privacidad-err" hidden>Necesitamos tu autorización para poder responderte.</p>
+
+        <div class="cf-check">
+          <input id="cf-marketing" name="marketing" type="checkbox" value="si">
+          <label for="cf-marketing">Quiero recibir comunicaciones comerciales de Weaves. Puedo darme de baja
+            cuando quiera. <span class="cf-opt">(opcional)</span></label>
+        </div>
       </div>
-      <div class="bigcta-ass">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Información confidencial
+
+      <!-- campo trampa para bots: invisible para personas -->
+      <div class="cf-hp" aria-hidden="true">
+        <label for="cf-website">No rellenar</label>
+        <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off">
       </div>
+
+      <input type="hidden" name="pagina" value="">
+      <input type="hidden" name="origen" value="">
+      <input type="hidden" name="utm_source" value="">
+      <input type="hidden" name="utm_medium" value="">
+      <input type="hidden" name="utm_campaign" value="">
+      <input type="hidden" name="enviado_en" value="">
+
+      <button type="submit" class="cf-submit">
+        <span class="cf-submit-label">Enviar y pedir la llamada</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <p class="cf-note">Sin coste y sin compromiso. Si no encaja, te lo decimos en la primera llamada.</p>
+      <p class="cf-status" id="cf-status" role="status" aria-live="polite"></p>
+    </form>
+
+    <div class="cf-success" id="cf-success" hidden tabindex="-1" role="status">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <h3>Recibido. Te escribimos en menos de 24&nbsp;h hábiles.</h3>
+      <p>Vamos a leer tu caso antes de contestar. Si el proceso es urgente, responde a ese correo y lo subimos de prioridad.</p>
     </div>
   </div>
 </section>
@@ -589,6 +674,7 @@
 </footer>
 </div>
 
+<script src="js/contact-form.js?v=20261123-5" defer></script>
 <script src="js/components-loader.js"></script>
 <script type="module" src="js/hero-scene.js"></script>
 <script>
