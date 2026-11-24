@@ -20,6 +20,26 @@
   .filter-btn.active, .filter-btn:hover { background: var(--indigo); color: white; border-color: var(--indigo); }
   .newsletter-form input { padding: 14px 20px; border: 1px solid var(--border); border-radius: 4px; background: white; width: 100%; max-width: 320px; font-family: 'Inter', sans-serif; }
 </style>
+<style>
+/* Hero del blog con cinta orbital — solo esta página.
+   Las órbitas viven en la mitad derecha del asset: se ancla abajo-derecha y
+   'cover' recorta la zona oscura de la izquierda. */
+.hero--blog .hero-bg {
+  background:
+    radial-gradient(ellipse 56% 70% at 46% 42%, rgba(9,14,26,0.95) 0%, rgba(9,14,26,0.87) 46%, rgba(9,14,26,0.42) 74%, rgba(9,14,26,0.12) 100%),
+    url("/assets/blog/hero-blog.webp") right bottom / cover no-repeat,
+    linear-gradient(135deg, var(--indigo-deep) 0%, #1A1530 60%, #2A1A3A 100%);
+}
+.hero--blog .hero-bg::before { content: none; }
+@media (max-width: 640px) {
+  .hero--blog .hero-bg {
+    background:
+      linear-gradient(180deg, rgba(9,14,26,0.96) 0%, rgba(9,14,26,0.85) 52%, rgba(9,14,26,0.95) 100%),
+      url("/assets/blog/hero-blog-1200.webp") right bottom / cover no-repeat,
+      #0B1220;
+  }
+}
+</style>
 </head>
 <body>
 <div id="header-placeholder">
@@ -51,7 +71,7 @@
 </div>
 
 <!-- HERO -->
-<section class="hero" style="min-height: 60vh; padding-top: 140px; justify-content: center; text-align: center;">
+<section class="hero hero--blog" style="min-height: 60vh; padding-top: 140px; justify-content: center; text-align: center;">
   <div class="hero-bg"></div>
   <div class="hero-content" style="max-width: 900px;">
     <div class="section-eyebrow reveal" style="justify-content: center;">Blog & Recursos</div>
