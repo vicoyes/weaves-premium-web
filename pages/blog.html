@@ -24,35 +24,10 @@
 <title>Blog de automatización con IA para empresas | Weaves</title>
 
 <!-- Open Graph -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/styles.css?v=20261123-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css?v=20261124-blog1">
 <!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/dc631879d65242ce24a26ab58c89d599/script.js"></script> <!-- End cookieyes banner -->
-<style>
-  .filter-btn { border: 1px solid var(--border); background: transparent; color: var(--text); padding: 8px 16px; border-radius: 4px; cursor: pointer; transition: 0.2s; font-family: 'Space Grotesk', sans-serif; font-size: 14px; }
-  .filter-btn.active, .filter-btn:hover { background: var(--indigo); color: white; border-color: var(--indigo); }
-  .newsletter-form input { padding: 14px 20px; border: 1px solid var(--border); border-radius: 4px; background: white; width: 100%; max-width: 320px; font-family: 'Inter', sans-serif; }
-</style>
-<style>
-/* Hero del blog con cinta orbital — solo esta página.
-   Las órbitas viven en la mitad derecha del asset: se ancla abajo-derecha y
-   'cover' recorta la zona oscura de la izquierda. */
-.hero--blog .hero-bg {
-  background:
-    radial-gradient(ellipse 56% 70% at 46% 42%, rgba(9,14,26,0.95) 0%, rgba(9,14,26,0.87) 46%, rgba(9,14,26,0.42) 74%, rgba(9,14,26,0.12) 100%),
-    url("/assets/blog/hero-blog.webp") right center / cover no-repeat,
-    linear-gradient(135deg, var(--indigo-deep) 0%, #1A1530 60%, #2A1A3A 100%);
-}
-.hero--blog .hero-bg::before { content: none; }
-@media (max-width: 640px) {
-  .hero--blog .hero-bg {
-    background:
-      linear-gradient(180deg, rgba(9,14,26,0.96) 0%, rgba(9,14,26,0.85) 52%, rgba(9,14,26,0.95) 100%),
-      url("/assets/blog/hero-blog-1200.webp") right center / cover no-repeat,
-      #0B1220;
-  }
-}
-</style>
-    <!-- Umami: analítica propia, sin cookies -->
+<!-- Umami: analítica propia, sin cookies -->
     <script defer src="https://analytics.weavewp.com/script.js" data-website-id="e6709a17-7e16-4762-8fa7-0f1dd75b4264" data-domains="getweaves.com,www.getweaves.com"></script>
     <script defer src="/js/analytics-events.js?v=20261124-2"></script>
 </head>
@@ -85,59 +60,13 @@
 </nav>
 </div>
 
-<!-- HERO -->
-<section class="hero hero--blog" style="min-height: var(--hero-min); padding-top: 140px; justify-content: center; text-align: center;">
-  <div class="hero-bg"></div>
-  <div class="hero-content" style="max-width: 900px;">
-    <div class="section-eyebrow reveal" style="justify-content: center;">Blog & Recursos</div>
-    <h1 class="hero-title reveal" style="max-width: 100%; font-size: clamp(38px, 5vw, 64px); margin-bottom: 24px;">Inteligencia Artificial Aplicada</h1>
-    <p class="hero-sub reveal reveal-delay-1" style="max-width: 600px; margin: 0 auto;">Guías prácticas, casos reales y automatizaciones para las pymes de hoy.</p>
-  </div>
-</section>
-
-<!-- FILTERS -->
-<section style="padding: 40px 24px; border-bottom: 1px solid var(--border);">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    <div class="blog-filters" style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
-      <button class="filter-btn active" data-category="all">Todos</button>
-      <button class="filter-btn" data-category="guias">Guías</button>
-      <button class="filter-btn" data-category="casos">Casos de uso</button>
-      <button class="filter-btn" data-category="herramientas">Herramientas</button>
-      <button class="filter-btn" data-category="tendencias">Tendencias</button>
-    </div>
-  </div>
-</section>
-
-<!-- BLOG POSTS GRID -->
-<section style="padding: 100px 24px; background: var(--offwhite);">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    <!-- Loading State -->
-    <div id="loading-state" style="text-align: center; padding: 40px;">
-      <p style="color: var(--muted); font-size: 18px;">Cargando artículos...</p>
-    </div>
-
-    <!-- Posts Container -->
-    <div id="blog-posts" class="results-grid" style="display: none; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
-        <!-- Posts will be dynamically loaded here -->
-    </div>
-
-    <!-- Empty State -->
-    <div id="empty-state" style="display: none; text-align: center; padding: 40px;">
-      <p style="color: var(--muted); font-size: 18px;">No hay artículos disponibles para esta categoría.</p>
-    </div>
-
-    <!-- Error State -->
-    <div id="error-state" style="display: none; text-align: center; padding: 40px;">
-      <p style="color: var(--accent); font-size: 18px;">Hubo un error al cargar los artículos. Por favor, intenta de nuevo.</p>
-    </div>
-
-    <!-- Pagination -->
-    <div id="pagination" class="pagination" style="display: none; margin-top: 60px; text-align: center;">
-        <!-- Pagination logic dynamically generated -->
-    </div>
-  </div>
-</section>
-
+<!-- BLOG CONTENT START -->
+<main><section class="blog-index-hero"><div class="blog-hero-inner"><p class="blog-label">Blog y recursos</p><h1>Inteligencia artificial aplicada</h1><p class="blog-lead">Guías prácticas y automatizaciones para ordenar la operación de tu empresa.</p></div></section>
+<section class="blog-index"><div class="blog-index-controls"><div class="blog-filters" aria-label="Filtrar por categoría"><button class="blog-filter active" data-category="all" aria-pressed="true">Todos</button><button class="blog-filter" data-category="atencion" aria-pressed="false">Atención</button><button class="blog-filter" data-category="automatizacion" aria-pressed="false">Automatización</button><button class="blog-filter" data-category="procesos" aria-pressed="false">Procesos</button></div><label class="blog-search">Buscar artículos<input type="search" id="blog-search" placeholder="Buscar por tema o palabra"></label></div><div id="blog-posts" class="blog-grid"><article class="blog-card" data-category="atencion" data-search="whatsapp y atención humana: qué automatizar aprende a organizar la atención por whatsapp: identifica consultas repetidas, conecta el historial y define cuándo debe intervenir una persona. atención whatsapp atención automatización">
+<a class="blog-card-link" href="blog/whatsapp-atencion-humana.html"><img src="/assets/blog/hero-blog.webp" alt="Ilustración de conexiones digitales sobre fondo oscuro" loading="lazy"><div class="blog-card-content"><p class="blog-label">Atención · 2 min</p><h2>WhatsApp y atención humana: qué automatizar</h2><p>Aprende a organizar la atención por WhatsApp: identifica consultas repetidas, conecta el historial y define cuándo debe intervenir una persona.</p><span class="blog-more">Leer artículo <span aria-hidden="true">→</span></span></div></a></article><article class="blog-card" data-category="automatizacion" data-search="cuándo usar reglas fijas y cuándo ia en un proceso criterios claros para combinar reglas fijas, ia y revisión humana en procesos de empresa sin añadir errores ni costes innecesarios. automatización automatizacion ia-aplicada arquitectura">
+<a class="blog-card-link" href="blog/reglas-fijas-o-ia-en-procesos.html"><img src="/assets/blog/reglas-fijas-o-ia-en-procesos.jpg" alt="Láminas rígidas de cristal translúcido conectando con una onda curva iluminada en turquesa y ámbar" loading="lazy"><div class="blog-card-content"><p class="blog-label">Automatización · 4 min</p><h2>Cuándo usar reglas fijas y cuándo IA en un proceso</h2><p>Criterios claros para combinar reglas fijas, IA y revisión humana en procesos de empresa sin añadir errores ni costes innecesarios.</p><span class="blog-more">Leer artículo <span aria-hidden="true">→</span></span></div></a></article><article class="blog-card" data-category="procesos" data-search="cómo elegir tu primer proceso para automatizar una guía para elegir un proceso de tu empresa, entender sus excepciones y medir una primera automatización antes de extenderla al equipo. procesos procesos diagnóstico automatización">
+<a class="blog-card-link" href="blog/elegir-primer-proceso-automatizar.html"><img src="/assets/blog/hero-blog-1200.webp" alt="Ilustración de conexiones digitales en tonos turquesa" loading="lazy"><div class="blog-card-content"><p class="blog-label">Procesos · 2 min</p><h2>Cómo elegir tu primer proceso para automatizar</h2><p>Una guía para elegir un proceso de tu empresa, entender sus excepciones y medir una primera automatización antes de extenderla al equipo.</p><span class="blog-more">Leer artículo <span aria-hidden="true">→</span></span></div></a></article></div><p id="blog-empty" class="blog-empty" hidden>No hay artículos que coincidan con la búsqueda.</p></section></main>
+<!-- BLOG CONTENT END -->
 <!-- NEWSLETTER / BIG CTA -->
 <!-- CONTACTO — CTA compartido -->
 <div data-contact-form></div>
@@ -164,20 +93,7 @@
 </div>
 
 <script src="../js/components-loader.js"></script>
-<script src="../js/main.js"></script>
 <script src="../js/blog-wp.js"></script>
-<script>
-// reveal animations
-const reveals = document.querySelectorAll('.reveal');
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      obs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-reveals.forEach(el => obs.observe(el));
-</script>
+
 </body>
 </html>

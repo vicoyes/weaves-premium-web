@@ -8,6 +8,7 @@ ejecutar tantas veces como haga falta; reescribe el bloque seo entre marcadores.
     python3 tools/seo_aplicar.py --og       # además genera las imágenes 1200x630
 """
 import os, re, sys, html, datetime
+sys.dont_write_bytecode = True
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOM = os.environ.get("WEAVES_DOMAIN", "https://weavewp.com")
@@ -142,6 +143,10 @@ P = {
    "Legal", "Política de cookies.", "0.3", None),
 }
 
+# El frontmatter del blog es la fuente de sus metadatos y del sitemap.
+from build_blog import load_posts, seo_entries
+P.update(seo_entries(load_posts()))
+
 # páginas que no deben indexarse: plantillas con parámetros y stubs de redirección
 NOINDEX = ["servicios/servicio.html", "sectores/sector.html"]
 STUBS = ["servicios/bot.html"]
@@ -168,7 +173,7 @@ def bloque_seo(path, meta):
         "<!-- seo -->",
         f'<meta name="description" content="{html.escape(desc, quote=True)}">',
         f'<link rel="canonical" href="{url}">',
-        f'<meta property="og:type" content="website">',
+        '<meta property="og:type" content="{}">'.format('article' if path.startswith('pages/blog/') else 'website'),
         f'<meta property="og:site_name" content="Weaves">',
         f'<meta property="og:locale" content="es_ES">',
         f'<meta property="og:title" content="{html.escape(title, quote=True)}">',
