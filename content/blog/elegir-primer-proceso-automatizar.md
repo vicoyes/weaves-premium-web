@@ -7,7 +7,7 @@ tags: ["Procesos", "Diagnóstico", "Automatización"]
 date: 2026-11-23
 updated: 2026-11-24
 author: Equipo Weaves
-image: /assets/blog/elegir-primer-proceso-automatizar.jpg
+image: /assets/blog/elegir-primer-proceso-automatizar-v2.jpg
 image_alt: Una pieza de vidrio ámbar elegida entre una fila de piezas turquesas sobre fondo azul noche
 summary: ["Elige un proceso concreto, repetido y con una persona responsable.", "Documenta entradas, decisiones, sistemas y excepciones antes de construir.", "Compara el funcionamiento antes y después, sin confundir actividad con resultados."]
 faq: [{"question": "¿Hay que cambiar todas las herramientas?", "answer": "No necesariamente. Primero comprueba qué sistemas se usan y qué integraciones permiten; después decide si hace falta cambiar alguno."}, {"question": "¿Qué pasa con los casos excepcionales?", "answer": "Deben quedar identificados en el diseño, con una persona responsable y una forma de retomar el trabajo cuando la automatización se detiene."}]
