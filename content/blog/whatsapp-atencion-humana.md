@@ -7,8 +7,8 @@ tags: ["WhatsApp", "Atención", "Automatización"]
 date: 2026-11-24
 updated: 2026-11-24
 author: Equipo Weaves
-image: /assets/blog/hero-blog.webp
-image_alt: Ilustración de conexiones digitales sobre fondo oscuro
+image: /assets/blog/whatsapp-atencion-humana.jpg
+image_alt: Burbujas de mensaje avanzando por canales de vidrio turquesa, una de ellas derivando a un nodo ámbar
 summary: ["Empieza por las consultas repetidas y documenta las respuestas autorizadas.", "Mantén una salida clara a una persona para las excepciones.", "Conecta la conversación con la información que el equipo necesita para continuar."]
 faq: [{"question": "¿Es necesario automatizar todas las conversaciones?", "answer": "No. Empieza por consultas acotadas y deja que el equipo atienda los casos sensibles o que requieran criterio."}, {"question": "¿Puede equivocarse un asistente?", "answer": "Sí. Limita sus respuestas a información revisada, registra las incidencias y facilita el traspaso a una persona."}]
 cta: "Revisemos juntos cómo llega una consulta a tu equipo y dónde conviene intervenir."

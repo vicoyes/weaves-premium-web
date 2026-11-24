@@ -7,8 +7,8 @@ tags: ["automatizacion", "ia-aplicada", "arquitectura"]
 date: 2026-11-24
 updated: 2026-11-24
 author: Equipo Weaves
-image: /assets/blog/reglas-fijas-o-ia-en-procesos.jpg
-image_alt: Láminas rígidas de cristal translúcido conectando con una onda curva iluminada en turquesa y ámbar
+image: /assets/blog/reglas-fijas-o-ia-en-procesos-v2.jpg
+image_alt: Bloques de vidrio alineados que se transforman en cintas fluidas de vidrio sobre fondo azul noche
 summary: ["Usa reglas fijas siempre que el dato ya venga estructurado y el resultado tenga que ser idéntico cada vez.", "Reserva la inteligencia artificial para interpretar texto libre, correos, audios o documentos sin formato único.", "Separa la lectura que hace la IA de la acción crítica en el sistema para mantener control y trazabilidad."]
 cta: ¿Quieres revisar qué partes de tu flujo necesitan IA y cuáles no?
 related: ["elegir-primer-proceso-automatizar", "whatsapp-atencion-humana"]
