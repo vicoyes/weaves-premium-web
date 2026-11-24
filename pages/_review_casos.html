@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<!-- seo -->
+<meta name="description" content="Siete proyectos entregados: de dónde partía cada cliente, qué se construyó y en qué estado está hoy. Si un dato no está medido, lo decimos.">
+<link rel="canonical" href="https://getweaves.com/pages/casos-exito.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Weaves">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Casos de éxito: proyectos entregados y estado real | Weaves">
+<meta property="og:description" content="Siete proyectos entregados: de dónde partía cada cliente, qué se construyó y en qué estado está hoy. Si un dato no está medido, lo decimos.">
+<meta property="og:url" content="https://getweaves.com/pages/casos-exito.html">
+<meta property="og:image" content="https://getweaves.com/images/og/pages-casos-exito.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Proyectos entregados, con su estado real.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Casos de éxito: proyectos entregados y estado real | Weaves">
+<meta name="twitter:description" content="Siete proyectos entregados: de dónde partía cada cliente, qué se construyó y en qué estado está hoy. Si un dato no está medido, lo decimos.">
+<meta name="twitter:image" content="https://getweaves.com/images/og/pages-casos-exito.jpg">
+<!-- /seo -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casos de éxito: proyectos entregados y estado real | Weaves</title>
+<!-- Open Graph -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css?v=20261123-8">
+<!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/dc631879d65242ce24a26ab58c89d599/script.js"></script> <!-- End cookieyes banner -->
+<style>
+/* Hero de casos con cinta de vidrio — solo esta página */
+.hero--casos .hero-bg {
+  background:
+    radial-gradient(ellipse 58% 74% at 50% 44%, rgba(9,14,26,0.95) 0%, rgba(9,14,26,0.88) 46%, rgba(9,14,26,0.45) 72%, rgba(9,14,26,0.12) 100%),
+    url("/assets/cases/hero-casos.webp") center bottom / cover no-repeat,
+    linear-gradient(135deg, var(--indigo-deep) 0%, #1A1530 60%, #2A1A3A 100%);
+}
+.hero--casos .hero-bg::before { content: none; }
+@media (max-width: 640px) {
+  .hero--casos .hero-bg {
+    background:
+      linear-gradient(180deg, rgba(9,14,26,0.96) 0%, rgba(9,14,26,0.86) 55%, rgba(9,14,26,0.95) 100%),
+      url("/assets/cases/hero-casos-1200.webp") center bottom / cover no-repeat,
+      #0B1220;
+  }
+}
+
+.case-p { font-size: 16px; line-height: 1.78; color: var(--muted); margin-top: 18px; max-width: 68ch; }
+.case-meta { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--border); display: grid; gap: 10px; }
+.case-meta p { font-size: 14px; line-height: 1.6; color: var(--muted); margin: 0; }
+.case-meta span { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-right: 10px; }
+.feature-section.dark .case-p { color: rgba(255,255,255,0.72); }
+.case-meta--dark { border-top-color: rgba(255,255,255,0.14); }
+.case-meta--dark p { color: rgba(255,255,255,0.6); }
+.case-meta--dark span { color: var(--amber); }
+
+/* ═══════════ ÍNDICE DE PROYECTOS ═══════════ */
+.proj-section { background: var(--dark); padding: 104px 0 116px; position: relative; overflow: hidden; }
+.proj-section::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 46% 60% at 82% 6%, rgba(0,180,166,0.14) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 6% 92%, rgba(124,92,255,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.proj-inner { max-width: 1400px; margin: 0 auto; padding: 0 48px; position: relative; z-index: 1; }
+.proj-head { margin-bottom: 52px; }
+.proj-title {
+  font-family: 'Space Grotesk', sans-serif; font-weight: 400;
+  font-size: clamp(32px, 4.4vw, 60px); line-height: 1.04; color: #fff; max-width: 920px;
+}
+.proj-title em { font-style: normal; color: var(--teal); }
+.proj-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.proj-card {
+  background: #fff; border-radius: 14px; overflow: hidden; text-decoration: none;
+  display: flex; flex-direction: column; min-height: 340px;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.proj-card:hover, .proj-card:focus-visible { transform: translateY(-6px); box-shadow: 0 28px 60px rgba(0,0,0,0.34); }
+.proj-card-body { padding: 26px 26px 24px; flex: 1; position: relative; }
+.proj-sector {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: #0B6B63;
+}
+.proj-q {
+  font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 20px; line-height: 1.3;
+  color: var(--indigo); margin-top: 16px; padding-right: 40px;
+}
+.proj-plus {
+  position: absolute; right: 22px; bottom: 20px; width: 30px; height: 30px; border-radius: 50%;
+  background: var(--teal); color: #fff; display: flex; align-items: center; justify-content: center;
+  transition: background .3s ease;
+}
+.proj-plus svg { width: 13px; height: 13px; }
+.proj-card:hover .proj-plus { background: var(--indigo); }
+.proj-media { height: 112px; overflow: hidden; background: #E8ECF4; }
+.proj-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
+.proj-card:hover .proj-media img { transform: scale(1.05); }
+
+@media (max-width: 980px) {
+  .proj-grid { grid-template-columns: 1fr; gap: 18px; }
+  .proj-card--cta { grid-column: span 1; }
+  .proj-card { min-height: 0; }
+  .proj-media { height: 150px; }
+  .proj-q { font-size: 18.5px; }
+  .proj-inner { padding: 0 24px; }
+  .proj-section { padding: 72px 0 80px; }
+}
+
+.proj-client {
+  font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 500;
+  color: var(--indigo); margin-top: 10px; letter-spacing: -.005em;
+}
+.proj-more {
+  position: absolute; left: 26px; bottom: 24px;
+  font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: .14em;
+  text-transform: uppercase; color: #0B6B63;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.proj-more::after { content: '→'; font-size: 11px; transition: transform .3s ease; }
+.proj-card:hover .proj-more::after { transform: translateX(3px); }
+
+
+
+.proj-card--cta { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.14); justify-content: center; grid-column: span 2; }
+.proj-card--cta:hover { background: rgba(255,255,255,.07); box-shadow: none; transform: translateY(-4px); }
+.proj-card--cta .proj-sector { color: var(--teal); }
+.proj-card--cta .proj-q { color: #fff; padding-right: 0; }
+.proj-card--cta .proj-more { position: static; margin-top: 22px; color: var(--teal); }
+
+.testi-grid { max-width: 1400px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.testi-grid .testi-card { width: 100%; display: flex; flex-direction: column; }
+.testi-grid .testi-author { margin-top: auto; padding-top: 20px; }
+.testi-link { margin-top: 6px; padding-top: 14px; display: inline-flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: #0B6B63; text-decoration: none; }
+.testi-link:hover { color: var(--teal); }
+.testi-link span { transition: transform .25s ease; }
+.testi-link:hover span { transform: translateX(3px); }
+@media (max-width: 980px) { .testi-grid { grid-template-columns: 1fr; padding: 0 24px; } .testi-grid .testi-card { width: 100%; display: flex; flex-direction: column; }
+.testi-grid .testi-author { margin-top: auto; padding-top: 20px; } }
+</style>
+    <!-- Umami: analítica propia, sin cookies -->
+    <script defer src="https://analytics.weavewp.com/script.js" data-website-id="e6709a17-7e16-4762-8fa7-0f1dd75b4264" data-domains="getweaves.com,www.getweaves.com"></script>
+    <script defer src="/js/analytics-events.js?v=20261124-2"></script>
+<style>.reveal{opacity:1!important;transform:none!important}</style>
+</head>
+<body>
+<div id="header-placeholder">
+<nav id="nav">
+  <div class="nav-left">
+    <a href="/" class="nav-logo">
+      <img class="nav-logo-image" src="/images/logo-weaves-on-dark.png?v=20260825-3" alt="Weaves">
+    </a>
+    <ul class="nav-links">
+      <li><a href="/index.html">Inicio</a></li>
+      <li><a href="/servicios/index.html">Qué hacemos</a></li>
+      <li><a href="/sectores/index.html">Sectores</a></li>
+      <li><a href="/pages/casos-exito.html" class="active" aria-current="page">Casos</a></li>
+      <li><a href="/pages/quienes-somos.html">Quiénes Somos</a></li>
+      <li><a href="/pages/blog.html">Blog</a></li>
+      <li><a href="/pages/contacto.html">Contacto</a></li>
+      <li class="nav-mobile-only"><a href="/pages/diagnostico-gratuito.html">Analizar mi proceso</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <a href="/pages/diagnostico-gratuito.html" class="nav-cta">Analizar mi proceso</a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+</div>
+
+<!-- HERO -->
+<section class="hero hero--casos" style="min-height: var(--hero-min); padding-top: 140px; justify-content: center; text-align: center;">
+  <div class="hero-bg"></div>
+  <div class="hero-content" style="max-width: 900px;">
+    <div class="section-eyebrow reveal" style="justify-content: center;">Impacto Real</div>
+    <h1 class="hero-title reveal" style="max-width: 100%; font-size: clamp(40px, 5vw, 68px); margin-bottom: 24px;">Casos y evidencia</h1>
+    <p class="hero-sub reveal reveal-delay-1" style="max-width: 680px; margin: 0 auto;">Trabajos entregados y verificables: de dónde partía cada cliente, qué se construyó y en qué estado está hoy. Si un dato no está medido, lo decimos.</p>
+  </div>
+</section>
+
+
+
+<!-- ÍNDICE DE PROYECTOS -->
+<section class="proj-section">
+  <div class="proj-inner">
+    <div class="proj-head">
+      <div class="section-eyebrow reveal" style="color: var(--teal); margin-bottom: 22px;">Casos</div>
+      <h2 class="proj-title reveal">Proyectos: <em>en el centro<br>de lo que hacemos.</em></h2>
+    </div>
+
+    <div class="proj-grid">
+      <a class="proj-card reveal" href="/pages/caso-spazio-bodywork.html" aria-label="Ver el caso de Spazio Bodywork">
+        <div class="proj-card-body">
+          <div class="proj-sector">Formación · Reservas</div>
+          <div class="proj-client">Spazio Bodywork</div>
+          <h3 class="proj-q">¿Cómo vender formación en tres ciudades sin perder el control de los cupos?</h3>
+          <span class="proj-more">Leer el caso</span>
+          <span class="proj-plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </div>
+        <div class="proj-media">
+          <img src="/assets/cases/card-formacion.webp" srcset="/assets/cases/card-formacion-900.webp 900w, /assets/cases/card-formacion.webp 1500w"
+               sizes="(max-width: 900px) 100vw, 33vw" width="1500" height="517" loading="lazy" alt="Arcos de cristal translúcido con una esfera en el centro">
+        </div>
+      </a>
+
+      <a class="proj-card reveal reveal-delay-1" href="/pages/caso-chusa.html" aria-label="Ver el caso de Chusa Fernández">
+        <div class="proj-card-body">
+          <div class="proj-sector">Marca personal · Venta directa</div>
+          <div class="proj-client">Chusa Fernández</div>
+          <h3 class="proj-q">¿Cómo convertir una marca personal en un recorrido que vende sin intervención manual?</h3>
+          <span class="proj-more">Leer el caso</span>
+          <span class="proj-plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </div>
+        <div class="proj-media">
+          <img src="/assets/cases/card-marca.webp" srcset="/assets/cases/card-marca-900.webp 900w, /assets/cases/card-marca.webp 1500w"
+               sizes="(max-width: 900px) 100vw, 33vw" width="1500" height="517" loading="lazy" alt="Cinta de cristal translúcido en espiral">
+        </div>
+      </a>
+
+      <a class="proj-card reveal reveal-delay-2" href="/pages/caso-empieza-de-cero.html" aria-label="Ver el caso de la empresa de formación">
+        <div class="proj-card-body">
+          <div class="proj-sector">Formación · Cobros</div>
+          <div class="proj-client">Empieza de Cero</div>
+          <h3 class="proj-q">¿Cómo perseguir 300 cobros al mes sin que se coma la operación del equipo?</h3>
+          <span class="proj-more">Leer el caso</span>
+          <span class="proj-plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </div>
+        <div class="proj-media">
+          <img src="/assets/cases/card-cobros.webp" srcset="/assets/cases/card-cobros-900.webp 900w, /assets/cases/card-cobros.webp 1500w"
+               sizes="(max-width: 900px) 100vw, 33vw" width="1500" height="517" loading="lazy" alt="Cubos y discos de cristal translúcido">
+        </div>
+      </a>
+      <a class="proj-card reveal" href="/pages/caso-iswift.html" aria-label="Ver el caso de iSwift Solutions">
+        <div class="proj-card-body">
+          <div class="proj-sector">Servicios B2B · Blog</div>
+          <div class="proj-client">iSwift Solutions</div>
+          <h3 class="proj-q">¿Cómo darle un blog al sitio sin depender de nadie para publicar?</h3>
+          <span class="proj-more">Leer el caso</span>
+          <span class="proj-plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </div>
+        <div class="proj-media">
+          <img src="/assets/cases/card-iswift.webp" srcset="/assets/cases/card-iswift-900.webp 900w, /assets/cases/card-iswift.webp 1500w"
+               sizes="(max-width: 900px) 100vw, 33vw" width="1500" height="517" loading="lazy" alt="Láminas de cristal translúcido abiertas en abanico">
+        </div>
+      </a>
+      <a class="proj-card reveal" href="/pages/caso-divine-light.html" aria-label="Ver el caso de Divine Light">
+        <div class="proj-card-body">
+          <div class="proj-sector">Marca · Web bilingüe</div>
+          <div class="proj-client">Divine Light</div>
+          <h3 class="proj-q">¿Cómo construir una marca que funcione en dos idiomas desde el primer día?</h3>
+          <span class="proj-more">Leer el caso</span>
+          <span class="proj-plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </div>
+        <div class="proj-media">
+          <img src="/assets/cases/card-divine.webp" srcset="/assets/cases/card-divine-900.webp 900w, /assets/cases/card-divine.webp 1500w"
+               sizes="(max-width: 900px) 100vw, 33vw" width="1500" height="517" loading="lazy" alt="Monolito de cristal translúcido con una grieta de luz ámbar">
+        </div>
+      </a>
+      <a class="proj-card reveal" href="/pages/caso-ananta.html" aria-label="Ver el caso de Ananta Seguridad">
+        <div class="proj-card-body">
+          <div class="proj-sector">Seguridad · Atención</div>
+          <div class="proj-client">Ananta Seguridad</div>
+          <h3 class="proj-q">¿Cómo atender por WhatsApp sin que la conversación viva en el móvil de cada uno?</h3>
+          <span class="proj-more">Leer el caso</span>
+          <span class="proj-plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </div>
+        <div class="proj-media">
+          <img src="/assets/cases/card-ananta.webp" srcset="/assets/cases/card-ananta-900.webp 900w, /assets/cases/card-ananta.webp 1500w"
+               sizes="(max-width: 900px) 100vw, 33vw" width="1500" height="517" loading="lazy" alt="Cúpula de cristal protegiendo un grupo de esferas">
+        </div>
+      </a>
+      <a class="proj-card reveal" href="/pages/caso-stellamia.html" aria-label="Ver el caso de Stellamia">
+        <div class="proj-card-body">
+          <div class="proj-sector">Editorial personalizada · Automatización</div>
+          <div class="proj-client">Stellamia</div>
+          <h3 class="proj-q">¿Cómo producir un libro distinto para cada niño sin maquetar nada a mano?</h3>
+          <span class="proj-more">Leer el caso</span>
+          <span class="proj-plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </div>
+        <div class="proj-media">
+          <img src="/assets/cases/card-stellamia.webp" srcset="/assets/cases/card-stellamia-900.webp 900w, /assets/cases/card-stellamia.webp 1500w"
+               sizes="(max-width: 900px) 100vw, 33vw" width="1500" height="517" loading="lazy" alt="Libro de cristal translúcido abierto en abanico">
+        </div>
+      </a>
+      <a class="proj-card proj-card--cta reveal" href="#contacto" aria-label="Contarnos un proceso">
+        <div class="proj-card-body" style="justify-content:center">
+          <div class="proj-sector">Tu proceso</div>
+          <h3 class="proj-q">¿Tienes un proceso que se repite cada semana?</h3>
+          <span class="proj-more">Contárnoslo</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CRITERIO EDITORIAL -->
+<section class="results-section" style="padding: 104px 0 40px;">
+  <div class="results-inner">
+    <div class="results-header" style="grid-template-columns: 1fr; text-align: left;">
+      <div>
+        <div class="section-eyebrow reveal">Criterio</div>
+        <h2 class="section-title reveal" style="max-width: 720px;">Qué publicamos<br><em>y qué no.</em></h2>
+      </div>
+    </div>
+    <div class="results-grid results-grid-three" style="margin-top: 48px;">
+      <div class="result-cell reveal">
+        <div class="result-label">Publicamos</div>
+        <div class="result-desc">Alcance entregado, herramientas implantadas, volumen de operación cuando existe y estado real del proyecto.</div>
+      </div>
+      <div class="result-cell reveal reveal-delay-1">
+        <div class="result-label">No publicamos</div>
+        <div class="result-desc">Ahorros estimados, porcentajes redondeados, citas de relleno ni resultados sin respaldo en registros.</div>
+      </div>
+      <div class="result-cell reveal reveal-delay-2">
+        <div class="result-label">Si piden discreción</div>
+        <div class="result-desc">Anonimizamos el nombre y los datos identificativos. Queda el tipo de negocio, el trabajo y los volúmenes verificables.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testi-section">
+  <div class="testi-inner">
+    <div>
+      <div class="section-eyebrow reveal">Testimonios</div>
+      <h2 class="section-title reveal">Quien lo vivió,<br><em>lo cuenta mejor.</em></h2>
+    </div>
+    <p class="section-sub reveal reveal-delay-1" style="align-self: end;">Las mismas palabras que están en la home, aquí junto al caso al que se refieren.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"Con Chatwoot conseguimos organizar la atención por WhatsApp en un solo lugar. Las consultas se clasifican y se responden con reglas claras, y el equipo tiene visibilidad de cada conversación."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">DA</div>
+          <div><div class="testi-name">David Acuña</div><div class="testi-role">CEO, Rubik Express</div></div>
+        </div>
+      </div>
+    <div class="testi-card">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"Las notificaciones automáticas por WhatsApp y la gestión de redes sociales nos han liberado horas de trabajo. Ahora el equipo se enfoca en crear contenido de valor mientras la operación sigue sus reglas."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JA</div>
+          <div><div class="testi-name">Julián Alarcón</div><div class="testi-role">CEO, Empieza de Cero</div></div>
+        </div>
+        <a class="testi-link" href="/pages/caso-empieza-de-cero.html">Ver el caso<span aria-hidden="true">→</span></a>
+      </div>
+    <div class="testi-card">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"La generación automática de tickets ordenó nuestra operativa. Los tiempos de respuesta mejoraron y los errores de seguimiento se redujeron de forma notable desde el primer mes."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AS</div>
+          <div><div class="testi-name">Alejandro Soto</div><div class="testi-role">CEO, Ananta Seguridad</div></div>
+        </div>
+        <a class="testi-link" href="/pages/caso-ananta.html">Ver el caso<span aria-hidden="true">→</span></a>
+      </div>
+    <div class="testi-card">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"Ordenar y automatizar procesos críticos nos permitió escalar el servicio sin perder calidad. Ahora atendemos más volumen con las mismas reglas y el mismo estándar."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SK</div>
+          <div><div class="testi-name">Saskia</div><div class="testi-role">CEO, Stellamia</div></div>
+        </div>
+        <a class="testi-link" href="/pages/caso-stellamia.html">Ver el caso<span aria-hidden="true">→</span></a>
+      </div>
+    <div class="testi-card">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"La creación de guías que antes nos tomaba horas ahora se resuelve en minutos con el proceso automatizado. El equipo dedica ese tiempo a tareas que requieren criterio humano."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RT</div>
+          <div><div class="testi-name">Raquel Tebar</div><div class="testi-role">CEO, Lunea</div></div>
+        </div>
+      </div>
+    <div class="testi-card">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"Mi web ahora recoge consultas y las clasifica de forma automática. La integración con IA permite que el primer contacto ya tenga respuesta, y el equipo interviene cuando hace falta."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">ZA</div>
+          <div><div class="testi-name">Zuzel Amelia</div><div class="testi-role">Fundadora, Zuzel Amelia</div></div>
+        </div>
+        <a class="testi-link" href="/pages/caso-divine-light.html">Ver el caso<span aria-hidden="true">→</span></a>
+      </div>
+  </div>
+</section>
+
+<!-- CASOS DESARROLLADOS -->
+
+<!-- BIG CTA -->
+<!-- CONTACTO — CTA compartido -->
+<div data-contact-form></div>
+<script src="../js/contact-form.js?v=20261123-7"></script>
+<script src="../js/contact-form-loader.js?v=20261123-7"></script>
+
+<div id="footer-placeholder">
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand-block">
+        <div class="footer-logo-row"><img class="footer-logo-image" src="/images/logo-weaves-on-dark.png?v=20260825-3" alt="Weaves"></div>
+        <p class="footer-blurb">Ampliamos la capacidad de tu equipo reduciendo la carga repetitiva, con IA, automatización y supervisión humana.</p>
+        <div class="footer-social"><a href="#" class="social-btn"><svg viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="1.5"></path><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5"></circle></svg></a><a href="#" class="social-btn"><svg viewBox="0 0 24 24" fill="none"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" stroke="currentColor" stroke-width="1.5"></path></svg></a><a href="#" class="social-btn"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="1.5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01" stroke="currentColor" stroke-width="1.5"></path></svg></a></div>
+      </div>
+      <div><div class="footer-col-title">Por qué Weaves</div><ul class="footer-links"><li><a href="/pages/quienes-somos.html">Sobre nosotros</a></li><li><a href="/pages/casos-exito.html">Nuestros clientes</a></li><li><a href="#">Carreras</a></li><li><a href="/pages/contacto.html">Contacto</a></li></ul></div>
+      <div><div class="footer-col-title">Operaciones</div><ul class="footer-links"><li><a href="/servicios/servicio.html?id=chatbot">Atención y comunicación</a></li><li><a href="/servicios/servicio.html?id=embudo">Crecimiento y seguimiento</a></li><li><a href="/servicios/servicio.html?id=procesos">Administración y documentos</a></li><li><a href="/servicios/servicio.html?id=consultoria">Assessment y diseño</a></li><li><a href="/servicios/servicio.html?id=mantenimiento">Mejora continua</a></li></ul></div>
+      <div><div class="footer-col-title">Recursos</div><ul class="footer-links"><li><a href="/pages/blog.html">Blog</a></li><li><a href="/pages/casos-exito.html">Casos de éxito</a></li><li><a href="/index.html#tecnologia">Tecnología</a></li><li><a href="#">Documentación</a></li></ul></div>
+      <div><div class="footer-col-title">Legal</div><ul class="footer-links"><li><a href="/legal/politica-privacidad.html">Privacidad</a></li><li><a href="/legal/aviso-legal.html">Aviso legal</a></li><li><a href="/legal/politica-cookies.html">Cookies</a></li><li><a href="#">RGPD</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">Weaves &copy; 2026 &middot; Todos los derechos reservados</div><div class="footer-legal-row"><a href="/">getweaves.com</a><span>España &middot; LatAm</span><span>ES</span></div></div>
+  </div>
+</footer>
+</div>
+
+<script src="../js/components-loader.js"></script>
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
