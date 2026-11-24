@@ -38,3 +38,7 @@ out/
 # Backup files
 *.backup
 *.bak
+
+# Backend
+.env.*
+!.env.example

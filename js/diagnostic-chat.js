@@ -8,7 +8,7 @@ class DiagnosticChat {
         this.config = config;
         this.currentStep = 0;
         this.answers = {};
-        this.n8nWebhookUrl = config.webhookUrl || '/api/diagnostic';
+        this.n8nWebhookUrl = config.webhookUrl || '/api/diagnostico';
         
         this.questions = this.loadQuestions();
     }
@@ -865,7 +865,8 @@ class DiagnosticChat {
                 body: JSON.stringify(payload)
             });
 
-            if (!response.ok) {
+            const result = await response.json().catch(() => null);
+            if (!response.ok || !result || result.ok !== true) {
                 throw new Error('Error al enviar el diagnóstico');
             }
 

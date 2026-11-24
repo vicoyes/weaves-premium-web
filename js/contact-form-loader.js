@@ -13,7 +13,7 @@
     var base = '';
     if (script && script.src) base = script.src.replace(/js\/contact-form-loader\.js.*$/, '');
 
-    fetch(base + 'components/contact-form.html?v=20261123-6', { cache: 'no-store' })
+    fetch(base + 'components/contact-form.html?v=20261124-1', { cache: 'no-store' })
         .then(function (r) {
             if (!r.ok) throw new Error('HTTP ' + r.status);
             return r.text();

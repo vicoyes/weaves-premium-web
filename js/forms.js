@@ -13,58 +13,77 @@ function validatePhone(phone) {
     return re.test(phone.replace(/\s/g, ''));
 }
 
-// Contact Form Handler with Formspree
+// Contact Form Handler (backend propio: /api/contacto)
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
+    const statusBox = document.getElementById('contactFormStatus');
+
+    function setContactStatus(message, isError) {
+        if (!statusBox) return;
+        statusBox.textContent = message || '';
+        statusBox.style.color = isError ? '#b42318' : '#0b7a6f';
+    }
+
     contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-        
-        const formData = new FormData(this);
-        const data = Object.fromEntries(formData);
-        
+        if (this.dataset.sending === '1') return;
+
+        const form = this;
+        const data = Object.fromEntries(new FormData(form));
+        data.privacidad = !!(form.elements.privacidad && form.elements.privacidad.checked);
+        data.marketing = !!(form.elements.marketing && form.elements.marketing.checked);
+        data.pagina = window.location.href.split('#')[0];
+        data.origen = document.referrer || '';
+        data.enviado_en = new Date().toISOString();
+        data.idioma = document.documentElement.lang || 'es';
+
         // Validation
-        if (!validateEmail(data.email)) {
-            alert('Por favor, introduce un email válido.');
+        if (!data.name || data.name.trim().length < 2 || !data.company || data.company.trim().length < 2) {
+            setContactStatus('Escribe tu nombre y el de tu empresa.', true);
             return;
         }
-        
+        if (!validateEmail(data.email || '')) {
+            setContactStatus('Por favor, introduce un email válido.', true);
+            return;
+        }
         if (data.phone && !validatePhone(data.phone)) {
-            alert('Por favor, introduce un teléfono válido.');
+            setContactStatus('Por favor, introduce un teléfono válido.', true);
             return;
         }
-        
+        if (!data.privacidad) {
+            setContactStatus('Necesitamos tu autorización de privacidad para poder responderte.', true);
+            return;
+        }
+
         // Show loading state
-        const submitBtn = this.querySelector('button[type="submit"]');
+        const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
         submitBtn.textContent = 'Enviando...';
         submitBtn.disabled = true;
-        
+        form.dataset.sending = '1';
+        setContactStatus('');
+
         try {
-            // Send to Formspree
-            const response = await fetch(this.action, {
+            const response = await fetch(form.getAttribute('action'), {
                 method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(data)
             });
-            
-            if (response.ok) {
-                // Success message
-                alert('¡Mensaje enviado con éxito! Te contactaremos pronto.');
-                this.reset();
+            const result = await response.json().catch(() => null);
+
+            if (response.ok && result && result.ok === true) {
+                setContactStatus('Recibido. Te escribimos en menos de 24 h hábiles.', false);
+                form.reset();
             } else {
-                const errorData = await response.json();
-                alert('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
-                console.error('Formspree error:', errorData);
+                setContactStatus((result && result.error) || 'No pudimos enviar el mensaje. Inténtalo de nuevo o escríbenos a info@weavewp.com.', true);
             }
         } catch (error) {
-            alert('Error de conexión. Por favor, verifica tu internet e inténtalo de nuevo.');
+            setContactStatus('Error de conexión. Verifica tu internet e inténtalo de nuevo.', true);
             console.error('Error:', error);
         } finally {
-            // Reset button
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
+            delete form.dataset.sending;
         }
     });
 }
@@ -186,8 +205,11 @@ function autoSaveForm(formId) {
     });
 }
 
+// El formulario de contacto ya no guarda PII en el navegador: limpia restos antiguos.
+try { localStorage.removeItem('contactForm'); } catch (e) { /* ignore */ }
+
 // Apply auto-save to forms
-['contactForm', 'diagnosticForm', 'clientRequestForm'].forEach(formId => {
+['diagnosticForm', 'clientRequestForm'].forEach(formId => {
     autoSaveForm(formId);
 });
 
