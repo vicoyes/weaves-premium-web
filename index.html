@@ -64,11 +64,6 @@
         </a>
         <a href="servicios/index.html#operaciones" class="btn-w btn-w--ghost">Ver casos de uso</a>
       </div>
-      <div class="hero-w-stats aw" style="--d:.74s">
-        <div class="sw"><b>08</b><span>empresas acompañadas</span></div>
-        <div class="sw"><b>06</b><span>sectores atendidos</span></div>
-        <div class="sw"><b>03</b><span>frentes de operación</span></div>
-      </div>
     </div>
     <div class="hero-w-space" aria-hidden="true"></div>
   </div>
@@ -81,7 +76,7 @@
   </div>
   <div class="marquee-wrap">
     <div class="marquee-track">
-      <span class="marquee-logo"><img src="images/client/logo-rubik.png" alt="Rubik Express" width="200" height="120" decoding="async"></span>
+      <span class="marquee-logo"><img src="images/client/logo-rubik-mono.png" alt="Rubik Express" width="200" height="120" decoding="async"></span>
       <span class="marquee-logo"><img src="images/client/logo-empieza.png" alt="Empieza de Cero" width="404" height="86" decoding="async"></span>
       <span class="marquee-logo"><img src="images/client/logo-ananta.png" alt="Ananta Seguridad" width="189" height="120" decoding="async"></span>
       <span class="marquee-logo"><img src="images/client/logo-stellamia.png" alt="Stellamia" width="213" height="120" decoding="async"></span>
@@ -91,7 +86,7 @@
       <span class="marquee-logo"><img src="images/client/logo-zuzel.png" alt="Zuzel Amelia" width="289" height="95" decoding="async"></span>
     </div>
     <div class="marquee-track" aria-hidden="true">
-      <span class="marquee-logo"><img src="images/client/logo-rubik.png" alt="" width="200" height="120" decoding="async"></span>
+      <span class="marquee-logo"><img src="images/client/logo-rubik-mono.png" alt="" width="200" height="120" decoding="async"></span>
       <span class="marquee-logo"><img src="images/client/logo-empieza.png" alt="" width="404" height="86" decoding="async"></span>
       <span class="marquee-logo"><img src="images/client/logo-ananta.png" alt="" width="189" height="120" decoding="async"></span>
       <span class="marquee-logo"><img src="images/client/logo-stellamia.png" alt="" width="213" height="120" decoding="async"></span>
@@ -102,6 +97,28 @@
     </div>
   </div>
 </section>
+
+<script>
+// Cinta de logos: repetir el set lo necesario para que cada pista cubra el viewport
+// (si la pista es más corta que la pantalla, al final del bucle queda un hueco vacío).
+(() => {
+  const tracks = [...document.querySelectorAll('.marquee-track')];
+  if (!tracks.length) return;
+  const base = [...tracks[0].children];
+  const baseW = Math.max(tracks[0].scrollWidth, 1200);
+  const copies = Math.min(6, Math.max(1, Math.ceil((window.innerWidth * 1.15) / baseW)));
+  tracks.forEach(track => {
+    track.innerHTML = '';
+    for (let c = 0; c < copies; c++) base.forEach(el => {
+      const clone = el.cloneNode(true);
+      if (c > 0) { const img = clone.querySelector('img'); if (img) img.setAttribute('alt', ''); }
+      track.append(clone);
+    });
+  });
+  const dur = tracks[0].scrollWidth / 30;
+  tracks.forEach(t => { t.style.animationDuration = dur + 's'; });
+})();
+</script>
 
 <!-- PAIN POINTS -->
 <section class="results-section pain-points-section" id="problemas">
