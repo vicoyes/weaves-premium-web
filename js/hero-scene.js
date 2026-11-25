@@ -139,12 +139,21 @@ if (hero && host && layer && chipLayer && intro) {
     const pathMat = new THREE.LineBasicMaterial({ transparent: true, opacity: .5, depthWrite: false });
     const lineMats = { wire: wireMat, accentLine: accentLineMat, path: pathMat };
 
-    const STATIONS = [
-      { x: -7.1, z: .2, top: 1.33, base: [-.9, 2.9, 1.15, 2.2], k: '01', name: 'Ingreso de solicitudes', detail: 'Web · Formularios · Integraciones', lift: 62 },
-      { x: -2.25, z: -1.2, top: 1.49, base: [-.8, 3.2, 1.25, 2.2], k: '02', name: 'Clasificación y reglas', detail: 'Prioridades · Asignación · Contexto', lift: 100 },
-      { x: 2.55, z: .55, top: .42, base: [-.85, 3.4, 1.15, 2.4], k: '03', name: 'Ejecución del proceso', detail: 'Tareas · CRM · Automatizaciones', lift: 58 },
-      { x: 7, z: -.6, top: 1.15, base: [-.88, 3.45, 1.17, 2.5], k: '04', name: 'Supervisión humana', detail: 'Excepciones · Validación · Control', lift: 162, flip: true }
-    ];
+    const STATIONS_BY_LANG = {
+      es: [
+        { x: -7.1, z: .2, top: 1.33, base: [-.9, 2.9, 1.15, 2.2], k: '01', name: 'Ingreso de solicitudes', detail: 'Web · Formularios · Integraciones', lift: 62 },
+        { x: -2.25, z: -1.2, top: 1.49, base: [-.8, 3.2, 1.25, 2.2], k: '02', name: 'Clasificación y reglas', detail: 'Prioridades · Asignación · Contexto', lift: 100 },
+        { x: 2.55, z: .55, top: .42, base: [-.85, 3.4, 1.15, 2.4], k: '03', name: 'Ejecución del proceso', detail: 'Tareas · CRM · Automatizaciones', lift: 58 },
+        { x: 7, z: -.6, top: 1.15, base: [-.88, 3.45, 1.17, 2.5], k: '04', name: 'Supervisión humana', detail: 'Excepciones · Validación · Control', lift: 162, flip: true }
+      ],
+      en: [
+        { x: -7.1, z: .2, top: 1.33, base: [-.9, 2.9, 1.15, 2.2], k: '01', name: 'Request intake', detail: 'Web · Forms · Integrations', lift: 62 },
+        { x: -2.25, z: -1.2, top: 1.49, base: [-.8, 3.2, 1.25, 2.2], k: '02', name: 'Classification and rules', detail: 'Priorities · Assignment · Context', lift: 100 },
+        { x: 2.55, z: .55, top: .42, base: [-.85, 3.4, 1.15, 2.4], k: '03', name: 'Process execution', detail: 'Tasks · CRM · Automations', lift: 58 },
+        { x: 7, z: -.6, top: 1.15, base: [-.88, 3.45, 1.17, 2.5], k: '04', name: 'Human oversight', detail: 'Exceptions · Validation · Control', lift: 162, flip: true }
+      ]
+    };
+    const STATIONS = STATIONS_BY_LANG[document.documentElement.lang === 'en' ? 'en' : 'es'];
 
     const cloud = newBuf(), wires = [], accents = [];
     for (const s of STATIONS) { const [y, w, h, d] = s.base; boxCloud(cloud, s.x, y, s.z, w, h, d, Math.round(w * h * d * 170 + 520)); wireBox(wires, s.x, y, s.z, w, h, d) }
@@ -218,7 +227,11 @@ if (hero && host && layer && chipLayer && intro) {
     world.add(new THREE.Points(pointsGeo(glowBuf), pointsMat({ size: .5, opacity: 1, role: 'accent', defines: { GLOW: '' }, scan: 0, late: 1 })));
 
     /* ---------- Caos inicial: canales sueltos ---------- */
-    const CHIPS = ['WhatsApp', 'Correo sin responder', 'Formulario web', 'Llamada perdida', 'Excel compartido', 'DM de Instagram', 'Nota de voz', 'Factura pendiente'];
+    const CHIPS_BY_LANG = {
+      es: ['WhatsApp', 'Correo sin responder', 'Formulario web', 'Llamada perdida', 'Excel compartido', 'DM de Instagram', 'Nota de voz', 'Factura pendiente'],
+      en: ['WhatsApp', 'Unanswered email', 'Web form', 'Missed call', 'Shared spreadsheet', 'Instagram DM', 'Voice note', 'Pending invoice']
+    };
+    const CHIPS = CHIPS_BY_LANG[document.documentElement.lang === 'en' ? 'en' : 'es'];
     const chips = CHIPS.map((txt, i) => {
       const el = document.createElement('span'); el.className = 'hw-chip';
       const dot = document.createElement('i'); el.append(dot, txt); chipLayer.append(el);
@@ -229,7 +242,7 @@ if (hero && host && layer && chipLayer && intro) {
     const labels = STATIONS.map(s => {
       const el = document.createElement('div'); el.className = 'hw-node' + (s.flip ? ' flip' : ''); el.style.setProperty('--lift', s.lift + 'px');
       const card = document.createElement('div'); card.className = 'hw-card';
-      const k = document.createElement('span'); k.className = 'hw-kicker'; k.textContent = `${s.k} / PROCESO`;
+      const k = document.createElement('span'); k.className = 'hw-kicker'; k.textContent = `${s.k} / ${document.documentElement.lang === 'en' ? 'PROCESS' : 'PROCESO'}`;
       const n = document.createElement('strong'); n.textContent = s.name;
       const d = document.createElement('small'); d.textContent = s.detail;
       card.append(k, n, d); el.append(card); layer.append(el); return el;
