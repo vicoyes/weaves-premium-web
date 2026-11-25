@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const sectorId = params.get('id') || 'ecommerce';
 
     try {
-        const response = await fetch('../data/sectores.json');
+        const response = await fetch(document.documentElement.lang === 'en' ? '/en/data/industries.json' : '../data/sectores.json');
         if (!response.ok) throw new Error('Data no pudo cargar');
         const data = await response.json();
         

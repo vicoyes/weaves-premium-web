@@ -6,7 +6,7 @@
 <title>Procesos — Weaves</title>
 <meta name="robots" content="noindex,follow">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>/* FOOTER: los estilos viven en css/styles.css?v=20261124-1. Antes se duplicaban aqui
+<style>/* FOOTER: los estilos viven en css/styles.css?v=20261125-1. Antes se duplicaban aqui
    con una copia vieja que ganaba por ir en el <head> despues del <link>. */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -167,7 +167,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
 .delay-3{transition-delay:0.3s}
 
 </style>
-  <link rel="stylesheet" href="../css/styles.css?v=20261124-1">
+  <link rel="stylesheet" href="../css/styles.css?v=20261125-1">
     <!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/dc631879d65242ce24a26ab58c89d599/script.js"></script> <!-- End cookieyes banner -->
     <!-- Umami: analítica propia, sin cookies -->
     <script defer src="https://analytics.weavewp.com/script.js" data-website-id="e6709a17-7e16-4762-8fa7-0f1dd75b4264" data-domains="getweaves.com,www.getweaves.com"></script>
@@ -192,6 +192,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
     </ul>
   </div>
   <div class="nav-right">
+    <div class="lang-switch" role="group" aria-label="Idioma"><a id="langPair" href="/en/services/service.html" hreflang="en" lang="en">EN</a><span aria-current="true">ES</span></div>
     <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
       <span></span>
       <span></span>
@@ -264,11 +265,11 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
       <div><div class="footer-col-title">Recursos</div><ul class="footer-links"><li><a href="/pages/blog.html">Blog</a></li><li><a href="/pages/casos-exito.html">Casos de éxito</a></li><li><a href="/index.html#tecnologia">Tecnología</a></li><li><a href="#">Documentación</a></li></ul></div>
       <div><div class="footer-col-title">Legal</div><ul class="footer-links"><li><a href="/legal/politica-privacidad.html">Privacidad</a></li><li><a href="/legal/aviso-legal.html">Aviso legal</a></li><li><a href="/legal/politica-cookies.html">Cookies</a></li><li><a href="#">RGPD</a></li></ul></div>
     </div>
-    <div class="footer-bottom"><div class="footer-copy">Weaves &copy; 2026 &middot; Todos los derechos reservados</div><div class="footer-legal-row"><a href="/">getweaves.com</a><span>España &middot; LatAm</span><span>ES</span></div></div>
+    <div class="footer-bottom"><div class="footer-copy">Weaves &copy; 2026 &middot; Todos los derechos reservados</div><div class="footer-legal-row"><a href="/">getweaves.com</a><span>España &middot; LatAm</span><div class="lang-switch" role="group" aria-label="Idioma"><a href="/en/services/service.html" hreflang="en" lang="en">EN</a><span aria-current="true">ES</span></div></div></div>
   </div>
 </footer>
 </div>
-<script src="../js/components-loader.js"></script>
+<script src="../js/components-loader.js?v=20261125-1"></script>
 <script src="../js/main.js"></script>
 
 <script src="data/servicios.js"></script>
@@ -302,6 +303,10 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
   reveals.forEach(function(el) { obs.observe(el); });
   document.querySelectorAll('.feature-card, .case-card').forEach(function(el) { obs.observe(el); });
 }());
+</script>
+<script>
+document.getElementById("langPair").href += location.search;
+document.querySelector(".footer-legal-row .lang-switch a").href += location.search;
 </script>
 </body>
 </html>

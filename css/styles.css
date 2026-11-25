@@ -76,6 +76,11 @@ nav.scrolled {
   background: var(--teal);
 }
 .nav-right { display: flex; align-items: center; justify-content: flex-end; gap: 16px; min-width: 0; }
+.lang-switch { display: inline-flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .12em; flex-shrink: 0; }
+.lang-switch a, .footer-legal-row .lang-switch a { color: rgba(255,255,255,.55); text-decoration: none; }
+.lang-switch a:hover, .footer-legal-row .lang-switch a:hover { color: var(--teal); }
+.lang-switch span, .footer-legal-row .lang-switch span { color: var(--teal); }
+
 .nav-ghost {
   font-size: 14px; font-weight: 400;
   color: rgba(255,255,255,0.75);
@@ -1597,7 +1602,7 @@ footer {
   nav { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; padding: 0 16px; }
   .nav-left, .nav-right { min-width: 0; }
   .nav-logo-image { width: 118px; }
-  .nav-right { gap: 0; }
+  .nav-right { gap: 8px; }
   .nav-right > .nav-cta { display: none; }
   .nav-links { display: none; }
   .nav-left { gap: 0; }

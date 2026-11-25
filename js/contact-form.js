@@ -8,6 +8,8 @@
 (function () {
     'use strict';
 
+    var messages = document.documentElement.lang === 'en' ? { sending: 'Sending…', submit: 'Send and request a call', invalid: 'Check the highlighted fields.', network: 'We could not send the form. Try again or email info@weavewp.com — your information is still here.' } : { sending: 'Enviando…', submit: 'Enviar y pedir la llamada', invalid: 'Revisa los campos marcados.', network: 'No pudimos enviar el formulario. Vuelve a intentarlo o escríbenos a info@weavewp.com — tus datos siguen aquí.' };
+
     var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
 
     function rulesFor() {
@@ -69,7 +71,7 @@
         if (!btn) return;
         btn.disabled = isLoading;
         btn.setAttribute('aria-busy', isLoading ? 'true' : 'false');
-        if (label) label.textContent = isLoading ? 'Enviando…' : 'Enviar y pedir la llamada';
+        if (label) label.textContent = isLoading ? messages.sending : messages.submit;
     }
 
     function hidden(form, name, value) {
@@ -93,6 +95,7 @@
         data.privacidad = form.elements.privacidad.checked;
         data.marketing = form.elements.marketing.checked;
         data.idioma = document.documentElement.lang || 'es';
+        data.lang = data.idioma;
         return data;
     }
 
@@ -136,7 +139,7 @@
         var rules = rulesFor();
         var firstInvalid = validate(form, rules);
         if (firstInvalid) {
-            setStatus(form, 'Revisa los campos marcados.', true);
+            setStatus(form, messages.invalid, true);
             if (typeof firstInvalid.focus === 'function') firstInvalid.focus();
             return;
         }
@@ -174,7 +177,7 @@
                 }));
             })
             .catch(function () {
-                setStatus(form, 'No pudimos enviar el formulario. Vuelve a intentarlo o escríbenos a info@weavewp.com — tus datos siguen aquí.', true);
+                setStatus(form, messages.network, true);
             })
             .then(function () {
                 if (timer) clearTimeout(timer);

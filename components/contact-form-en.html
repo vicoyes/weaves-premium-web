@@ -1,0 +1,107 @@
+<!-- CTA de contacto compartido: lo inyecta js/contact-form-loader.js en [data-contact-form] -->
+<section class="contact-section" id="contacto" aria-labelledby="contacto-title">
+  <div class="contact-inner">
+    <div class="contact-copy">
+      <p class="section-eyebrow">Next step</p>
+      <h2 class="bigcta-title" id="contacto-title">Tell us which process<br><em>is holding you back.</em></h2>
+      <p class="bigcta-sub">We review your situation and, if there is a real opportunity to improve it, suggest a 30-minute call. If there is not, we will tell you.</p>
+      <ul class="contact-assurances">
+        <li>We respond in less than 24&nbsp;business hours.</li>
+        <li>No commitment and no sales presentation.</li>
+        <li>What you share stays here and is not used for anything else.</li>
+      </ul>
+      <p class="contact-alt">Prefer email? <a href="mailto:info@weavewp.com">info@weavewp.com</a></p>
+    </div>
+
+    <form class="contact-form" id="contacto-form"
+          action="/api/contacto" method="post" novalidate>
+      <div class="cf-grid">
+        <div class="cf-field">
+          <label for="cf-nombre">Full name <span class="cf-req" aria-hidden="true">*</span></label>
+          <input id="cf-nombre" name="nombre" type="text" autocomplete="name" maxlength="80" required aria-describedby="cf-nombre-err">
+          <p class="cf-error" id="cf-nombre-err" hidden>Enter your name.</p>
+        </div>
+        <div class="cf-field">
+          <label for="cf-empresa">Company <span class="cf-req" aria-hidden="true">*</span></label>
+          <input id="cf-empresa" name="empresa" type="text" autocomplete="organization" maxlength="80" required aria-describedby="cf-empresa-err">
+          <p class="cf-error" id="cf-empresa-err" hidden>Enter your company name.</p>
+        </div>
+        <div class="cf-field">
+          <label for="cf-email">Work email <span class="cf-req" aria-hidden="true">*</span></label>
+          <input id="cf-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="120" required aria-describedby="cf-email-err">
+          <p class="cf-error" id="cf-email-err" hidden>Enter a valid email address.</p>
+        </div>
+        <div class="cf-field">
+          <label for="cf-telefono">Phone or WhatsApp <span class="cf-opt">(optional)</span></label>
+          <input id="cf-telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" maxlength="30">
+        </div>
+        <div class="cf-field">
+          <label for="cf-proceso">Process holding you back the most <span class="cf-req" aria-hidden="true">*</span></label>
+          <select id="cf-proceso" name="proceso" required aria-describedby="cf-proceso-err">
+            <option value="">Select an option</option>
+            <option value="Atención al cliente y WhatsApp">Customer service and WhatsApp</option>
+            <option value="Administración, facturas y documentos">Administration, invoices and documents</option>
+            <option value="Seguimiento comercial y CRM">Sales follow-up and CRM</option>
+            <option value="Otro proceso">Other process</option>
+          </select>
+          <p class="cf-error" id="cf-proceso-err" hidden>Choose the process you want to review.</p>
+        </div>
+        <div class="cf-field">
+          <label for="cf-equipo">Team size <span class="cf-opt">(optional)</span></label>
+          <select id="cf-equipo" name="equipo">
+            <option value="">Select an option</option>
+            <option value="1 a 10 personas">1 to 10 people</option>
+            <option value="11 a 50 personas">11 to 50 people</option>
+            <option value="51 a 200 personas">51 to 200 people</option>
+            <option value="Más de 200 personas">More than 200 people</option>
+          </select>
+        </div>
+        <div class="cf-field cf-full">
+          <label for="cf-mensaje">What happens today? <span class="cf-opt">(optional)</span></label>
+          <textarea id="cf-mensaje" name="mensaje" rows="3" maxlength="600" placeholder="E.g., we receive 800 WhatsApp messages a month and three people answer them manually."></textarea>
+        </div>
+      </div>
+
+      <div class="cf-consent">
+        <div class="cf-check">
+          <input id="cf-privacidad" name="privacidad" type="checkbox" value="si" required aria-describedby="cf-privacidad-err">
+          <label for="cf-privacidad">I authorize Weaves to process my personal data under the
+            <a href="/en/legal/privacy-policy.html" target="_blank" rel="noopener">privacy policy</a>,
+            only to respond to this request. <span class="cf-req" aria-hidden="true">*</span></label>
+        </div>
+        <p class="cf-error" id="cf-privacidad-err" hidden>We need your consent to respond.</p>
+        <div class="cf-check">
+          <input id="cf-marketing" name="marketing" type="checkbox" value="si">
+          <label for="cf-marketing">I want to receive marketing communications from Weaves. I can unsubscribe
+            at any time. <span class="cf-opt">(optional)</span></label>
+        </div>
+      </div>
+
+      <div class="cf-hp" aria-hidden="true">
+        <label for="cf-website">Do not fill in</label>
+        <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <input type="hidden" name="lang" value="en">
+      <input type="hidden" name="pagina" value="">
+      <input type="hidden" name="origen" value="">
+      <input type="hidden" name="utm_source" value="">
+      <input type="hidden" name="utm_medium" value="">
+      <input type="hidden" name="utm_campaign" value="">
+      <input type="hidden" name="enviado_en" value="">
+
+      <button type="submit" class="cf-submit">
+        <span class="cf-submit-label">Send and request a call</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <p class="cf-note">No cost or commitment. If it is not a fit, we will tell you on the first call.</p>
+      <p class="cf-status" id="cf-status" role="status" aria-live="polite"></p>
+    </form>
+
+    <div class="cf-success" id="cf-success" hidden tabindex="-1" role="status">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <h3>Received. We will write to you in less than 24&nbsp;business hours.</h3>
+      <p>We will read about your situation before replying. If the process is urgent, reply to that email and we will prioritize it.</p>
+    </div>
+  </div>
+</section>

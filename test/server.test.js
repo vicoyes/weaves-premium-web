@@ -88,6 +88,25 @@ describe('servidor', () => {
     assert.equal(ctx.transporter.sent.length, 0);
   });
 
+  test('English contact validation and acknowledgment', async () => {
+    reset();
+    for (const [body, message] of [
+      [{}, 'Enter your name.'],
+      [{ ...homeLead, empresa: '' }, 'Enter your company name.'],
+      [{ ...homeLead, email: 'bad' }, 'Enter a valid email address.'],
+      [{ ...homeLead, privacidad: false }, 'We need your privacy consent to respond.'],
+    ]) {
+      const response = await postJson(ctx.port, '/api/contacto', { ...body, lang: 'en' });
+      assert.equal(response.status, 400);
+      assert.equal(response.json.error, message);
+    }
+    const response = await postJson(ctx.port, '/api/contacto', { ...homeLead, lang: 'en' });
+    assert.equal(response.status, 200);
+    assert.match(ctx.transporter.sent[0].subject, /Nuevo contacto/);
+    assert.match(ctx.transporter.sent[1].text, /24 business hours/);
+    assert.match(ctx.transporter.sent[1].html, /<html lang="en"/);
+  });
+
   test('honeypot -> 200 ok sin correos', async () => {
     reset();
     const r = await postJson(ctx.port, '/api/contacto', { ...homeLead, website: 'http://spam' });
