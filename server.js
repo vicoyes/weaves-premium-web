@@ -89,16 +89,16 @@ function sendJson(res, status, body) {
   res.end(data);
 }
 
-function pageHtml(title, message, ok) {
+function pageHtml(title, message, ok, lang = 'es') {
   const color = ok ? BRAND_TEAL : '#b42318';
   return `<!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex"><title>${escapeHtml(title)} · Weaves</title></head>
 <body style="margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7fa;color:${BRAND_DARK};">
 <main style="max-width:520px;margin:12vh auto;padding:32px;background:#fff;border-radius:12px;border-top:4px solid ${color};">
 <h1 style="font-size:22px;margin:0 0 12px;">${escapeHtml(title)}</h1>
 <p style="line-height:1.6;margin:0 0 20px;">${escapeHtml(message)}</p>
-<a href="/" style="color:${BRAND_TEAL};font-weight:bold;">Volver al sitio</a>
+<a href="${lang === 'en' ? '/en/' : '/'}" style="color:${BRAND_TEAL};font-weight:bold;">${lang === 'en' ? 'Back to the site' : 'Volver al sitio'}</a>
 </main></body></html>`;
 }
 
@@ -106,9 +106,10 @@ function sendResult(req, res, status, ok, message) {
   if (wantsJson(req)) {
     return sendJson(res, status, ok ? { ok: true } : { ok: false, error: message });
   }
+  const lang = req.contactLang || 'es';
   const html = ok
-    ? pageHtml('Recibido', 'Hemos recibido tu solicitud. Te responderemos en menos de 24 h hábiles.', true)
-    : pageHtml('No pudimos enviar el formulario', message, false);
+    ? pageHtml(lang === 'en' ? 'Received' : 'Recibido', lang === 'en' ? 'We have received your request. We will reply in less than 24 business hours.' : 'Hemos recibido tu solicitud. Te responderemos en menos de 24 h hábiles.', true, lang)
+    : pageHtml(lang === 'en' ? 'We could not send the form' : 'No pudimos enviar el formulario', message, false, lang);
   res.writeHead(status, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' });
   res.end(html);
 }
@@ -214,12 +215,13 @@ function summaryRowsHtml(rows) {
 
 function thanksMail(name, intro, opts = {}) {
   const first = oneLine(name).split(/\s+/)[0] || '';
-  const greeting = first ? `Gracias, ${first}.` : 'Gracias por escribirnos.';
-  const eyebrow = opts.eyebrow || 'SOLICITUD RECIBIDA';
-  const subtitle = opts.subtitle || 'Ya estamos en ello.';
-  const summaryTitle = opts.summaryTitle || 'RESUMEN DE TU SOLICITUD';
+  const en = opts.lang === 'en';
+  const greeting = en ? (first ? `Thank you, ${first}.` : 'Thank you for contacting us.') : (first ? `Gracias, ${first}.` : 'Gracias por escribirnos.');
+  const eyebrow = opts.eyebrow || (en ? 'REQUEST RECEIVED' : 'SOLICITUD RECIBIDA');
+  const subtitle = opts.subtitle || (en ? 'We are on it.' : 'Ya estamos en ello.');
+  const summaryTitle = opts.summaryTitle || (en ? 'YOUR REQUEST' : 'RESUMEN DE TU SOLICITUD');
   const rows = Array.isArray(opts.summaryRows) ? opts.summaryRows : [];
-  const preheader = opts.preheader || 'Te respondemos en menos de 24 h hábiles. Aquí tienes el resumen de tu solicitud.';
+  const preheader = opts.preheader || (en ? 'We will reply in less than 24 business hours. Here is a summary of your request.' : 'Te respondemos en menos de 24 h hábiles. Aquí tienes el resumen de tu solicitud.');
 
   const summaryText = tableText(rows);
   const textParts = [
@@ -248,7 +250,7 @@ function thanksMail(name, intro, opts = {}) {
     ? `<td align="right" valign="middle" style="font-family:'Courier New',Courier,monospace;font-size:11px;color:${BRAND_TEAL_DARK};"><span style="display:inline-block;background:#E6F8F6;border:1px solid #99F6E4;color:${BRAND_TEAL_DARK};padding:5px 10px;border-radius:999px;font-weight:700;">#${escapeHtml(opts.reference)}</span></td>`
     : '';
 
-  const html = `<!doctype html>
+  let html = `<!doctype html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8">
@@ -366,6 +368,23 @@ a{text-decoration:none;}
 </table>
 </body>
 </html>`;
+  if (en) {
+    const translations = [
+      ['<html lang="es"', '<html lang="en"'],
+      ['Hemos recibido tu solicitud · Weaves', 'We have received your request · Weaves'],
+      [`Te responderemos en <strong style="color:${BRAND_TEAL_DARK};">menos de 24 h hábiles</strong>.`, `We will reply in <strong style="color:${BRAND_TEAL_DARK};">less than 24 business hours</strong>.`],
+      ['1. Recibida', '1. Received'], ['>Ahora<', '>Now<'], ['2. En revisión', '2. In review'],
+      ['Analizamos tu caso', 'We review your situation'], ['3. Respuesta', '3. Reply'], ['24 h hábiles', '24 business hours'],
+      ['¿Quieres añadir algo? <strong>Responde a este correo</strong> y lo sumamos a tu solicitud. Si es urgente, escríbenos por WhatsApp.', 'Want to add anything? <strong>Reply to this email</strong> and we will add it to your request. If it is urgent, contact us on WhatsApp.'],
+      ['Escribir por WhatsApp', 'Message us on WhatsApp'], ['Ver casos de éxito', 'View case studies'],
+      ['El equipo de Weaves', 'The Weaves team'], ['Web · Automatizaciones · IA', 'Web · Automation · AI'],
+      ['>Casos de éxito<', '>Case studies<'], ['>Privacidad<', '>Privacy<'],
+      ['Recibes este correo porque nos escribiste desde la web de Weaves.', 'You received this email because you contacted us through the Weaves website.'],
+      ['Weaves · España y Latinoamérica', 'Weaves · Spain and Latin America']
+    ];
+    for (const [from, to] of translations) html = html.split(from).join(to);
+    return { text: [first ? `Hello ${first},` : 'Hello,', `${intro} We will reply in less than 24 business hours.`, opts.reference ? `Reference: #${opts.reference}` : '', summaryText ? `${summaryTitle}:\n${summaryText}` : '', 'Want to add anything? Reply to this email and we will add it to your request.', `WhatsApp: ${WHATSAPP_URL}`, `The Weaves team\n${SITE_URL}`].filter(Boolean).join('\n\n'), html };
+  }
   return { text, html };
 }
 
@@ -476,13 +495,22 @@ function createApp(options = {}) {
       return sendResult(req, res, err.status || 400, false, err.message);
     }
 
+    req.contactLang = body.lang === 'en' || (!body.lang && body.idioma === 'en') ? 'en' : 'es';
     if (clean(body.website) !== '') return sendResult(req, res, 200, true);
 
     const d = normalizeContact(body);
-    if (d.nombre.length < 2) return sendResult(req, res, 400, false, 'Escribe tu nombre.');
-    if (d.empresa.length < 2) return sendResult(req, res, 400, false, 'Escribe el nombre de tu empresa.');
-    if (!EMAIL_RE.test(d.email)) return sendResult(req, res, 400, false, 'Escribe un correo válido.');
-    if (!d.privacidad) return sendResult(req, res, 400, false, 'Necesitamos tu autorización de privacidad para poder responderte.');
+    const english = body.lang === 'en' || (!body.lang && body.idioma === 'en');
+    const errors = english ? {
+      name: 'Enter your name.', company: 'Enter your company name.', email: 'Enter a valid email address.',
+      privacy: 'We need your privacy consent to respond.', send: 'We could not send the form. Try again or email info@weavewp.com.'
+    } : {
+      name: 'Escribe tu nombre.', company: 'Escribe el nombre de tu empresa.', email: 'Escribe un correo válido.',
+      privacy: 'Necesitamos tu autorización de privacidad para poder responderte.', send: 'No pudimos enviar el formulario. Inténtalo de nuevo o escríbenos a info@weavewp.com.'
+    };
+    if (d.nombre.length < 2) return sendResult(req, res, 400, false, errors.name);
+    if (d.empresa.length < 2) return sendResult(req, res, 400, false, errors.company);
+    if (!EMAIL_RE.test(d.email)) return sendResult(req, res, 400, false, errors.email);
+    if (!d.privacidad) return sendResult(req, res, 400, false, errors.privacy);
 
     const ip = clientIp(req);
     const current = now();
@@ -504,7 +532,14 @@ function createApp(options = {}) {
       text: `Nueva solicitud de contacto\n\n${tableText(rows)}`,
       html: layout('Nueva solicitud de contacto', tableHtml(rows)),
     };
-    const thanks = {
+    const thanks = english ? {
+      to: d.email,
+      subject: 'We have received your request · Weaves',
+      ...thanksMail(d.nombre, 'We have received your request and will begin reviewing it.', {
+        lang: 'en', reference: ref,
+        summaryRows: [['Service', ({ 'Atención al cliente y WhatsApp': 'Customer service and WhatsApp', 'Administración, facturas y documentos': 'Administration, invoices and documents', 'Seguimiento comercial y CRM': 'Sales follow-up and CRM', 'Otro proceso': 'Other process' })[d.proceso] || d.proceso], ['Company', d.empresa], ['Message', snippet(d.mensaje, 400)]],
+      }),
+    } : {
       to: d.email,
       subject: 'Hemos recibido tu solicitud · Weaves',
       ...thanksMail(d.nombre, 'Hemos recibido tu solicitud y empieza la revisión.', {
@@ -521,7 +556,7 @@ function createApp(options = {}) {
       await sendPair(internal, thanks);
     } catch (err) {
       console.error('[contacto] error de envío:', err && err.message);
-      return sendResult(req, res, 500, false, 'No pudimos enviar el formulario. Inténtalo de nuevo o escríbenos a info@weavewp.com.');
+      return sendResult(req, res, 500, false, errors.send);
     }
     forward('contacto', { ...d, ip, recibido: fecha });
     return sendResult(req, res, 200, true);

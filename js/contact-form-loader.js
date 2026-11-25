@@ -13,7 +13,8 @@
     var base = '';
     if (script && script.src) base = script.src.replace(/js\/contact-form-loader\.js.*$/, '');
 
-    fetch(base + 'components/contact-form.html?v=20261124-1', { cache: 'no-store' })
+    var english = document.documentElement.lang === 'en';
+    fetch(base + 'components/' + (english ? 'contact-form-en.html' : 'contact-form.html') + '?v=20261124-1', { cache: 'no-store' })
         .then(function (r) {
             if (!r.ok) throw new Error('HTTP ' + r.status);
             return r.text();
@@ -23,7 +24,7 @@
         })
         .catch(function () {
             slots.forEach(function (slot) {
-                slot.innerHTML =
+                slot.innerHTML = english ? '<p class="contact-fallback">We could not load the form. Email <a href="mailto:info@weavewp.com">info@weavewp.com</a> and we will respond.</p>' :
                     '<p class="contact-fallback">No pudimos cargar el formulario. ' +
                     'Escríbenos a <a href="mailto:info@weavewp.com">info@weavewp.com</a> y te contestamos igual.</p>';
             });

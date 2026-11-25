@@ -62,17 +62,21 @@ function setActiveNavLink() {
 
     let current = window.location.pathname;
     if (current.endsWith('/')) current += 'index.html';
+    // El prefijo de idioma no es una sección: /en/legal/x y /en/services/x comparten "en".
+    const stripLang = value => value.replace(/^\/en(?=\/|$)/, '') || '/';
+    const normalized = stripLang(current);
 
     // La sección es la primera carpeta: /servicios/web.html marca "Qué hacemos".
-    const section = current.split('/').filter(Boolean)[0] || '';
+    const section = normalized.split('/').filter(Boolean)[0] || '';
 
     document.querySelectorAll('.nav-links a').forEach(link => {
         const href = new URL(link.getAttribute('href'), window.location.origin).pathname;
-        const linkSection = href.split('/').filter(Boolean)[0] || '';
-        const isHome = href === '/index.html';
+        const target = stripLang(href);
+        const linkSection = target.split('/').filter(Boolean)[0] || '';
+        const isHome = target === '/index.html' || target === '/';
         const match = isHome
-            ? (current === '/index.html')
-            : (href === current || (linkSection && linkSection === section));
+            ? (normalized === '/index.html' || normalized === '/')
+            : (target === normalized || (linkSection && linkSection === section));
         link.classList.toggle('active', match);
         if (match) link.setAttribute('aria-current', 'page');
         else link.removeAttribute('aria-current');

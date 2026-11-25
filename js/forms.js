@@ -1,3 +1,5 @@
+const contactMessages = {"es": {"name_company": "Escribe tu nombre y el de tu empresa.", "email": "Por favor, introduce un email válido.", "phone": "Por favor, introduce un teléfono válido.", "privacy": "Necesitamos tu autorización de privacidad para poder responderte.", "sending": "Enviando...", "received": "Recibido. Te escribimos en menos de 24 h hábiles.", "send_error": "No pudimos enviar el mensaje. Inténtalo de nuevo o escríbenos a info@weavewp.com.", "network": "Error de conexión. Verifica tu internet e inténtalo de nuevo.", "invalid_email": "Email no válido", "invalid_phone": "Teléfono no válido"}, "en": {"name_company": "Enter your name and company name.", "email": "Enter a valid email address.", "phone": "Enter a valid phone number.", "privacy": "We need your privacy consent to respond.", "sending": "Sending...", "received": "Received. We will write to you in less than 24 business hours.", "send_error": "We could not send your message. Try again or email info@weavewp.com.", "network": "Connection error. Check your connection and try again.", "invalid_email": "Invalid email address", "invalid_phone": "Invalid phone number"}};
+const contactMessage = (key) => (contactMessages[document.documentElement.lang] || contactMessages.es)[key];
 // ===================================
 // FORMS.JS - Manejo de formularios
 // ===================================
@@ -36,29 +38,30 @@ if (contactForm) {
         data.origen = document.referrer || '';
         data.enviado_en = new Date().toISOString();
         data.idioma = document.documentElement.lang || 'es';
+        data.lang = data.idioma;
 
         // Validation
         if (!data.name || data.name.trim().length < 2 || !data.company || data.company.trim().length < 2) {
-            setContactStatus('Escribe tu nombre y el de tu empresa.', true);
+            setContactStatus(contactMessage("name_company"), true);
             return;
         }
         if (!validateEmail(data.email || '')) {
-            setContactStatus('Por favor, introduce un email válido.', true);
+            setContactStatus(contactMessage("email"), true);
             return;
         }
         if (data.phone && !validatePhone(data.phone)) {
-            setContactStatus('Por favor, introduce un teléfono válido.', true);
+            setContactStatus(contactMessage("phone"), true);
             return;
         }
         if (!data.privacidad) {
-            setContactStatus('Necesitamos tu autorización de privacidad para poder responderte.', true);
+            setContactStatus(contactMessage("privacy"), true);
             return;
         }
 
         // Show loading state
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Enviando...';
+        submitBtn.textContent = contactMessage("sending");
         submitBtn.disabled = true;
         form.dataset.sending = '1';
         setContactStatus('');
@@ -72,13 +75,13 @@ if (contactForm) {
             const result = await response.json().catch(() => null);
 
             if (response.ok && result && result.ok === true) {
-                setContactStatus('Recibido. Te escribimos en menos de 24 h hábiles.', false);
+                setContactStatus(contactMessage("received"), false);
                 form.reset();
             } else {
-                setContactStatus((result && result.error) || 'No pudimos enviar el mensaje. Inténtalo de nuevo o escríbenos a info@weavewp.com.', true);
+                setContactStatus((result && result.error) || contactMessage("send_error"), true);
             }
         } catch (error) {
-            setContactStatus('Error de conexión. Verifica tu internet e inténtalo de nuevo.', true);
+            setContactStatus(contactMessage("network"), true);
             console.error('Error:', error);
         } finally {
             submitBtn.textContent = originalText;
@@ -94,7 +97,7 @@ emailInputs.forEach(input => {
     input.addEventListener('blur', function() {
         if (this.value && !validateEmail(this.value)) {
             this.style.borderColor = 'red';
-            showError(this, 'Email no válido');
+            showError(this, contactMessage("invalid_email"));
         } else {
             this.style.borderColor = '';
             removeError(this);
@@ -107,7 +110,7 @@ phoneInputs.forEach(input => {
     input.addEventListener('blur', function() {
         if (this.value && !validatePhone(this.value)) {
             this.style.borderColor = 'red';
-            showError(this, 'Teléfono no válido');
+            showError(this, contactMessage("invalid_phone"));
         } else {
             this.style.borderColor = '';
             removeError(this);

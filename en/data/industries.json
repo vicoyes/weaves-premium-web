@@ -1,0 +1,690 @@
+{
+  "ecommerce": {
+    "badge": "<i data-lucide='shopping-cart' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i> E-commerce and online stores",
+    "h1": "Automation and AI to sell more without overloading your team",
+    "lead": "We help e-commerce businesses automate customer service, order management, customer communications, and internal tasks by connecting your website, sales channels, and management tools.",
+    "retos": [
+      {
+        "icon": "<i data-lucide='message-circle' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Frequent repeat inquiries",
+        "desc": "You get the same questions about orders, shipping, exchanges, and returns."
+      },
+      {
+        "icon": "<i data-lucide='smartphone' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Multiple channels at once",
+        "desc": "You handle inquiries across your website, WhatsApp, social media, and email."
+      },
+      {
+        "icon": "<i data-lucide='pen-tool' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Manual order updates",
+        "desc": "You update order statuses, inventory, or issues by hand."
+      },
+      {
+        "icon": "<i data-lucide='shopping-cart' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Abandoned carts without follow-up",
+        "desc": "You have abandoned carts and no consistent way to follow up."
+      },
+      {
+        "icon": "<i data-lucide='megaphone' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Difficulty keeping up with campaigns",
+        "desc": "It’s hard to keep campaigns and content running regularly."
+      },
+      {
+        "icon": "<i data-lucide='folder' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Scattered information",
+        "desc": "Information is spread across your store, payment gateway, spreadsheets, and sometimes a CRM."
+      }
+    ],
+    "soluciones": [
+      {
+        "title": "Customer service automation",
+        "desc": "Web and WhatsApp chatbots answer questions about orders, shipping, payments, and return policies around the clock."
+      },
+      {
+        "title": "Post-purchase follow-up and loyalty workflows",
+        "desc": "Send automated confirmations, updates, thank-you messages, and review requests. Share personalized offers."
+      },
+      {
+        "title": "Abandoned cart automation",
+        "desc": "Identify and recover abandoned carts automatically with personalized reminders and incentives."
+      },
+      {
+        "title": "System integrations",
+        "desc": "Connect your online store, CRM, email marketing, and internal tools. Sync data and automate segmentation."
+      },
+      {
+        "title": "Administrative automation",
+        "desc": "Generate regular sales reports, organized exports for accounting, and automatic internal alerts."
+      }
+    ],
+    "casos": [
+      {
+        "icon": "<i data-lucide='bot' style='width:20px;height:20px;display:inline-block;vertical-align:middle;stroke:white'></i>",
+        "title": "Automated customer service",
+        "desc": "Chatbots automatically answer questions about",
+        "list": [
+          "Order status",
+          "Delivery times",
+          "Payment methods",
+          "Exchange and return policies"
+        ]
+      },
+      {
+        "icon": "<i data-lucide='package' style='width:20px;height:20px;display:inline-block;vertical-align:middle;stroke:white'></i>",
+        "title": "Post-purchase follow-up and loyalty",
+        "desc": "Automate communication at every stage",
+        "list": [
+          "Send confirmations, updates, and thank-you messages",
+          "Automatically request reviews",
+          "Share offers or related products"
+        ]
+      },
+      {
+        "icon": "<i data-lucide='shopping-cart' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Abandoned carts",
+        "desc": "Recover lost sales automatically",
+        "list": [
+          "Identify abandoned carts",
+          "Send reminders and personalized messages",
+          "Include incentives or promotions if needed"
+        ]
+      },
+      {
+        "icon": "<i data-lucide='refresh-cw' style='width:20px;height:20px;display:inline-block;vertical-align:middle;stroke:white'></i>",
+        "title": "Data synchronization",
+        "desc": "Connect all your systems",
+        "list": [
+          "Connect your store and CRM",
+          "Segment customers automatically based on buying behavior",
+          "Integrate email marketing and internal systems"
+        ]
+      }
+    ],
+    "beneficios": [
+      "Reduce the customer service workload so your team can focus on the issues that need their attention.",
+      "Give customers faster, more consistent answers around the clock.",
+      "Recover more sales through abandoned cart and post-purchase follow-up.",
+      "Keep customer and order data organized, accessible, and in one place.",
+      "Reduce errors and get a clearer view of business performance with automated reports."
+    ],
+    "antes": [
+      "Support teams overwhelmed by repeat questions",
+      "Abandoned carts without consistent follow-up",
+      "Data spread across several tools",
+      "Reports prepared manually when time allows",
+      "Constantly putting out fires"
+    ],
+    "despues": [
+      "A more manageable, organized support workload",
+      "Automated cart and post-purchase follow-up",
+      "Connected information in one place",
+      "Automatically generated reports on a regular schedule",
+      "More time for strategy, product, and growth"
+    ],
+    "tech": [
+      "WooCommerce",
+      "Shopify",
+      "PrestaShop",
+      "Email marketing",
+      "Chatwoot",
+      "Lightweight CRMs",
+      "n8n",
+      "WhatsApp Business",
+      "Spreadsheets",
+      "Accounting systems"
+    ]
+  },
+  "educacion": {
+    "badge": "<i data-lucide='graduation-cap' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i> Education, schools, and training",
+    "h1": "Easier student management, payment tracking, and communication with less administrative work",
+    "lead": "We help schools, educational centers, and training programs automate student management, payments, enrollment, and communication so staff can focus on teaching.",
+    "retos": [
+      {
+        "icon": "<i data-lucide='clipboard-list' style='width:24px;height:24px;display:inline-block;vertical-align:middle;margin-right:8px;stroke:var(--teal)'></i>",
+        "title": "Manual enrollment management",
+        "desc": "You handle sign-ups, enrollment, and student lists by hand."
+      },
+      {
+        "icon": "<i data-lucide='credit-card' style='width:24px;height:24px;display:inline-block;vertical-align:middle;margin-right:8px;stroke:var(--teal)'></i>",
+        "title": "Payments tracked in spreadsheets",
+        "desc": "You track payments and renewals manually or in spreadsheets."
+      },
+      {
+        "icon": "<i data-lucide='smartphone' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Fragmented communication",
+        "desc": "You communicate constantly with students and families across multiple channels."
+      },
+      {
+        "icon": "<i data-lucide='clock' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Manual reminders",
+        "desc": "You send reminders, schedule changes, notices, and materials by hand."
+      },
+      {
+        "icon": "<i data-lucide='bar-chart-2' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Limited visibility",
+        "desc": "It’s hard to see who is up to date and who has renewed."
+      }
+    ],
+    "soluciones": [
+      {
+        "title": "Automated enrollment and registration",
+        "desc": "Connect forms to a database or CRM, send automatic confirmations, and route applications through internal workflows."
+      },
+      {
+        "title": "Payment, renewal, and paperwork reminders",
+        "desc": "Automatically send reminders for payments, due dates, and outstanding paperwork, with records kept in one place."
+      },
+      {
+        "title": "Organized communication with students and families",
+        "desc": "Automatically send notices, schedule changes, materials, and reminders by group or course."
+      },
+      {
+        "title": "System integration",
+        "desc": "Connect your website, forms, payment systems, and databases to keep everything in sync."
+      },
+      {
+        "title": "Scheduled delivery of recurring communications",
+        "desc": "Automatically send course materials, certificates, and recurring communications on a schedule."
+      }
+    ],
+    "casos": [
+      {
+        "icon": "<i data-lucide='clipboard-list' style='width:24px;height:24px;display:inline-block;vertical-align:middle;margin-right:8px;stroke:var(--teal)'></i>",
+        "title": "Enrollment and admissions",
+        "desc": "Automate the full enrollment process",
+        "list": [
+          "Connect forms to a database or CRM",
+          "Send automatic confirmations by email or WhatsApp",
+          "Use internal workflows to review and accept applications"
+        ]
+      },
+      {
+        "icon": "<i data-lucide='credit-card' style='width:24px;height:24px;display:inline-block;vertical-align:middle;margin-right:8px;stroke:var(--teal)'></i>",
+        "title": "Payments and renewals",
+        "desc": "Track payment status automatically",
+        "list": [
+          "Send automatic reminders for payments and due dates",
+          "Alert staff to missed payments or exceptions",
+          "Record payment statuses automatically in a spreadsheet or central system"
+        ]
+      }
+    ],
+    "beneficios": [
+      "Less administrative work for enrollment and payments.",
+      "Fewer missed messages and errors when communicating with families.",
+      "Clearer information for students and families, improving their experience.",
+      "More time to teach, improve instruction, and help students."
+    ],
+    "antes": [
+      "Enrollment handled by hand",
+      "Fragmented, reactive communication",
+      "Unclear payment tracking",
+      "Significant time spent on repetitive tasks",
+      "Disorganized processes during busy periods"
+    ],
+    "despues": [
+      "Better organized enrollment and communication",
+      "Automated reminders and notices",
+      "A clearer picture of each student’s status",
+      "More focus on education and less on administration"
+    ],
+    "tech": [
+      "Web forms",
+      "Payment platforms",
+      "Spreadsheets",
+      "Simple CRM",
+      "Email tools",
+      "WhatsApp Business",
+      "n8n",
+      "Learning management systems (LMS)"
+    ]
+  },
+  "restauracion-turismo": {
+    "badge": "Professional services and consulting firms",
+    "h1": "More organized operations and less administrative work with the same team",
+    "lead": "We help firms, consultancies, agencies, studios, and service businesses cut repetitive work, organize processes, and improve the client experience without expanding their teams.",
+    "retos": [
+      {
+        "icon": "<i data-lucide='mail' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Administrative overload",
+        "desc": "Heavy administrative and coordination work, with a strong reliance on email, WhatsApp, and spreadsheets."
+      },
+      {
+        "icon": "<i data-lucide='folder' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Scattered information",
+        "desc": "Client, case, or project information lives in several places without a central system."
+      },
+      {
+        "icon": "<i data-lucide='help-circle' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Inconsistent processes",
+        "desc": "Processes lack documentation or standard steps and depend on what each person remembers."
+      },
+      {
+        "icon": "<i data-lucide='search' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Disorganized follow-up",
+        "desc": "It’s hard to keep track of clients, sales, and project status."
+      },
+      {
+        "icon": "<i data-lucide='clock' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Limited time for core work",
+        "desc": "Little time for consulting, creative work, strategy, and client service."
+      },
+      {
+        "icon": "<i data-lucide='frown' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Difficulty staying on top of work",
+        "desc": "You feel a step behind and can’t easily see where each case stands."
+      }
+    ],
+    "soluciones": [
+      {
+        "title": "Automated client intake",
+        "desc": "Automatically organize and record leads, requests, and inquiries as they come in."
+      },
+      {
+        "title": "Organized internal processes",
+        "desc": "Organize and automate tasks, status updates, and notifications so you can track each case."
+      },
+      {
+        "title": "Tool integration",
+        "desc": "Connect email, forms, WhatsApp, and your CRM in a single workflow."
+      },
+      {
+        "title": "Automatic reminders",
+        "desc": "Set reminders for payments, renewals, appointments, or project milestones so important follow-ups stay on track."
+      },
+      {
+        "title": "Automated communications",
+        "desc": "Automate routine communications to keep clients informed without sending each message by hand."
+      }
+    ],
+    "casos": [
+      {
+        "icon": "<i data-lucide='target' style='width:20px;height:20px;display:inline-block;vertical-align:middle;stroke:white'></i>",
+        "title": "Client acquisition and qualification",
+        "desc": "Automate the process from first contact through conversion",
+        "list": [
+          "Collect key information through forms and workflows",
+          "Create CRM records and assign them internally",
+          "Send confirmation and initial follow-up messages"
+        ]
+      },
+      {
+        "icon": "<i data-lucide='bar-chart-2' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Project or case management",
+        "desc": "Keep track of where each case stands",
+        "list": [
+          "Automatically update statuses when milestones are reached",
+          "Notify staff when action is needed",
+          "Generate basic progress reports"
+        ]
+      }
+    ],
+    "beneficios": [
+      "Spend less time on administration and more time on core work.",
+      "Clear, repeatable processes that the whole team can follow.",
+      "Give clients clear, timely updates at each stage.",
+      "See where each case, file, or project stands in real time.",
+      "Handle more work without overloading the team or expanding operations."
+    ],
+    "antes": [
+      "Client inquiries scattered across multiple channels",
+      "Constant repetitive administrative work",
+      "Little visibility into where each case stands",
+      "Reliance on memory or spreadsheets",
+      "A constant feeling of being a step behind"
+    ],
+    "despues": [
+      "Centralized intake and clear workflows",
+      "Automated reminders and communications",
+      "More organized follow-up for each client or project",
+      "Less to keep in your head and more control",
+      "More time for core work"
+    ],
+    "tech": [
+      "Lightweight CRMs",
+      "Task management tools",
+      "Email",
+      "Web forms",
+      "WhatsApp Business",
+      "n8n",
+      "Signature tools",
+      "Invoicing"
+    ]
+  },
+  "salud": {
+    "badge": "Professional services and consulting firms",
+    "h1": "More organized operations and less administrative work with the same team",
+    "lead": "We help firms, consultancies, agencies, studios, and service businesses cut repetitive work, organize processes, and improve the client experience without expanding their teams.",
+    "retos": [
+      {
+        "icon": "<i data-lucide='mail' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Administrative overload",
+        "desc": "Heavy administrative and coordination work, with a strong reliance on email, WhatsApp, and spreadsheets."
+      },
+      {
+        "icon": "<i data-lucide='folder' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Scattered information",
+        "desc": "Client, case, or project information lives in several places without a central system."
+      },
+      {
+        "icon": "<i data-lucide='help-circle' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Inconsistent processes",
+        "desc": "Processes lack documentation or standard steps and depend on what each person remembers."
+      },
+      {
+        "icon": "<i data-lucide='search' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Disorganized follow-up",
+        "desc": "It’s hard to keep track of clients, sales, and project status."
+      },
+      {
+        "icon": "<i data-lucide='clock' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Limited time for core work",
+        "desc": "Little time for consulting, creative work, strategy, and client service."
+      },
+      {
+        "icon": "<i data-lucide='frown' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Difficulty staying on top of work",
+        "desc": "You feel a step behind and can’t easily see where each case stands."
+      }
+    ],
+    "soluciones": [
+      {
+        "title": "Automated client intake",
+        "desc": "Automatically organize and record leads, requests, and inquiries as they come in."
+      },
+      {
+        "title": "Organized internal processes",
+        "desc": "Organize and automate tasks, status updates, and notifications so you can track each case."
+      },
+      {
+        "title": "Tool integration",
+        "desc": "Connect email, forms, WhatsApp, and your CRM in a single workflow."
+      },
+      {
+        "title": "Automatic reminders",
+        "desc": "Set reminders for payments, renewals, appointments, or project milestones so important follow-ups stay on track."
+      },
+      {
+        "title": "Automated communications",
+        "desc": "Automate routine communications to keep clients informed without sending each message by hand."
+      }
+    ],
+    "casos": [
+      {
+        "icon": "<i data-lucide='target' style='width:20px;height:20px;display:inline-block;vertical-align:middle;stroke:white'></i>",
+        "title": "Client acquisition and qualification",
+        "desc": "Automate the process from first contact through conversion",
+        "list": [
+          "Collect key information through forms and workflows",
+          "Create CRM records and assign them internally",
+          "Send confirmation and initial follow-up messages"
+        ]
+      },
+      {
+        "icon": "<i data-lucide='bar-chart-2' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Project or case management",
+        "desc": "Keep track of where each case stands",
+        "list": [
+          "Automatically update statuses when milestones are reached",
+          "Notify staff when action is needed",
+          "Generate basic progress reports"
+        ]
+      }
+    ],
+    "beneficios": [
+      "Spend less time on administration and more time on core work.",
+      "Clear, repeatable processes that the whole team can follow.",
+      "Give clients clear, timely updates at each stage.",
+      "See where each case, file, or project stands in real time.",
+      "Handle more work without overloading the team or expanding operations."
+    ],
+    "antes": [
+      "Client inquiries scattered across multiple channels",
+      "Constant repetitive administrative work",
+      "Little visibility into where each case stands",
+      "Reliance on memory or spreadsheets",
+      "A constant feeling of being a step behind"
+    ],
+    "despues": [
+      "Centralized intake and clear workflows",
+      "Automated reminders and communications",
+      "More organized follow-up for each client or project",
+      "Less to keep in your head and more control",
+      "More time for core work"
+    ],
+    "tech": [
+      "Lightweight CRMs",
+      "Task management tools",
+      "Email",
+      "Web forms",
+      "WhatsApp Business",
+      "n8n",
+      "Signature tools",
+      "Invoicing"
+    ]
+  },
+  "servicios-profesionales": {
+    "badge": "Professional services and consulting firms",
+    "h1": "More organized operations and less administrative work with the same team",
+    "lead": "We help firms, consultancies, agencies, studios, and service businesses cut repetitive work, organize processes, and improve the client experience without expanding their teams.",
+    "retos": [
+      {
+        "icon": "<i data-lucide='mail' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Administrative overload",
+        "desc": "Heavy administrative and coordination work, with a strong reliance on email, WhatsApp, and spreadsheets."
+      },
+      {
+        "icon": "<i data-lucide='folder' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Scattered information",
+        "desc": "Client, case, or project information lives in several places without a central system."
+      },
+      {
+        "icon": "<i data-lucide='help-circle' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Inconsistent processes",
+        "desc": "Processes lack documentation or standard steps and depend on what each person remembers."
+      },
+      {
+        "icon": "<i data-lucide='search' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Disorganized follow-up",
+        "desc": "It’s hard to keep track of clients, sales, and project status."
+      },
+      {
+        "icon": "<i data-lucide='clock' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Limited time for core work",
+        "desc": "Little time for consulting, creative work, strategy, and client service."
+      },
+      {
+        "icon": "<i data-lucide='frown' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Difficulty staying on top of work",
+        "desc": "You feel a step behind and can’t easily see where each case stands."
+      }
+    ],
+    "soluciones": [
+      {
+        "title": "Automated client intake",
+        "desc": "Automatically organize and record leads, requests, and inquiries as they come in."
+      },
+      {
+        "title": "Organized internal processes",
+        "desc": "Organize and automate tasks, status updates, and notifications so you can track each case."
+      },
+      {
+        "title": "Tool integration",
+        "desc": "Connect email, forms, WhatsApp, and your CRM in a single workflow."
+      },
+      {
+        "title": "Automatic reminders",
+        "desc": "Set reminders for payments, renewals, appointments, or project milestones so important follow-ups stay on track."
+      },
+      {
+        "title": "Automated communications",
+        "desc": "Automate routine communications to keep clients informed without sending each message by hand."
+      }
+    ],
+    "casos": [
+      {
+        "icon": "<i data-lucide='target' style='width:20px;height:20px;display:inline-block;vertical-align:middle;stroke:white'></i>",
+        "title": "Client acquisition and qualification",
+        "desc": "Automate the process from first contact through conversion",
+        "list": [
+          "Collect key information through forms and workflows",
+          "Create CRM records and assign them internally",
+          "Send confirmation and initial follow-up messages"
+        ]
+      },
+      {
+        "icon": "<i data-lucide='bar-chart-2' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Project or case management",
+        "desc": "Keep track of where each case stands",
+        "list": [
+          "Automatically update statuses when milestones are reached",
+          "Notify staff when action is needed",
+          "Generate basic progress reports"
+        ]
+      }
+    ],
+    "beneficios": [
+      "Spend less time on administration and more time on core work.",
+      "Clear, repeatable processes that the whole team can follow.",
+      "Give clients clear, timely updates at each stage.",
+      "See where each case, file, or project stands in real time.",
+      "Handle more work without overloading the team or expanding operations."
+    ],
+    "antes": [
+      "Client inquiries scattered across multiple channels",
+      "Constant repetitive administrative work",
+      "Little visibility into where each case stands",
+      "Reliance on memory or spreadsheets",
+      "A constant feeling of being a step behind"
+    ],
+    "despues": [
+      "Centralized intake and clear workflows",
+      "Automated reminders and communications",
+      "More organized follow-up for each client or project",
+      "Less to keep in your head and more control",
+      "More time for core work"
+    ],
+    "tech": [
+      "Lightweight CRMs",
+      "Task management tools",
+      "Email",
+      "Web forms",
+      "WhatsApp Business",
+      "n8n",
+      "Signature tools",
+      "Invoicing"
+    ]
+  },
+  "startups": {
+    "badge": "Professional services and consulting firms",
+    "h1": "More organized operations and less administrative work with the same team",
+    "lead": "We help firms, consultancies, agencies, studios, and service businesses cut repetitive work, organize processes, and improve the client experience without expanding their teams.",
+    "retos": [
+      {
+        "icon": "<i data-lucide='mail' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Administrative overload",
+        "desc": "Heavy administrative and coordination work, with a strong reliance on email, WhatsApp, and spreadsheets."
+      },
+      {
+        "icon": "<i data-lucide='folder' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Scattered information",
+        "desc": "Client, case, or project information lives in several places without a central system."
+      },
+      {
+        "icon": "<i data-lucide='help-circle' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Inconsistent processes",
+        "desc": "Processes lack documentation or standard steps and depend on what each person remembers."
+      },
+      {
+        "icon": "<i data-lucide='search' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Disorganized follow-up",
+        "desc": "It’s hard to keep track of clients, sales, and project status."
+      },
+      {
+        "icon": "<i data-lucide='clock' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Limited time for core work",
+        "desc": "Little time for consulting, creative work, strategy, and client service."
+      },
+      {
+        "icon": "<i data-lucide='frown' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Difficulty staying on top of work",
+        "desc": "You feel a step behind and can’t easily see where each case stands."
+      }
+    ],
+    "soluciones": [
+      {
+        "title": "Automated client intake",
+        "desc": "Automatically organize and record leads, requests, and inquiries as they come in."
+      },
+      {
+        "title": "Organized internal processes",
+        "desc": "Organize and automate tasks, status updates, and notifications so you can track each case."
+      },
+      {
+        "title": "Tool integration",
+        "desc": "Connect email, forms, WhatsApp, and your CRM in a single workflow."
+      },
+      {
+        "title": "Automatic reminders",
+        "desc": "Set reminders for payments, renewals, appointments, or project milestones so important follow-ups stay on track."
+      },
+      {
+        "title": "Automated communications",
+        "desc": "Automate routine communications to keep clients informed without sending each message by hand."
+      }
+    ],
+    "casos": [
+      {
+        "icon": "<i data-lucide='target' style='width:20px;height:20px;display:inline-block;vertical-align:middle;stroke:white'></i>",
+        "title": "Client acquisition and qualification",
+        "desc": "Automate the process from first contact through conversion",
+        "list": [
+          "Collect key information through forms and workflows",
+          "Create CRM records and assign them internally",
+          "Send confirmation and initial follow-up messages"
+        ]
+      },
+      {
+        "icon": "<i data-lucide='bar-chart-2' style='width:24px;height:24px;display:inline-block;vertical-align:middle;stroke:var(--teal)'></i>",
+        "title": "Project or case management",
+        "desc": "Keep track of where each case stands",
+        "list": [
+          "Automatically update statuses when milestones are reached",
+          "Notify staff when action is needed",
+          "Generate basic progress reports"
+        ]
+      }
+    ],
+    "beneficios": [
+      "Spend less time on administration and more time on core work.",
+      "Clear, repeatable processes that the whole team can follow.",
+      "Give clients clear, timely updates at each stage.",
+      "See where each case, file, or project stands in real time.",
+      "Handle more work without overloading the team or expanding operations."
+    ],
+    "antes": [
+      "Client inquiries scattered across multiple channels",
+      "Constant repetitive administrative work",
+      "Little visibility into where each case stands",
+      "Reliance on memory or spreadsheets",
+      "A constant feeling of being a step behind"
+    ],
+    "despues": [
+      "Centralized intake and clear workflows",
+      "Automated reminders and communications",
+      "More organized follow-up for each client or project",
+      "Less to keep in your head and more control",
+      "More time for core work"
+    ],
+    "tech": [
+      "Lightweight CRMs",
+      "Task management tools",
+      "Email",
+      "Web forms",
+      "WhatsApp Business",
+      "n8n",
+      "Signature tools",
+      "Invoicing"
+    ]
+  }
+}
