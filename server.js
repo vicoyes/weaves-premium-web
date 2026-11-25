@@ -82,50 +82,15 @@ function clientIp(req) {
 
 // ---------- antispam ----------
 
-// Rangos de Cloudflare (AS13335). Un visitante real que entra por el proxy de
-// Cloudflare llega con SU dirección; si la dirección del cliente pertenece a
-// Cloudflare, la petición viene de WARP u otro proxy del mismo AS. Es el patrón
-// de los bots que rellenan formularios: en nov-2026 los cuatro envíos de spam
-// de la web llegaron así, desde Frankfurt y Varsovia.
-const CLOUDFLARE_RANGES = [
-  ['103.21.244.0', 22], ['103.22.200.0', 22], ['103.31.4.0', 22],
-  ['104.16.0.0', 13], ['104.24.0.0', 14], ['108.162.192.0', 18],
-  ['131.0.72.0', 22], ['141.101.64.0', 18], ['162.158.0.0', 15],
-  ['172.64.0.0', 13], ['173.245.48.0', 20], ['188.114.96.0', 20],
-  ['190.93.240.0', 20], ['197.234.240.0', 22], ['198.41.128.0', 17],
-];
-
-function ipv4ToInt(ip) {
-  const parts = String(ip || '').trim().split('.');
-  if (parts.length !== 4) return null;
-  let n = 0;
-  for (const part of parts) {
-    if (!/^\d{1,3}$/.test(part)) return null;
-    const v = Number(part);
-    if (v > 255) return null;
-    n = (n * 256) + v;
-  }
-  return n;
-}
-
-function isCloudflareIp(ip) {
-  const n = ipv4ToInt(ip);
-  if (n === null) return false;
-  return CLOUDFLARE_RANGES.some(([base, bits]) => {
-    const size = 2 ** (32 - bits);
-    const start = ipv4ToInt(base);
-    return n >= start && n < start + size;
-  });
-}
-
-// Señales que no descartan el envío pero lo sacan del correo «limpio»: el aviso
-// interno se marca [POSIBLE SPAM] y no se manda acuse al remitente. No se
-// descarta nada para no perder un lead real que navegue por WARP.
-function spamSignals(req) {
+// Los dos formularios del sitio (el componente nuevo y el viejo de contacto.html)
+// rellenan con JS las marcas de trazabilidad: pagina, origen, enviado_en, idioma.
+// Un POST armado contra el API no las trae, y es como entró el spam de nov-2026:
+// payload válido, honeypot vacío y sin una sola marca del navegador.
+// No se descarta nada: el aviso interno sale marcado y sin acuse al remitente, así
+// que un envío real sin JS (o con el JS roto) llega igual, solo que marcado.
+function spamSignals(d) {
   const signals = [];
-  const ip = clientIp(req);
-  const firstHop = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim();
-  if (isCloudflareIp(ip) || isCloudflareIp(firstHop)) signals.push('IP del cliente en rango de Cloudflare (WARP/proxy)');
+  if (!d.pagina && !d.idioma && !d.enviado_en) signals.push('sin marcas del formulario (POST directo al API)');
   return signals;
 }
 
@@ -567,7 +532,7 @@ function createApp(options = {}) {
     if (!d.privacidad) return sendResult(req, res, 400, false, errors.privacy);
 
     const ip = clientIp(req);
-    const signals = spamSignals(req);
+    const signals = spamSignals(d);
     const current = now();
     const fecha = formatDate(current);
     const ref = makeRef(current);
@@ -763,7 +728,7 @@ function createApp(options = {}) {
   });
 }
 
-module.exports = { createApp, createServer: createApp, escapeHtml, thanksMail, isCloudflareIp };
+module.exports = { createApp, createServer: createApp, escapeHtml, thanksMail };
 
 if (require.main === module) {
   const PORT = Number(process.env.PORT || 80);

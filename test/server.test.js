@@ -3,7 +3,7 @@
 const { test, describe, before, after } = require('node:test');
 const assert = require('node:assert/strict');
 const http = require('node:http');
-const { createApp, isCloudflareIp } = require('../server.js');
+const { createApp } = require('../server.js');
 
 function mockTransporter() {
   const sent = [];
@@ -115,36 +115,24 @@ describe('servidor', () => {
     assert.equal(ctx.transporter.sent.length, 0);
   });
 
-  test('envío desde IP de Cloudflare -> aviso marcado [POSIBLE SPAM] y sin acuse', async () => {
+  test('POST directo al API sin marcas del navegador -> marcado y sin acuse', async () => {
     reset();
-    const r = await postJson(ctx.port, '/api/contacto', homeLead, { 'cf-connecting-ip': '172.68.192.196' });
+    const { pagina, origen, enviado_en, idioma, ...directo } = homeLead;
+    const r = await postJson(ctx.port, '/api/contacto', directo);
     assert.equal(r.status, 200);
     assert.deepEqual(r.json, { ok: true });
     assert.equal(ctx.transporter.sent.length, 1, 'solo el aviso interno: el acuse no se manda');
     const [internal] = ctx.transporter.sent;
     assert.match(internal.subject, /^\[POSIBLE SPAM\] Nuevo contacto web/);
-    assert.ok(internal.text.includes('POSIBLE SPAM'));
-    assert.ok(internal.text.includes('172.68.192.196'), 'registra la IP del cliente, no la del proxy');
+    assert.ok(internal.text.includes('sin marcas del formulario'));
   });
 
-  test('X-Forwarded-For de Cloudflare y cf-connecting-ip normal -> también marca', async () => {
+  test('lead del navegador (con pagina/idioma/enviado_en) -> aviso limpio y acuse', async () => {
     reset();
-    const r = await postJson(ctx.port, '/api/contacto', homeLead, {
-      'cf-connecting-ip': '203.0.113.9', 'x-forwarded-for': '162.158.95.217',
-    });
+    const r = await postJson(ctx.port, '/api/contacto', homeLead, { 'x-forwarded-for': '203.0.113.7' });
     assert.equal(r.status, 200);
-    assert.equal(ctx.transporter.sent.length, 1);
-    assert.match(ctx.transporter.sent[0].subject, /POSIBLE SPAM/);
-  });
-
-  test('isCloudflareIp: rangos de Cloudflare sí, visitantes normales no', () => {
-    assert.equal(isCloudflareIp('172.68.192.196'), true);
-    assert.equal(isCloudflareIp('162.158.95.217'), true);
-    assert.equal(isCloudflareIp('104.16.1.1'), true);
-    assert.equal(isCloudflareIp('203.0.113.7'), false);
-    assert.equal(isCloudflareIp('181.49.12.3'), false);
-    assert.equal(isCloudflareIp('2806:2f0:1::1'), false);
-    assert.equal(isCloudflareIp(''), false);
+    assert.equal(ctx.transporter.sent.length, 2);
+    assert.doesNotMatch(ctx.transporter.sent[0].subject, /POSIBLE SPAM/);
   });
 
   test('contacto válido (home) envía 2 correos y escapa XSS', async () => {
@@ -171,6 +159,8 @@ describe('servidor', () => {
     const r = await postJson(ctx.port, '/api/contacto', {
       name: 'Luis Gómez', company: 'Beta', email: 'luis@beta.co', phone: '3000000', sector: 'Inmobiliaria',
       message: 'hola', 'team-size': '6-15', 'contact-preference': 'email', privacidad: true, marketing: true, website: '',
+      // js/forms.js añade estas cuatro al enviar; sin ellas el aviso sale marcado.
+      pagina: 'https://getweaves.com/pages/contacto.html', origen: '', enviado_en: '2026-11-24T10:00:00Z', idioma: 'es',
     });
     assert.equal(r.status, 200);
     assert.deepEqual(r.json, { ok: true });
@@ -179,7 +169,7 @@ describe('servidor', () => {
     assert.ok(ctx.transporter.sent[0].text.includes('6-15'));
   });
 
-  test('contacto form-urlencoded: HTML sin Accept json', async () => {
+  test('contacto form-urlencoded sin JS: HTML de gracias y aviso marcado (sin acuse)', async () => {
     reset();
     const body = new URLSearchParams({
       nombre: 'Eva <i>R</i>', empresa: 'Gamma', email: 'eva@gamma.co', privacidad: 'si', website: '',
@@ -191,7 +181,9 @@ describe('servidor', () => {
     assert.equal(r.status, 200);
     assert.match(r.headers['content-type'], /text\/html/);
     assert.match(r.text, /Recibido/);
-    assert.equal(ctx.transporter.sent.length, 2);
+    // Sin JS no hay marcas del navegador: el aviso llega marcado y no se manda acuse.
+    assert.equal(ctx.transporter.sent.length, 1);
+    assert.match(ctx.transporter.sent[0].subject, /POSIBLE SPAM/);
     assert.ok(ctx.transporter.sent[0].html.includes('Eva &lt;i&gt;R&lt;/i&gt;'));
 
     const bad = await request(ctx.port, {
