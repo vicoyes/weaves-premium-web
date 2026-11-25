@@ -3,7 +3,7 @@
 const { test, describe, before, after } = require('node:test');
 const assert = require('node:assert/strict');
 const http = require('node:http');
-const { createApp } = require('../server.js');
+const { createApp, isCloudflareIp } = require('../server.js');
 
 function mockTransporter() {
   const sent = [];
@@ -113,6 +113,38 @@ describe('servidor', () => {
     assert.equal(r.status, 200);
     assert.deepEqual(r.json, { ok: true });
     assert.equal(ctx.transporter.sent.length, 0);
+  });
+
+  test('envío desde IP de Cloudflare -> aviso marcado [POSIBLE SPAM] y sin acuse', async () => {
+    reset();
+    const r = await postJson(ctx.port, '/api/contacto', homeLead, { 'cf-connecting-ip': '172.68.192.196' });
+    assert.equal(r.status, 200);
+    assert.deepEqual(r.json, { ok: true });
+    assert.equal(ctx.transporter.sent.length, 1, 'solo el aviso interno: el acuse no se manda');
+    const [internal] = ctx.transporter.sent;
+    assert.match(internal.subject, /^\[POSIBLE SPAM\] Nuevo contacto web/);
+    assert.ok(internal.text.includes('POSIBLE SPAM'));
+    assert.ok(internal.text.includes('172.68.192.196'), 'registra la IP del cliente, no la del proxy');
+  });
+
+  test('X-Forwarded-For de Cloudflare y cf-connecting-ip normal -> también marca', async () => {
+    reset();
+    const r = await postJson(ctx.port, '/api/contacto', homeLead, {
+      'cf-connecting-ip': '203.0.113.9', 'x-forwarded-for': '162.158.95.217',
+    });
+    assert.equal(r.status, 200);
+    assert.equal(ctx.transporter.sent.length, 1);
+    assert.match(ctx.transporter.sent[0].subject, /POSIBLE SPAM/);
+  });
+
+  test('isCloudflareIp: rangos de Cloudflare sí, visitantes normales no', () => {
+    assert.equal(isCloudflareIp('172.68.192.196'), true);
+    assert.equal(isCloudflareIp('162.158.95.217'), true);
+    assert.equal(isCloudflareIp('104.16.1.1'), true);
+    assert.equal(isCloudflareIp('203.0.113.7'), false);
+    assert.equal(isCloudflareIp('181.49.12.3'), false);
+    assert.equal(isCloudflareIp('2806:2f0:1::1'), false);
+    assert.equal(isCloudflareIp(''), false);
   });
 
   test('contacto válido (home) envía 2 correos y escapa XSS', async () => {
