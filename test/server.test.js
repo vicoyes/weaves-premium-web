@@ -296,4 +296,34 @@ describe('servidor', () => {
     assert.equal(r.json.ok, false);
     c.server.close();
   });
+
+  test('IP en lista negra -> 403 y ningún correo', async () => {
+    const c = await start({ rateLimitMax: 1000 });
+    const r = await postJson(c.port, '/api/contacto', homeLead, { 'cf-connecting-ip': '80.94.95.202' });
+    assert.equal(r.status, 403);
+    assert.equal(r.json.ok, false);
+    assert.equal(c.transporter.sent.length, 0, 'no debe enviar ni aviso ni acuse');
+
+    const d = await postJson(c.port, '/api/diagnostico', {
+      diagnostic_id: 'x', timestamp: '2026-11-28T12:00:00Z',
+      answers: { contact_info: { name: 'Bot', email: 'bot@x.co' } },
+    }, { 'cf-connecting-ip': '80.94.95.202' });
+    assert.equal(d.status, 403);
+    assert.equal(c.transporter.sent.length, 0);
+    c.server.close();
+  });
+
+  test('BLOCKED_IPS define la lista y vacío la desactiva', async () => {
+    const base = { MAIL_FROM: 'web@weavewp.com', MAIL_TO: 'a@x.com' };
+    const c = await start({ rateLimitMax: 1000, env: { ...base, BLOCKED_IPS: '198.51.100.9' } });
+    assert.equal((await postJson(c.port, '/api/contacto', homeLead, { 'cf-connecting-ip': '198.51.100.9' })).status, 403);
+    assert.equal(c.transporter.sent.length, 0);
+    // La IP por defecto deja de estar bloqueada en cuanto BLOCKED_IPS la sustituye.
+    assert.equal((await postJson(c.port, '/api/contacto', homeLead, { 'cf-connecting-ip': '80.94.95.202' })).status, 200);
+    c.server.close();
+
+    const off = await start({ rateLimitMax: 1000, env: { ...base, BLOCKED_IPS: '' } });
+    assert.equal((await postJson(off.port, '/api/contacto', homeLead, { 'cf-connecting-ip': '80.94.95.202' })).status, 200);
+    off.server.close();
+  });
 });

@@ -94,6 +94,21 @@ function spamSignals(d) {
   return signals;
 }
 
+// Lista negra de IPs para el API de leads, separada por comas en BLOCKED_IPS.
+// Por defecto bloquea la única IP de la oleada de nov-2026 (hosting en Timișoara,
+// AS204428: 103 de 105 avisos). El rate limit no la frenaba porque mandaba 4-6/h.
+// Una lista vacía desactiva el bloqueo; se puede ampliar por env sin tocar código.
+const DEFAULT_BLOCKED_IPS = '80.94.95.202';
+
+function blockedIps(env) {
+  return new Set(
+    String(env.BLOCKED_IPS ?? DEFAULT_BLOCKED_IPS)
+      .split(',')
+      .map((ip) => ip.trim())
+      .filter(Boolean),
+  );
+}
+
 function wantsJson(req) {
   return String(req.headers.accept || '').includes('application/json');
 }
@@ -428,6 +443,7 @@ function createApp(options = {}) {
   const now = options.now || (() => new Date());
   let transporter = options.transporter || null;
   const hits = new Map();
+  const blocked = blockedIps(env);
 
   function getTransporter() {
     if (!transporter) {
@@ -704,6 +720,13 @@ function createApp(options = {}) {
         if (req.method !== 'POST') {
           res.setHeader('Allow', 'POST');
           return sendJson(res, 405, { ok: false, error: 'Método no permitido.' });
+        }
+        if (blocked.has(clientIp(req))) {
+          const ip = clientIp(req);
+          console.warn(`[api] IP bloqueada por lista negra: ${ip} ${pathname}`);
+          return pathname === '/api/diagnostico'
+            ? sendJson(res, 403, { ok: false, error: 'Acceso no permitido.' })
+            : sendResult(req, res, 403, false, 'No pudimos procesar el envío. Escríbenos a info@weavewp.com.');
         }
         if (rateLimited(clientIp(req))) {
           const msg = 'Demasiados envíos. Inténtalo de nuevo en unos minutos.';
